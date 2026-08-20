@@ -20,6 +20,23 @@ interface StoriesResponse {
   error?: string;
 }
 
+interface StaticReleasesPayload {
+  baseUrl?: string;
+  syncedAt?: string;
+  versions?: ReleaseVersion[];
+  releases?: Record<
+    string,
+    {
+      version?: string;
+      summary?: ReleaseSummaryStats;
+      stories?: ReleaseStory[];
+      error?: string;
+    }
+  >;
+  source?: string;
+  error?: string;
+}
+
 const STATIC_MODE = import.meta.env.VITE_STATIC_MODE === 'true';
 
 const FALLBACK_VERSIONS: ReleaseVersion[] = DEFAULT_RELEASE_OPTIONS.map((name, i) => ({
@@ -27,6 +44,29 @@ const FALLBACK_VERSIONS: ReleaseVersion[] = DEFAULT_RELEASE_OPTIONS.map((name, i
   name,
   source: 'default',
 }));
+
+let staticCache: StaticReleasesPayload | null = null;
+
+async function loadStaticReleases(): Promise<StaticReleasesPayload> {
+  if (staticCache) return staticCache;
+  const url = `${import.meta.env.BASE_URL}data/jira-releases.json`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(
+      'Release data not synced yet. Run Sync Jira Data / Deploy workflow, or export locally with scripts/export_jira_releases_for_pages.py.',
+    );
+  }
+  const data: StaticReleasesPayload = await res.json();
+  if (!data.releases || !Object.keys(data.releases).length) {
+    throw new Error(
+      data.source === 'placeholder'
+        ? 'No release data synced yet. Add JIRA secrets and run the Sync/Deploy workflow.'
+        : 'Release data file is empty. Re-run the Jira sync workflow.',
+    );
+  }
+  staticCache = data;
+  return data;
+}
 
 export function useReleases(selectedRelease: string, autoRefreshMs = 0) {
   const [versions, setVersions] = useState<ReleaseVersion[]>(FALLBACK_VERSIONS);
@@ -42,7 +82,11 @@ export function useReleases(selectedRelease: string, autoRefreshMs = 0) {
     setVersionsLoading(true);
     try {
       if (STATIC_MODE) {
-        setVersions(FALLBACK_VERSIONS);
+        const data = await loadStaticReleases();
+        const list = data.versions?.length ? data.versions : FALLBACK_VERSIONS;
+        setVersions(list);
+        if (data.baseUrl) setBaseUrl(data.baseUrl);
+        if (data.syncedAt) setSyncedAt(data.syncedAt);
         return;
       }
       const res = await fetch('/api/releases/versions');
@@ -53,6 +97,17 @@ export function useReleases(selectedRelease: string, autoRefreshMs = 0) {
       if (data.baseUrl) setBaseUrl(data.baseUrl);
       if (data.syncedAt) setSyncedAt(data.syncedAt);
     } catch {
+      if (STATIC_MODE) {
+        try {
+          const data = await loadStaticReleases();
+          setVersions(data.versions?.length ? data.versions : FALLBACK_VERSIONS);
+          if (data.baseUrl) setBaseUrl(data.baseUrl);
+          if (data.syncedAt) setSyncedAt(data.syncedAt);
+          return;
+        } catch {
+          /* fall through */
+        }
+      }
       setVersions(FALLBACK_VERSIONS);
     } finally {
       setVersionsLoading(false);
@@ -66,12 +121,21 @@ export function useReleases(selectedRelease: string, autoRefreshMs = 0) {
       setError(null);
       try {
         if (STATIC_MODE) {
-          setStories([]);
-          setSummary(computeReleaseSummary([]));
-          setSyncedAt(new Date().toISOString());
-          setError(
-            'Releases require live Jira API. Run locally with npm run dev (static GitHub Pages mode has bug data only).',
-          );
+          if (opts?.refresh) staticCache = null;
+          const data = await loadStaticReleases();
+          const bundle = data.releases?.[release];
+          const nextStories = bundle?.stories || [];
+          setStories(nextStories);
+          setSummary(bundle?.summary || computeReleaseSummary(nextStories));
+          setSyncedAt(data.syncedAt || new Date().toISOString());
+          if (data.baseUrl) setBaseUrl(data.baseUrl);
+          if (!bundle) {
+            setError(
+              `No synced data for "${release}". Available releases: ${Object.keys(data.releases || {}).join(', ') || 'none'}.`,
+            );
+          } else if (bundle.error) {
+            setError(bundle.error);
+          }
           return;
         }
 
@@ -87,6 +151,23 @@ export function useReleases(selectedRelease: string, autoRefreshMs = 0) {
         setSyncedAt(data.syncedAt || new Date().toISOString());
         if (data.baseUrl) setBaseUrl(data.baseUrl);
       } catch (e) {
+        // Live API down: try static JSON fallback (same pattern as bugs)
+        if (!STATIC_MODE) {
+          try {
+            staticCache = null;
+            const data = await loadStaticReleases();
+            const bundle = data.releases?.[release];
+            const nextStories = bundle?.stories || [];
+            setStories(nextStories);
+            setSummary(bundle?.summary || computeReleaseSummary(nextStories));
+            setSyncedAt(data.syncedAt || null);
+            if (data.baseUrl) setBaseUrl(data.baseUrl);
+            setError(null);
+            return;
+          } catch {
+            /* fall through */
+          }
+        }
         setError(e instanceof Error ? e.message : 'Unknown error');
         setStories([]);
         setSummary(computeReleaseSummary([]));
@@ -106,12 +187,13 @@ export function useReleases(selectedRelease: string, autoRefreshMs = 0) {
   }, [fetchStories]);
 
   useEffect(() => {
-    if (!autoRefreshMs) return;
+    if (!autoRefreshMs || STATIC_MODE) return;
     const id = setInterval(() => fetchStories(), autoRefreshMs);
     return () => clearInterval(id);
   }, [autoRefreshMs, fetchStories]);
 
   const refresh = useCallback(async () => {
+    if (STATIC_MODE) staticCache = null;
     await Promise.all([fetchVersions(), fetchStories({ refresh: true })]);
   }, [fetchVersions, fetchStories]);
 
