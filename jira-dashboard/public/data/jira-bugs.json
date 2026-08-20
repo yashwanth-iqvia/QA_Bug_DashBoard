@@ -1,8 +1,156 @@
 {
   "total": 45,
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-20T13:35:53.552314+00:00",
+  "syncedAt": "2026-08-20T14:00:39.729716+00:00",
   "issues": [
+    {
+      "id": "7344803",
+      "key": "BIIH-171",
+      "fields": {
+        "summary": "Export - PPT embedded Excel displays percentage values as rounded whole numbers",
+        "description": "*Description:*\r\nIn the PPT export, the embedded Excel file is displaying percentage metrics as rounded whole numbers for certain CatIDs. As per CDOM (expected behavior), percentage values should be retained and displayed accurately in the exported embedded Excel. OA is incorrectly rounding these percentage values to whole numbers, resulting in a mismatch between OA and CDOM.\r\n*Expected Behavior:*\r\nPercentage values in the PPT embedded Excel should be exported and displayed with the correct percentage formatting and precision, matching CDOM.\r\n*Actual Behavior:*\r\nPercentage values in the PPT embedded Excel are being rounded to whole numbers instead of being displayed as percentages, causing discrepancies between OA and CDOM.\r\n*Impact:*\r\nAffects only certain CatIDs \r\n*Reference report link in OA:*\r\n*[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1601]*\r\n \r\n\r\n*OA Report*\r\n\r\n*!1543 OA PPT Excel.png|thumbnail!*\r\n\r\n*CDOM Report*\r\n\r\n*!1543 CDOM PPT Excel.png|thumbnail!*\r\n\r\n ",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "PO REVIEW"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajath G V, Adhesh"
+        },
+        "assignee": {
+          "displayName": "Snyder, Mark"
+        },
+        "created": "2026-08-13T12:54:12.000+0200",
+        "updated": "2026-08-20T15:40:13.000+0200",
+        "resolutiondate": "",
+        "labels": [
+          "Export"
+        ],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "*Expected Behavior:*\r\nPercentage values in the PPT embedded Excel should be exported and displayed with the correct percentage formatting and precision, matching CDOM.",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7341996",
+      "key": "BIIH-166",
+      "fields": {
+        "summary": "Export  - Embedded Excel product sorting is incorrect and unnecessary blue shading is displayed in top grid",
+        "description": "In OA Export , the Embedded Excel component is not displaying products as expected. Products are currently being treated/displayed as a dimension and are sorted in alphabetical ascending order. As per the expected behavior (CDOM requirement baseline), products should be displayed based on the highest data values in descending order.\r\n \r\nh3. *Expected Behavior:*\r\n * Products should be displayed and sorted by {*}highest data value (descending order){*}.\r\n * Product ordering should be driven by the underlying data values rather than alphabetical sorting.\r\n * The top grid should not display any unnecessary blue shading and should follow the expected report styling.\r\n\r\n \r\nh3. *Actual Behavior:*\r\n * Products are displayed as a dimension and are sorted in {*}alphabetical ascending order{*}.\r\n * The top grid contains an unnecessary *blue shaded background* that should not be present.\r\n\r\nh3. Impact:\r\n * *Affects multiple CAT IDs* .\r\n\r\nh3. Reference Report Link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n\r\n*Screenshot:*\r\n\r\n*!Embedded Excel sorting order issue.png|width=160,height=85!*",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "PO REVIEW"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "assignee": {
+          "displayName": "Snyder, Mark"
+        },
+        "created": "2026-08-13T07:07:07.000+0200",
+        "updated": "2026-08-20T15:40:08.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7340277",
+      "key": "BIIH-162",
+      "fields": {
+        "summary": "Export - Embedded Excel formatting in PPT export does not match CDOM",
+        "description": "The embedded Excel table formatting in the PPT export is not aligned with the expected CDOM formatting standards. CDOM serves as the baseline requirement, whereas OA is displaying inconsistent font styles, font sizes, and bold formatting across multiple table elements.\r\nh3. Expected Behavior:\r\n\r\nThe embedded Excel table in the PPT export should match CDOM formatting: * \r\n*Product Names*\r\n * \r\n ** Font: Aptos Narrow\r\n ** Font Size: 11\r\n ** Not Bold\r\n * *Period Header*\r\n\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11\r\n ** Not Bold\r\n * *Product Values*\r\n\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11\r\n\r\nh3. Actual Behavior:\r\n\r\nIn OA PPT exports, the formatting differs from CDOM: * \r\n*Product Names*\r\n * \r\n ** Font: Calibri\r\n ** Font Size: 10\r\n ** Bold\r\n * *Period Header*\r\n\r\n ** Font differs from CDOM\r\n ** Font Size: 10\r\n ** Bold\r\n * *Product Values*\r\n\r\n ** Font differs from CDOM\r\n ** Font Size: 8\r\n\r\nh3. Impact:\r\n * Affects {*}multiple CAT-ID's{*}.\r\n * Causes inconsistent report presentation and formatting differences between OA exports and the CDOM standard.\r\n\r\nh3. Reference Report Link in OA:\r\n\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1600]\r\n\r\n!Embeded_Excel_Issue-2.png|width=533,height=403!",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "PO REVIEW"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "K M, Yashwanth"
+        },
+        "assignee": {
+          "displayName": "Snyder, Mark"
+        },
+        "created": "2026-08-12T14:11:55.000+0200",
+        "updated": "2026-08-20T15:40:03.000+0200",
+        "resolutiondate": "",
+        "labels": [
+          "Export"
+        ],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "h3. Expected Behavior:\r\nThe embedded Excel table in the PPT export should match CDOM formatting: * \r\n*Product Names*\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11\r\n ** Not Bold\r\n * \r\n*Period Header*\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11\r\n ** Not Bold\r\n * \r\n*Product Values*\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7327142",
+      "key": "BIIH-151",
+      "fields": {
+        "summary": "UI - Pie chart title is not as per the title displayed in the reference slide and footer alignment is improper.",
+        "description": "In the OA UI & export Pie chart title format is not as per reference slide. Month & Year is displaying here but not in CDOM PPT.Also pipe symbol is used as a separator in OA but semicolon is used in reference slide.\r\n\r\nAlso the report footer definition should be moved little to the right. It should align with the starting of the line below the report title.\r\n\r\n*Expected Behavior:*\r\nIn the OA UI and export Pie chart title should be as per the reference slide given.\r\n\r\n*Actual Behavior:*\r\nIn the OA UI and export Pie chart title is not as per the reference slide given.\r\n\r\n*Impact:*\r\nThis issue has been observed across multiple CAT Ids/reports in OA and should be updated to comply with the specification.\r\nReference report link in OA: [https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n!OA UI Pie chart title and footer alignment issue.png|width=375,height=199!",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "PO REVIEW"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "assignee": {
+          "displayName": "Snyder, Mark"
+        },
+        "created": "2026-08-07T15:41:09.000+0200",
+        "updated": "2026-08-20T15:39:57.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
     {
       "id": "7357092",
       "key": "BIIH-308",
@@ -508,118 +656,6 @@
       }
     },
     {
-      "id": "7344803",
-      "key": "BIIH-171",
-      "fields": {
-        "summary": "Export - PPT embedded Excel displays percentage values as rounded whole numbers",
-        "description": "*Description:*\r\nIn the PPT export, the embedded Excel file is displaying percentage metrics as rounded whole numbers for certain CatIDs. As per CDOM (expected behavior), percentage values should be retained and displayed accurately in the exported embedded Excel. OA is incorrectly rounding these percentage values to whole numbers, resulting in a mismatch between OA and CDOM.\r\n*Expected Behavior:*\r\nPercentage values in the PPT embedded Excel should be exported and displayed with the correct percentage formatting and precision, matching CDOM.\r\n*Actual Behavior:*\r\nPercentage values in the PPT embedded Excel are being rounded to whole numbers instead of being displayed as percentages, causing discrepancies between OA and CDOM.\r\n*Impact:*\r\nAffects only certain CatIDs \r\n*Reference report link in OA:*\r\n*[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1601]*\r\n \r\n\r\n*OA Report*\r\n\r\n*!1543 OA PPT Excel.png|thumbnail!*\r\n\r\n*CDOM Report*\r\n\r\n*!1543 CDOM PPT Excel.png|thumbnail!*\r\n\r\n ",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "PO REVIEW"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajath G V, Adhesh"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-13T12:54:12.000+0200",
-        "updated": "2026-08-20T08:34:33.000+0200",
-        "resolutiondate": "",
-        "labels": [
-          "Export"
-        ],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "*Expected Behavior:*\r\nPercentage values in the PPT embedded Excel should be exported and displayed with the correct percentage formatting and precision, matching CDOM.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7341996",
-      "key": "BIIH-166",
-      "fields": {
-        "summary": "Export  - Embedded Excel product sorting is incorrect and unnecessary blue shading is displayed in top grid",
-        "description": "In OA Export , the Embedded Excel component is not displaying products as expected. Products are currently being treated/displayed as a dimension and are sorted in alphabetical ascending order. As per the expected behavior (CDOM requirement baseline), products should be displayed based on the highest data values in descending order.\r\n \r\nh3. *Expected Behavior:*\r\n * Products should be displayed and sorted by {*}highest data value (descending order){*}.\r\n * Product ordering should be driven by the underlying data values rather than alphabetical sorting.\r\n * The top grid should not display any unnecessary blue shading and should follow the expected report styling.\r\n\r\n \r\nh3. *Actual Behavior:*\r\n * Products are displayed as a dimension and are sorted in {*}alphabetical ascending order{*}.\r\n * The top grid contains an unnecessary *blue shaded background* that should not be present.\r\n\r\nh3. Impact:\r\n * *Affects multiple CAT IDs* .\r\n\r\nh3. Reference Report Link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n\r\n*Screenshot:*\r\n\r\n*!Embedded Excel sorting order issue.png|width=160,height=85!*",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "PO REVIEW"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-13T07:07:07.000+0200",
-        "updated": "2026-08-20T08:33:12.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7340277",
-      "key": "BIIH-162",
-      "fields": {
-        "summary": "Export - Embedded Excel formatting in PPT export does not match CDOM",
-        "description": "The embedded Excel table formatting in the PPT export is not aligned with the expected CDOM formatting standards. CDOM serves as the baseline requirement, whereas OA is displaying inconsistent font styles, font sizes, and bold formatting across multiple table elements.\r\nh3. Expected Behavior:\r\n\r\nThe embedded Excel table in the PPT export should match CDOM formatting: * \r\n*Product Names*\r\n * \r\n ** Font: Aptos Narrow\r\n ** Font Size: 11\r\n ** Not Bold\r\n * *Period Header*\r\n\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11\r\n ** Not Bold\r\n * *Product Values*\r\n\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11\r\n\r\nh3. Actual Behavior:\r\n\r\nIn OA PPT exports, the formatting differs from CDOM: * \r\n*Product Names*\r\n * \r\n ** Font: Calibri\r\n ** Font Size: 10\r\n ** Bold\r\n * *Period Header*\r\n\r\n ** Font differs from CDOM\r\n ** Font Size: 10\r\n ** Bold\r\n * *Product Values*\r\n\r\n ** Font differs from CDOM\r\n ** Font Size: 8\r\n\r\nh3. Impact:\r\n * Affects {*}multiple CAT-ID's{*}.\r\n * Causes inconsistent report presentation and formatting differences between OA exports and the CDOM standard.\r\n\r\nh3. Reference Report Link in OA:\r\n\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1600]\r\n\r\n!Embeded_Excel_Issue-2.png|width=533,height=403!",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "PO REVIEW"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "K M, Yashwanth"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-12T14:11:55.000+0200",
-        "updated": "2026-08-20T08:32:16.000+0200",
-        "resolutiondate": "",
-        "labels": [
-          "Export"
-        ],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "h3. Expected Behavior:\r\nThe embedded Excel table in the PPT export should match CDOM formatting: * \r\n*Product Names*\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11\r\n ** Not Bold\r\n * \r\n*Period Header*\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11\r\n ** Not Bold\r\n * \r\n*Product Values*\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
       "id": "7344672",
       "key": "BIIH-169",
       "fields": {
@@ -935,42 +971,6 @@
         "created": "2026-08-07T10:11:41.000+0200",
         "updated": "2026-08-20T07:24:54.000+0200",
         "resolutiondate": "2026-08-14T15:37:39.000+0200",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7327142",
-      "key": "BIIH-151",
-      "fields": {
-        "summary": "UI - Pie chart title is not as per the title displayed in the reference slide and footer alignment is improper.",
-        "description": "In the OA UI & export Pie chart title format is not as per reference slide. Month & Year is displaying here but not in CDOM PPT.Also pipe symbol is used as a separator in OA but semicolon is used in reference slide.\r\n\r\nAlso the report footer definition should be moved little to the right. It should align with the starting of the line below the report title.\r\n\r\n*Expected Behavior:*\r\nIn the OA UI and export Pie chart title should be as per the reference slide given.\r\n\r\n*Actual Behavior:*\r\nIn the OA UI and export Pie chart title is not as per the reference slide given.\r\n\r\n*Impact:*\r\nThis issue has been observed across multiple CAT Ids/reports in OA and should be updated to comply with the specification.\r\nReference report link in OA: [https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n!OA UI Pie chart title and footer alignment issue.png|width=375,height=199!",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "PO REVIEW"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "assignee": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "created": "2026-08-07T15:41:09.000+0200",
-        "updated": "2026-08-19T18:48:08.000+0200",
-        "resolutiondate": "",
         "labels": [],
         "components": [],
         "fixVersions": [],
