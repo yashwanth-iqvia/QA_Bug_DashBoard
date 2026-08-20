@@ -20,7 +20,7 @@ Your QA Bug Dashboard is now set up the same way.
 ## Your team URL (after setup)
 
 ```
-https://impactrx.github.io/QABugDashboard/
+https://impactrx.github.io/QA_Bug_DashBoard/
 ```
 
 Share this with all 5 teammates — works from anywhere.
@@ -32,7 +32,7 @@ Share this with all 5 teammates — works from anywhere.
 ### 1. Create GitHub repo
 
 1. Go to GitHub → **impactrx** organization (or your team org)
-2. Create new repo: **`QABugDashboard`**
+2. Create new repo: **`QA_Bug_DashBoard`**
 3. Push this project:
 
 ```powershell
@@ -40,9 +40,9 @@ cd "C:\Users\u1198198\OneDrive - IQVIA\Desktop\OA TESTING\JIRA"
 git init
 git add .
 git commit -m "Initial QA Bug Dashboard"
-git remote add origin https://github.com/impactrx/QABugDashboard.git
+git remote add dashboard https://github.com/impactrx/QA_Bug_DashBoard.git
 git branch -M main
-git push -u origin main
+git push -u dashboard main
 ```
 
 > If repo name differs, update `VITE_BASE_PATH` in `jira-dashboard/.env.production` to `/YourRepoName/`
@@ -95,7 +95,7 @@ Then Actions → **Deploy to GitHub Pages** → **Run workflow**
 
 | | localhost / LAN | GitHub Pages |
 |--|-----------------|--------------|
-| URL | `http://10.194.52.33:5175` | `https://impactrx.github.io/QABugDashboard/` |
+| URL | `http://10.194.52.33:5175` | `https://impactrx.github.io/QA_Bug_DashBoard/` |
 | Your PC must stay on | Yes | No |
 | Firewall setup | Yes | No |
 | Works outside office | No | Yes |

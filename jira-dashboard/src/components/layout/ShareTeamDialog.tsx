@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Share2, Copy, Check, X, Globe } from 'lucide-react';
 
 const STATIC_MODE = import.meta.env.VITE_STATIC_MODE === 'true';
-const GITHUB_PAGES_URL = 'https://impactrx.github.io/QABugDashboard/';
+const GITHUB_PAGES_URL = 'https://impactrx.github.io/QA_Bug_DashBoard/';
 
 interface ShareInfo {
   name: string;
