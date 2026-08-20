@@ -32,6 +32,9 @@ jobs:
 
       - name: Install & build dashboard
         working-directory: jira-dashboard
+        env:
+          VITE_BASE_PATH: /QA_Bug_DashBoard/
+          VITE_STATIC_MODE: 'true'
         run: |
           npm ci
           npm run build

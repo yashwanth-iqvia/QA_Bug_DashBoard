@@ -1,19 +1,19 @@
 # QA Bug Dashboard
 
-**Live URL (after deploy):** https://impactrx.github.io/QA_Bug_DashBoard/
+BIIH Jira bug tracking dashboard with QA Defect Intelligence Agent.
 
-QA Defect Tracker for BIIH project — charts, filters, AI agent, GitHub Pages hosting.
-
-## Deploy to share with team
-
-See [GITHUB_PAGES_SETUP.md](../GITHUB_PAGES_SETUP.md)
+**Live URL:** https://yashwanth-iqvia.github.io/QA_Bug_DashBoard/
 
 ## Local development
 
-```bash
+```powershell
 cd jira-dashboard
 npm install
 npm run dev
 ```
 
-Open http://localhost:5175
+Dashboard: http://localhost:5175
+
+## Deploy to GitHub Pages
+
+See [GITHUB_PAGES_SETUP.md](GITHUB_PAGES_SETUP.md)
