@@ -26,12 +26,14 @@ jobs:
         env:
           JIRA_URL: ${{ secrets.JIRA_URL }}
           JIRA_PERSONAL_TOKEN: ${{ secrets.JIRA_PERSONAL_TOKEN }}
-        run: python scripts/export_jira_for_pages.py
+        run: |
+          python scripts/export_jira_for_pages.py
+          python scripts/export_jira_releases_for_pages.py
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add jira-dashboard/public/data/jira-bugs.json
-          git diff --staged --quiet || git commit -m "chore: sync Jira bug data"
+          git add jira-dashboard/public/data/jira-bugs.json jira-dashboard/public/data/jira-releases.json
+          git diff --staged --quiet || git commit -m "chore: sync Jira bug and release data"
           git push

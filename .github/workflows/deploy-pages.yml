@@ -6,6 +6,7 @@ on:
     paths:
       - 'jira-dashboard/**'
       - 'scripts/export_jira_for_pages.py'
+      - 'scripts/export_jira_releases_for_pages.py'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -35,6 +36,7 @@ jobs:
         run: |
           pip install requests
           python scripts/export_jira_for_pages.py
+          python scripts/export_jira_releases_for_pages.py
 
       - uses: actions/setup-node@v4
         with:
