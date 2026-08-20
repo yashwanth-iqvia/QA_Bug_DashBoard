@@ -16,7 +16,15 @@ async function fetchStaticIssues(): Promise<ApiResponse> {
   const url = `${import.meta.env.BASE_URL}data/jira-bugs.json`;
   const res = await fetch(url);
   if (!res.ok) throw new Error('Static Jira data not found. Run GitHub Actions sync first.');
-  return res.json();
+  const data: ApiResponse & { source?: string } = await res.json();
+  if (!data.issues?.length) {
+    throw new Error(
+      data.source === 'placeholder'
+        ? 'No Jira data synced yet. Add JIRA secrets on GitHub and run Sync Jira Data workflow.'
+        : 'Jira data file is empty. Run Sync Jira Data workflow on GitHub.',
+    );
+  }
+  return data;
 }
 
 export function useJiraIssues(issueType: 'all' | 'Bug' = 'Bug', autoRefreshMs = 0) {

@@ -119,7 +119,7 @@ def main():
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Exported {len(issues)} bugs → {OUTPUT}")
+    print(f"Exported {len(issues)} bugs -> {OUTPUT}")
 
 
 if __name__ == "__main__":

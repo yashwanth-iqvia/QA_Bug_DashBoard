@@ -32,7 +32,9 @@ export function AgentWidgets({ insights, status, loading }: AgentWidgetsProps) {
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold text-slate-900 dark:text-white">AI Bug Intelligence</h2>
         <p className="text-xs text-slate-500">
-          Provider: {status?.aiProvider || 'local-rag'} · Auto-refresh every {status?.refreshIntervalMinutes || 10} min
+          Provider: {status?.aiProvider || 'local-rag'}
+          {status?.refreshIntervalHours ? ` · Refresh every ${status.refreshIntervalHours}h` : ''}
+          {status?.indexed ? ` · ${status.indexed} bugs indexed` : ''}
         </p>
       </div>
 

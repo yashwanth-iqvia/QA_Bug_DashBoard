@@ -115,8 +115,10 @@ export default function App() {
               <AgentWidgets insights={agent.insights} status={agent.status} loading={agent.loading} />
 
               {agent.usingLocalFallback && (
-                <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-sm text-amber-800 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
-                  Agent using local search from loaded bugs. Restart the server (`npm run dev`) for full AI knowledge base sync.
+                <p className="rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-800 dark:border-blue-800 dark:bg-blue-950/30 dark:text-blue-200">
+                  {import.meta.env.VITE_STATIC_MODE === 'true'
+                    ? `AI Agent running in browser mode — ${bugs.length} bugs indexed from synced Jira data. Duplicate check, Defect Intel, and Creation Assist are available.`
+                    : 'Agent using local search from loaded bugs. Restart the server (`npm run dev`) for full AI knowledge base sync.'}
                 </p>
               )}
 

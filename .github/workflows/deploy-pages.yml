@@ -24,6 +24,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Sync Jira data before build
+        env:
+          JIRA_URL: ${{ secrets.JIRA_URL }}
+          JIRA_PERSONAL_TOKEN: ${{ secrets.JIRA_PERSONAL_TOKEN }}
+        run: |
+          pip install requests
+          python scripts/export_jira_for_pages.py
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'

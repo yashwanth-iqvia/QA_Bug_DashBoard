@@ -14,6 +14,25 @@ import { localChatAnswer, localDuplicateCheck, localSearchBugs } from '@/lib/loc
 import { localAnalyzeBatch } from '@/lib/localDefectAnalysis';
 import { localCreationAssist } from '@/lib/localCreationAssist';
 
+const STATIC_MODE = import.meta.env.VITE_STATIC_MODE === 'true';
+
+function bugToMatch(bug: BugRecord, similarity: number): SimilarBugMatch {
+  return {
+    key: bug.key,
+    summary: bug.summary,
+    status: bug.status,
+    priority: bug.priority,
+    reporter: bug.reporter,
+    assignee: bug.assignee,
+    labels: bug.labels,
+    components: '',
+    description: bug.description,
+    jiraUrl: bug.jiraUrl,
+    similarity,
+    matchType: similarity >= 80 ? 'Strong Match' : 'Related Issue',
+  };
+}
+
 export function useBugAgent(bugs: BugRecord[], autoRefreshMs = 2 * 60 * 60 * 1000) {
   const bugsRef = useRef(bugs);
   bugsRef.current = bugs;
@@ -42,18 +61,48 @@ export function useBugAgent(bugs: BugRecord[], autoRefreshMs = 2 * 60 * 60 * 100
     const labelCounts = new Map<string, number>();
     records.forEach((r) => r.labels.split(', ').filter((l) => l && l !== 'None').forEach((l) => labelCounts.set(l, (labelCounts.get(l) || 0) + 1)));
 
+    const reporterCounts = new Map<string, number>();
+    records.forEach((r) => reporterCounts.set(r.reporter, (reporterCounts.get(r.reporter) || 0) + 1));
+
+    const recentSimilar = records.length
+      ? localSearchBugs(records, 'export ui chart alignment tooltip legend excel data', 5).map((m) => bugToMatch(
+          records.find((b) => b.key === m.key) || records[0],
+          m.similarity,
+        ))
+      : [];
+
     return {
-      potentialDuplicates: 0,
+      potentialDuplicates: recentSimilar.filter((m) => m.similarity >= 75).length,
       mostRepeatedIssues: [...labelCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5).map(([name, count]) => ({ name, count })),
-      topProblemModules: [],
-      aiRiskDetection: records.filter((r) => ['Critical', 'High', 'Highest'].includes(r.priority) && !['Done', 'Closed'].includes(r.status)).length,
-      recentlySimilarBugs: [],
-      criticalOpen: [],
-      topReporters: [],
+      topProblemModules: [...labelCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([name, count]) => ({ name, count })),
+      aiRiskDetection: records.filter((r) => ['Critical', 'High', 'Highest'].includes(r.priority) && !['Done', 'Closed', 'Resolved'].includes(r.status)).length,
+      recentlySimilarBugs: recentSimilar,
+      criticalOpen: records
+        .filter((r) => ['Critical', 'High', 'Highest'].includes(r.priority) && !['Done', 'Closed', 'Resolved'].includes(r.status))
+        .slice(0, 5)
+        .map((r) => bugToMatch(r, 100)),
+      topReporters: [...reporterCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5).map(([name, count]) => ({ name, count })),
     };
   }, []);
 
+  const applyLocalAgent = useCallback(() => {
+    setUsingLocalFallback(true);
+    setStatus({
+      indexed: bugsRef.current.length,
+      lastIndexedAt: new Date().toISOString(),
+      indexing: false,
+      aiProvider: STATIC_MODE ? 'github-pages-local' : 'local-fallback',
+      refreshIntervalHours: 2,
+    });
+    setInsights(buildLocalInsights());
+    setError(null);
+  }, [buildLocalInsights]);
+
   const refreshAgent = useCallback(async (reindex = false) => {
+    if (STATIC_MODE || !bugsRef.current.length) {
+      applyLocalAgent();
+      return;
+    }
     setLoading(true);
     setError(null);
     try {
@@ -62,32 +111,23 @@ export function useBugAgent(bugs: BugRecord[], autoRefreshMs = 2 * 60 * 60 * 100
         if (!res.ok) throw new Error('reindex-failed');
       }
       await Promise.all([fetchStatus(), fetchInsights()]);
+      setUsingLocalFallback(false);
     } catch {
-      setUsingLocalFallback(true);
-      setStatus({
-        indexed: bugsRef.current.length,
-        lastIndexedAt: new Date().toISOString(),
-        indexing: false,
-        aiProvider: 'local-fallback',
-        refreshIntervalHours: 2,
-      });
-      setInsights(buildLocalInsights());
-      setError(null);
+      applyLocalAgent();
     } finally {
       setLoading(false);
     }
-  }, [fetchStatus, fetchInsights, buildLocalInsights]);
+  }, [fetchStatus, fetchInsights, applyLocalAgent]);
 
   useEffect(() => {
     refreshAgent(false).catch(() => undefined);
   }, [refreshAgent]);
 
   useEffect(() => {
-    if (bugs.length && usingLocalFallback) {
-      setStatus((s) => ({ ...(s || { indexing: false, aiProvider: 'local-fallback', refreshIntervalHours: 2, lastIndexedAt: null }), indexed: bugs.length, lastIndexedAt: new Date().toISOString() }));
-      setInsights(buildLocalInsights());
+    if (STATIC_MODE && bugs.length) {
+      applyLocalAgent();
     }
-  }, [bugs.length, usingLocalFallback, buildLocalInsights]);
+  }, [bugs.length, applyLocalAgent]);
 
   useEffect(() => {
     if (!autoRefreshMs) return;
