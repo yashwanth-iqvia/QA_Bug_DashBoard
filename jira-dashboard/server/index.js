@@ -19,6 +19,7 @@ import {
   getCatalogueStatus,
   refreshDefectCatalogue,
 } from './defectIntelligence.js';
+import { fetchReleaseVersions, fetchReleaseStories } from './releases.js';
 
 dotenv.config();
 
@@ -300,6 +301,28 @@ app.get('/api/agent/insights', (_req, res) => {
 app.get('/api/agent/summary', (req, res) => {
   const period = req.query.period || 'daily';
   res.json(buildSummary(bugRecords, period));
+});
+
+app.get('/api/releases/versions', async (_req, res) => {
+  try {
+    const data = await fetchReleaseVersions(jiraFetch, config);
+    res.json({ ...data, baseUrl: config.baseUrl, syncedAt: new Date().toISOString() });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/releases/stories', async (req, res) => {
+  try {
+    const version = String(req.query.version || '').trim();
+    if (!version) return res.status(400).json({ error: 'version query parameter is required' });
+    const refresh = String(req.query.refresh || '') === '1';
+    if (refresh) cache.clear();
+    const data = await fetchReleaseStories(jiraFetch, config, version);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 app.listen(PORT, '0.0.0.0', async () => {
