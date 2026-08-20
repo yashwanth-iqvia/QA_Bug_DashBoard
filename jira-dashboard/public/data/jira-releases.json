@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-20T17:33:00.316460+00:00",
+  "syncedAt": "2026-08-20T18:03:57.647409+00:00",
   "project": "BIIH",
   "source": "github-actions",
   "versions": [
@@ -1935,8 +1935,8 @@
               "catId": "1544",
               "catIdLabel": "CAT-ID-1544",
               "summary": "Data Validation | CAT ID 1544 | Share of Attention: Interpersonal vs. Nonpersonal",
-              "status": "Client UAT",
-              "assignee": "Altschuler, Karen",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-44"
             },

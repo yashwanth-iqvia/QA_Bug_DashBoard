@@ -1,8 +1,80 @@
 {
   "total": 45,
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-20T17:32:56.167906+00:00",
+  "syncedAt": "2026-08-20T18:03:53.133947+00:00",
   "issues": [
+    {
+      "id": "7356351",
+      "key": "BIIH-304",
+      "fields": {
+        "summary": "Export - PPT Outline Name displays as \"[No Title]\" instead of configured outline name for certain CatIDs",
+        "description": "h3. Description:\r\n\r\nFor certain CatIDs, the exported PPT displays *\"[No Title]\"* in the PowerPoint Outline/Navigation Pane even though the slide contains a valid title and a configured outline name.\r\nAs per the expected behavior (CDOM baseline), the Outline/Navigation Pane should display the configured outline name (e.g., {*}\"SoA - IP & NIP\"{*}) for the slide. However, in OA exports, the Outline/Navigation Pane shows {*}\"[No Title]\"{*}, indicating that the slide's outline/title placeholder is not being populated correctly during PPT generation.\r\nh3. Expected Behavior:\r\n\r\nThe exported PPT should display the configured slide outline name, such as {*}\"SoA - IP & NIP\"{*}, in the PowerPoint Outline/Navigation Pane for the slide.\r\n!image (2).png|thumbnail!\r\nh3. Actual Behavior:\r\n\r\nFor certain CatIDs, the exported PPT displays *\"[No Title]\"* in the PowerPoint Outline/Navigation Pane instead of the configured outline name.\r\n!Slide_Layout_title_OA.png|thumbnail!\r\nh3. Impact:\r\n * Affects {*}certain CatIDs{*}.\r\n * Users are unable to identify slides correctly from the PowerPoint Outline/Navigation Pane.\r\n * Navigation and review of exported presentations become difficult when multiple slides are present.\r\n * Results in inconsistency with the expected CDOM behavior.",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "K M, Yashwanth"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-18T09:24:01.000+0200",
+        "updated": "2026-08-20T20:00:23.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "h3. Expected Behavior:\r\nThe exported PPT should display the configured slide outline name, such as {*}\"SoA - IP & NIP\"{*}, in the PowerPoint Outline/Navigation Pane for the slide.",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7347877",
+      "key": "BIIH-179",
+      "fields": {
+        "summary": "Export - Line chart markers and Y-axis vertical line are missing in exported output",
+        "description": "In OA, when exporting line chart templates, the exported output does not display the line markers and the Y-axis vertical line. These chart elements are expected to be present in the export to ensure consistency between the on-screen visualization and the exported file. The issue has been observed across multiple CatIDs, indicating a broader export rendering defect rather than a template-specific problem.\r\nh3. Expected Behavior:\r\n * Exported line charts should display all configured line markers.\r\n * The Y-axis vertical line should be visible in the exported output.\r\n * Exported charts should match the chart formatting and visualization displayed within OA.\r\n\r\nh3. Actual Behavior:\r\n * Line markers are missing in the exported line charts.\r\n * The Y-axis vertical line is not displayed in the exported output.\r\n * The exported chart does not fully match the visualization shown in OA.\r\n\r\nh3. Impact:\r\n * *Affects multiple CatIDs* (legacy report templates).\r\n * Users receive incomplete chart visualizations in exported reports, which may impact analysis and presentation quality.\r\n\r\nh3. Reference Report Link in OA:\r\n\r\n[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1601]\r\n\r\n \r\n ",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Buddamallagari, Sambasivareddy"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-14T11:58:55.000+0200",
+        "updated": "2026-08-20T19:59:53.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
     {
       "id": "7344803",
       "key": "BIIH-171",
@@ -25,7 +97,7 @@
           "displayName": "Snyder, Mark"
         },
         "created": "2026-08-13T12:54:12.000+0200",
-        "updated": "2026-08-20T15:40:13.000+0200",
+        "updated": "2026-08-20T19:58:02.000+0200",
         "resolutiondate": "",
         "labels": [
           "Export"
@@ -688,78 +760,6 @@
           "key": "BIIH"
         },
         "customfield_15048": "*Expected Behavior:*\r\nThe exported line-and-marker legend symbols should use the same color mapping as defined in CDOM for each corresponding series.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7356351",
-      "key": "BIIH-304",
-      "fields": {
-        "summary": "Export - PPT Outline Name displays as \"[No Title]\" instead of configured outline name for certain CatIDs",
-        "description": "h3. Description:\r\n\r\nFor certain CatIDs, the exported PPT displays *\"[No Title]\"* in the PowerPoint Outline/Navigation Pane even though the slide contains a valid title and a configured outline name.\r\nAs per the expected behavior (CDOM baseline), the Outline/Navigation Pane should display the configured outline name (e.g., {*}\"SoA - IP & NIP\"{*}) for the slide. However, in OA exports, the Outline/Navigation Pane shows {*}\"[No Title]\"{*}, indicating that the slide's outline/title placeholder is not being populated correctly during PPT generation.\r\nh3. Expected Behavior:\r\n\r\nThe exported PPT should display the configured slide outline name, such as {*}\"SoA - IP & NIP\"{*}, in the PowerPoint Outline/Navigation Pane for the slide.\r\n!image (2).png|thumbnail!\r\nh3. Actual Behavior:\r\n\r\nFor certain CatIDs, the exported PPT displays *\"[No Title]\"* in the PowerPoint Outline/Navigation Pane instead of the configured outline name.\r\n!Slide_Layout_title_OA.png|thumbnail!\r\nh3. Impact:\r\n * Affects {*}certain CatIDs{*}.\r\n * Users are unable to identify slides correctly from the PowerPoint Outline/Navigation Pane.\r\n * Navigation and review of exported presentations become difficult when multiple slides are present.\r\n * Results in inconsistency with the expected CDOM behavior.",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "K M, Yashwanth"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-18T09:24:01.000+0200",
-        "updated": "2026-08-20T08:17:51.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "h3. Expected Behavior:\r\nThe exported PPT should display the configured slide outline name, such as {*}\"SoA - IP & NIP\"{*}, in the PowerPoint Outline/Navigation Pane for the slide.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7347877",
-      "key": "BIIH-179",
-      "fields": {
-        "summary": "Export - Line chart markers and Y-axis vertical line are missing in exported output",
-        "description": "In OA, when exporting line chart templates, the exported output does not display the line markers and the Y-axis vertical line. These chart elements are expected to be present in the export to ensure consistency between the on-screen visualization and the exported file. The issue has been observed across multiple CatIDs, indicating a broader export rendering defect rather than a template-specific problem.\r\nh3. Expected Behavior:\r\n * Exported line charts should display all configured line markers.\r\n * The Y-axis vertical line should be visible in the exported output.\r\n * Exported charts should match the chart formatting and visualization displayed within OA.\r\n\r\nh3. Actual Behavior:\r\n * Line markers are missing in the exported line charts.\r\n * The Y-axis vertical line is not displayed in the exported output.\r\n * The exported chart does not fully match the visualization shown in OA.\r\n\r\nh3. Impact:\r\n * *Affects multiple CatIDs* (legacy report templates).\r\n * Users receive incomplete chart visualizations in exported reports, which may impact analysis and presentation quality.\r\n\r\nh3. Reference Report Link in OA:\r\n\r\n[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1601]\r\n\r\n \r\n ",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Buddamallagari, Sambasivareddy"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-14T11:58:55.000+0200",
-        "updated": "2026-08-20T08:17:24.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
         "customfield_10020": [],
         "customfield_10016": null,
         "customfield_10002": null
