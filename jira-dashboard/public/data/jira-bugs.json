@@ -1,31 +1,31 @@
 {
   "total": 45,
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T02:49:26.952416+00:00",
+  "syncedAt": "2026-08-21T03:53:04.124624+00:00",
   "issues": [
     {
-      "id": "7347877",
-      "key": "BIIH-179",
+      "id": "7332110",
+      "key": "BIIH-155",
       "fields": {
-        "summary": "Export - Line chart markers and Y-axis vertical line are missing in exported output",
-        "description": "In OA, when exporting line chart templates, the exported output does not display the line markers and the Y-axis vertical line. These chart elements are expected to be present in the export to ensure consistency between the on-screen visualization and the exported file. The issue has been observed across multiple CatIDs, indicating a broader export rendering defect rather than a template-specific problem.\r\nh3. Expected Behavior:\r\n * Exported line charts should display all configured line markers.\r\n * The Y-axis vertical line should be visible in the exported output.\r\n * Exported charts should match the chart formatting and visualization displayed within OA.\r\n\r\nh3. Actual Behavior:\r\n * Line markers are missing in the exported line charts.\r\n * The Y-axis vertical line is not displayed in the exported output.\r\n * The exported chart does not fully match the visualization shown in OA.\r\n\r\nh3. Impact:\r\n * *Affects multiple CatIDs* (legacy report templates).\r\n * Users receive incomplete chart visualizations in exported reports, which may impact analysis and presentation quality.\r\n\r\nh3. Reference Report Link in OA:\r\n\r\n[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1601]\r\n\r\n \r\n ",
+        "summary": "Export - OA Export report title font size  is not in consistent and line chart tool tip  with the CDOM reports.",
+        "description": " OA Export report title font size is 18 and CDOM PPT report title font size is 17.User is unable to change the OA export font size to 17 as well in the OA PPT.Also the Line chart tool tip is displaying in rounded off values. But it should be in exact decimal values as in CDOM reports.\r\n\r\n*Expected Behavior:*\r\nAll the font sizes and tool tip in OA report should be in consistent with CDOM PPT reports.\r\n\r\n*Actual behavior:*\r\nOA Export report title font size is 18 and CDOM PPT report font size is 17.User is unable to change the OA export font size to 17 as well in the OA PPT.Also the Line chart tool tip is displaying in rounded off values. But it should be in exact decimal values as in CDOM reports.\r\n\r\n*Impact:*\r\nThis issue has been observed across multiple CAT Ids/reports in OA and should be updated to comply with the specification.\r\n\r\nReference report link in OA: [https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n*Screenshot:*\r\n\r\n*!OA Export report title font size and tool tip.png|width=214,height=114!*",
         "issuetype": {
           "name": "Bug"
         },
         "status": {
-          "name": "To Do"
+          "name": "In Testing"
         },
         "priority": {
           "name": "Low"
         },
         "reporter": {
-          "displayName": "Buddamallagari, Sambasivareddy"
+          "displayName": "Rajesh, Darwin Jeya"
         },
         "assignee": {
-          "displayName": "Unassigned"
+          "displayName": "Rajesh, Darwin Jeya"
         },
-        "created": "2026-08-14T11:58:55.000+0200",
-        "updated": "2026-08-20T20:09:35.000+0200",
+        "created": "2026-08-10T14:18:18.000+0200",
+        "updated": "2026-08-21T05:38:26.000+0200",
         "resolutiondate": "",
         "labels": [],
         "components": [],
@@ -34,42 +34,6 @@
           "key": "BIIH"
         },
         "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7356351",
-      "key": "BIIH-304",
-      "fields": {
-        "summary": "Export - PPT Outline Name displays as \"[No Title]\" instead of configured outline name for certain CatIDs",
-        "description": "h3. Description:\r\n\r\nFor certain CatIDs, the exported PPT displays *\"[No Title]\"* in the PowerPoint Outline/Navigation Pane even though the slide contains a valid title and a configured outline name.\r\nAs per the expected behavior (CDOM baseline), the Outline/Navigation Pane should display the configured outline name (e.g., {*}\"SoA - IP & NIP\"{*}) for the slide. However, in OA exports, the Outline/Navigation Pane shows {*}\"[No Title]\"{*}, indicating that the slide's outline/title placeholder is not being populated correctly during PPT generation.\r\nh3. Expected Behavior:\r\n\r\nThe exported PPT should display the configured slide outline name, such as {*}\"SoA - IP & NIP\"{*}, in the PowerPoint Outline/Navigation Pane for the slide.\r\n!image (2).png|thumbnail!\r\nh3. Actual Behavior:\r\n\r\nFor certain CatIDs, the exported PPT displays *\"[No Title]\"* in the PowerPoint Outline/Navigation Pane instead of the configured outline name.\r\n!Slide_Layout_title_OA.png|thumbnail!\r\nh3. Impact:\r\n * Affects {*}certain CatIDs{*}.\r\n * Users are unable to identify slides correctly from the PowerPoint Outline/Navigation Pane.\r\n * Navigation and review of exported presentations become difficult when multiple slides are present.\r\n * Results in inconsistency with the expected CDOM behavior.",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "K M, Yashwanth"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-18T09:24:01.000+0200",
-        "updated": "2026-08-20T20:00:23.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "h3. Expected Behavior:\r\nThe exported PPT should display the configured slide outline name, such as {*}\"SoA - IP & NIP\"{*}, in the PowerPoint Outline/Navigation Pane for the slide.",
         "customfield_10020": [],
         "customfield_10016": null,
         "customfield_10002": null
@@ -97,7 +61,7 @@
           "displayName": "Snyder, Mark"
         },
         "created": "2026-08-13T12:54:12.000+0200",
-        "updated": "2026-08-20T19:58:02.000+0200",
+        "updated": "2026-08-21T05:37:00.000+0200",
         "resolutiondate": "",
         "labels": [
           "Export"
@@ -135,7 +99,7 @@
           "displayName": "Snyder, Mark"
         },
         "created": "2026-08-13T07:07:07.000+0200",
-        "updated": "2026-08-20T15:40:08.000+0200",
+        "updated": "2026-08-21T05:36:27.000+0200",
         "resolutiondate": "",
         "labels": [],
         "components": [],
@@ -171,7 +135,7 @@
           "displayName": "Snyder, Mark"
         },
         "created": "2026-08-12T14:11:55.000+0200",
-        "updated": "2026-08-20T15:40:03.000+0200",
+        "updated": "2026-08-21T05:35:44.000+0200",
         "resolutiondate": "",
         "labels": [
           "Export"
@@ -182,6 +146,114 @@
           "key": "BIIH"
         },
         "customfield_15048": "h3. Expected Behavior:\r\nThe embedded Excel table in the PPT export should match CDOM formatting: * \r\n*Product Names*\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11\r\n ** Not Bold\r\n * \r\n*Period Header*\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11\r\n ** Not Bold\r\n * \r\n*Product Values*\r\n ** Font: Aptos Narrow\r\n ** Font Size: 11",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7356351",
+      "key": "BIIH-304",
+      "fields": {
+        "summary": "Export - PPT Outline Name displays as \"[No Title]\" instead of configured outline name for certain CatIDs",
+        "description": "h3. Description:\r\n\r\nFor certain CatIDs, the exported PPT displays *\"[No Title]\"* in the PowerPoint Outline/Navigation Pane even though the slide contains a valid title and a configured outline name.\r\nAs per the expected behavior (CDOM baseline), the Outline/Navigation Pane should display the configured outline name (e.g., {*}\"SoA - IP & NIP\"{*}) for the slide. However, in OA exports, the Outline/Navigation Pane shows {*}\"[No Title]\"{*}, indicating that the slide's outline/title placeholder is not being populated correctly during PPT generation.\r\nh3. Expected Behavior:\r\n\r\nThe exported PPT should display the configured slide outline name, such as {*}\"SoA - IP & NIP\"{*}, in the PowerPoint Outline/Navigation Pane for the slide.\r\n!image (2).png|thumbnail!\r\nh3. Actual Behavior:\r\n\r\nFor certain CatIDs, the exported PPT displays *\"[No Title]\"* in the PowerPoint Outline/Navigation Pane instead of the configured outline name.\r\n!Slide_Layout_title_OA.png|thumbnail!\r\nh3. Impact:\r\n * Affects {*}certain CatIDs{*}.\r\n * Users are unable to identify slides correctly from the PowerPoint Outline/Navigation Pane.\r\n * Navigation and review of exported presentations become difficult when multiple slides are present.\r\n * Results in inconsistency with the expected CDOM behavior.",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "K M, Yashwanth"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-18T09:24:01.000+0200",
+        "updated": "2026-08-21T05:30:50.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "h3. Expected Behavior:\r\nThe exported PPT should display the configured slide outline name, such as {*}\"SoA - IP & NIP\"{*}, in the PowerPoint Outline/Navigation Pane for the slide.",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7347877",
+      "key": "BIIH-179",
+      "fields": {
+        "summary": "Export - Line chart markers and Y-axis vertical line are missing in exported output",
+        "description": "In OA, when exporting line chart templates, the exported output does not display the line markers and the Y-axis vertical line. These chart elements are expected to be present in the export to ensure consistency between the on-screen visualization and the exported file. The issue has been observed across multiple CatIDs, indicating a broader export rendering defect rather than a template-specific problem.\r\nh3. Expected Behavior:\r\n * Exported line charts should display all configured line markers.\r\n * The Y-axis vertical line should be visible in the exported output.\r\n * Exported charts should match the chart formatting and visualization displayed within OA.\r\n\r\nh3. Actual Behavior:\r\n * Line markers are missing in the exported line charts.\r\n * The Y-axis vertical line is not displayed in the exported output.\r\n * The exported chart does not fully match the visualization shown in OA.\r\n\r\nh3. Impact:\r\n * *Affects multiple CatIDs* (legacy report templates).\r\n * Users receive incomplete chart visualizations in exported reports, which may impact analysis and presentation quality.\r\n\r\nh3. Reference Report Link in OA:\r\n\r\n[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1601]\r\n\r\n \r\n ",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Buddamallagari, Sambasivareddy"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-14T11:58:55.000+0200",
+        "updated": "2026-08-21T05:30:05.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7347282",
+      "key": "BIIH-175",
+      "fields": {
+        "summary": "Export - Chart title font is not retained as Arial 9 in exported output",
+        "description": "*Description:*\r\nFor certain CatIDs, the chart title is configured with *Arial font, size 9* in the digital slide. However, when the report is exported, the chart title font style does not retain the configured formatting and appears different in the exported output. CDOM represents the expected behavior, where the exported chart title should match the formatting defined in the digital slide.\r\n*Expected Behavior:* * The chart title in the exported output should retain the same font formatting as configured in the digital slide.\r\n * Font family should be *Arial* and font size should be {*}9{*}.\r\n * Exported output should match the digital slide presentation.\r\n\r\n*Actual Behavior:* * The chart title font style in the exported output does not appear as {*}Arial 9{*}.\r\n * Formatting differs from the digital slide configuration.\r\n\r\n*Impact:*\r\nAffects only certain CatIDs.\r\n \r\n*Reference report link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n!image (1).png|thumbnail!",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Buddamallagari, Sambasivareddy"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-14T09:20:40.000+0200",
+        "updated": "2026-08-21T05:28:19.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "*Expected Behavior:* * The chart title in the exported output should retain the same font formatting as configured in the digital slide.\r\n * Font family should be *Arial* and font size should be {*}9{*}.\r\n * Exported output should match the digital slide presentation.",
         "customfield_10020": [],
         "customfield_10016": null,
         "customfield_10002": null
@@ -318,42 +390,6 @@
         },
         "created": "2026-08-20T12:50:07.000+0200",
         "updated": "2026-08-20T12:54:05.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7332110",
-      "key": "BIIH-155",
-      "fields": {
-        "summary": "Export - OA Export report title font size  is not in consistent and line chart tool tip  with the CDOM reports.",
-        "description": " OA Export report title font size is 18 and CDOM PPT report title font size is 17.User is unable to change the OA export font size to 17 as well in the OA PPT.Also the Line chart tool tip is displaying in rounded off values. But it should be in exact decimal values as in CDOM reports.\r\n\r\n*Expected Behavior:*\r\nAll the font sizes and tool tip in OA report should be in consistent with CDOM PPT reports.\r\n\r\n*Actual behavior:*\r\nOA Export report title font size is 18 and CDOM PPT report font size is 17.User is unable to change the OA export font size to 17 as well in the OA PPT.Also the Line chart tool tip is displaying in rounded off values. But it should be in exact decimal values as in CDOM reports.\r\n\r\n*Impact:*\r\nThis issue has been observed across multiple CAT Ids/reports in OA and should be updated to comply with the specification.\r\n\r\nReference report link in OA: [https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n*Screenshot:*\r\n\r\n*!OA Export report title font size and tool tip.png|width=214,height=114!*",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "In Testing"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "assignee": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "created": "2026-08-10T14:18:18.000+0200",
-        "updated": "2026-08-20T12:48:21.000+0200",
         "resolutiondate": "",
         "labels": [],
         "components": [],
@@ -760,42 +796,6 @@
           "key": "BIIH"
         },
         "customfield_15048": "*Expected Behavior:*\r\nThe exported line-and-marker legend symbols should use the same color mapping as defined in CDOM for each corresponding series.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7347282",
-      "key": "BIIH-175",
-      "fields": {
-        "summary": "Export - Chart title font is not retained as Arial 9 in exported output",
-        "description": "*Description:*\r\nFor certain CatIDs, the chart title is configured with *Arial font, size 9* in the digital slide. However, when the report is exported, the chart title font style does not retain the configured formatting and appears different in the exported output. CDOM represents the expected behavior, where the exported chart title should match the formatting defined in the digital slide.\r\n*Expected Behavior:* * The chart title in the exported output should retain the same font formatting as configured in the digital slide.\r\n * Font family should be *Arial* and font size should be {*}9{*}.\r\n * Exported output should match the digital slide presentation.\r\n\r\n*Actual Behavior:* * The chart title font style in the exported output does not appear as {*}Arial 9{*}.\r\n * Formatting differs from the digital slide configuration.\r\n\r\n*Impact:*\r\nAffects only certain CatIDs.\r\n \r\n*Reference report link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n!image (1).png|thumbnail!",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Buddamallagari, Sambasivareddy"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-14T09:20:40.000+0200",
-        "updated": "2026-08-20T08:16:21.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "*Expected Behavior:* * The chart title in the exported output should retain the same font formatting as configured in the digital slide.\r\n * Font family should be *Arial* and font size should be {*}9{*}.\r\n * Exported output should match the digital slide presentation.",
         "customfield_10020": [],
         "customfield_10016": null,
         "customfield_10002": null
