@@ -1,8 +1,116 @@
 {
-  "total": 47,
+  "total": 48,
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T09:48:49.756935+00:00",
+  "syncedAt": "2026-08-21T10:36:13.393561+00:00",
   "issues": [
+    {
+      "id": "7341996",
+      "key": "BIIH-166",
+      "fields": {
+        "summary": "Export  - Embedded Excel product sorting is incorrect and unnecessary blue shading is displayed in top grid",
+        "description": "In OA Export , the Embedded Excel component is not displaying products as expected. Products are currently being treated/displayed as a dimension and are sorted in alphabetical ascending order. As per the expected behavior (CDOM requirement baseline), products should be displayed based on the highest data values in descending order.\r\n \r\nh3. *Expected Behavior:*\r\n * Products should be displayed and sorted by {*}highest data value (descending order){*}.\r\n * Product ordering should be driven by the underlying data values rather than alphabetical sorting.\r\n * The top grid should not display any unnecessary blue shading and should follow the expected report styling.\r\n\r\n \r\nh3. *Actual Behavior:*\r\n * Products are displayed as a dimension and are sorted in {*}alphabetical ascending order{*}.\r\n * The top grid contains an unnecessary *blue shaded background* that should not be present.\r\n\r\nh3. Impact:\r\n * *Affects multiple CAT IDs* .\r\n\r\nh3. Reference Report Link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n\r\n*Screenshot:*\r\n\r\n*!Embedded Excel sorting order issue.png|width=160,height=85!*",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "PO REVIEW"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "assignee": {
+          "displayName": "Snyder, Mark"
+        },
+        "created": "2026-08-13T07:07:07.000+0200",
+        "updated": "2026-08-21T12:29:10.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7335875",
+      "key": "BIIH-159",
+      "fields": {
+        "summary": "UI - Copyright disclaimer is missing all OA decks.",
+        "description": "In all CDOM PPT slides we use to see below copyright disclaimer in the lower left corner .But in all OA decks that is missing.\r\n\r\nCopyright © 2026 IQVIA.\r\nAll rights reserved.\r\n\r\n*Expected Behavior:*\r\nIn all OA decks copyright disclaimer should be present.\r\n\r\n*Actual Behavior:*\r\nCurrently in OA decks copyright disclaimer is missing.\r\n\r\n*Impact:*\r\nThis issue has been observed across multiple CAT Ids/reports in OA and should be updated to comply with the specification.\r\nReference report link in OA: https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381\r\n\r\n",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "assignee": {
+          "displayName": "Buddamallagari, Sambasivareddy"
+        },
+        "created": "2026-08-11T12:14:59.000+0200",
+        "updated": "2026-08-21T12:22:06.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7369583",
+      "key": "BIIH-322",
+      "fields": {
+        "summary": "Data - Specialty Average data does not match CDOM for CAT-ID 1528",
+        "description": "*Description:*\r\nThe Specialty Average data displayed in OA does not match the corresponding values in CDOM for CAT-ID 1528. Since CDOM represents the expected requirement baseline, this should be raised as a Data Validation defect in OA. The discrepancy appears to be isolated to this specific report template and requires investigation to ensure OA data aligns with CDOM.\r\n \r\n*Expected Behavior:*\r\nSpecialty Average data in OA should match the corresponding Specialty Average data available in CDOM for CAT-ID 1528.\r\n \r\n*Actual Behavior:*\r\nSpecialty Average data displayed in OA differs from the values shown in CDOM for CAT-ID 1528.\r\n\r\n!1528_DATA.png|thumbnail!\r\n \r\n*Impact:* * Affects only {*}CAT-ID 1528{*}.\r\n * Users may see inconsistent Specialty Average values when comparing OA with CDOM, impacting data validation and confidence in the reported metrics.\r\n\r\n \r\n*Reference report link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1604]",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "K M, Yashwanth"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T12:18:20.000+0200",
+        "updated": "2026-08-21T12:19:00.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "*Expected Behavior:*\r\nSpecialty Average data in OA should match the corresponding Specialty Average data available in CDOM for CAT-ID 1528.\r\n ",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
     {
       "id": "7364315",
       "key": "BIIH-314",
@@ -434,42 +542,6 @@
           "key": "BIIH"
         },
         "customfield_15048": "*Expected Behavior:*\r\nPercentage values in the PPT embedded Excel should be exported and displayed with the correct percentage formatting and precision, matching CDOM.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7341996",
-      "key": "BIIH-166",
-      "fields": {
-        "summary": "Export  - Embedded Excel product sorting is incorrect and unnecessary blue shading is displayed in top grid",
-        "description": "In OA Export , the Embedded Excel component is not displaying products as expected. Products are currently being treated/displayed as a dimension and are sorted in alphabetical ascending order. As per the expected behavior (CDOM requirement baseline), products should be displayed based on the highest data values in descending order.\r\n \r\nh3. *Expected Behavior:*\r\n * Products should be displayed and sorted by {*}highest data value (descending order){*}.\r\n * Product ordering should be driven by the underlying data values rather than alphabetical sorting.\r\n * The top grid should not display any unnecessary blue shading and should follow the expected report styling.\r\n\r\n \r\nh3. *Actual Behavior:*\r\n * Products are displayed as a dimension and are sorted in {*}alphabetical ascending order{*}.\r\n * The top grid contains an unnecessary *blue shaded background* that should not be present.\r\n\r\nh3. Impact:\r\n * *Affects multiple CAT IDs* .\r\n\r\nh3. Reference Report Link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n\r\n*Screenshot:*\r\n\r\n*!Embedded Excel sorting order issue.png|width=160,height=85!*",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "PO REVIEW"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "assignee": {
-          "displayName": "Snyder, Mark"
-        },
-        "created": "2026-08-13T07:07:07.000+0200",
-        "updated": "2026-08-21T05:36:27.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
         "customfield_10020": [],
         "customfield_10016": null,
         "customfield_10002": null
@@ -968,42 +1040,6 @@
         },
         "created": "2026-08-18T12:49:36.000+0200",
         "updated": "2026-08-20T09:44:08.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7335875",
-      "key": "BIIH-159",
-      "fields": {
-        "summary": "UI - Copyright disclaimer is missing all OA decks.",
-        "description": "In all CDOM PPT slides we use to see below copyright disclaimer in the lower left corner .But in all OA decks that is missing.\r\n\r\nCopyright © 2026 IQVIA.\r\nAll rights reserved.\r\n\r\n*Expected Behavior:*\r\nIn all OA decks copyright disclaimer should be present.\r\n\r\n*Actual Behavior:*\r\nCurrently in OA decks copyright disclaimer is missing.\r\n\r\n*Impact:*\r\nThis issue has been observed across multiple CAT Ids/reports in OA and should be updated to comply with the specification.\r\nReference report link in OA: https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381\r\n\r\n",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "assignee": {
-          "displayName": "Buddamallagari, Sambasivareddy"
-        },
-        "created": "2026-08-11T12:14:59.000+0200",
-        "updated": "2026-08-20T09:24:04.000+0200",
         "resolutiondate": "",
         "labels": [],
         "components": [],

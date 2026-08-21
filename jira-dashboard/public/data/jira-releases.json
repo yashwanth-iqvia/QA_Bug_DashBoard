@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T09:48:56.425335+00:00",
+  "syncedAt": "2026-08-21T10:36:19.407685+00:00",
   "project": "BIIH",
   "source": "github-actions",
   "versions": [
@@ -495,8 +495,8 @@
               "catId": "1514",
               "catIdLabel": "CAT-ID-1514",
               "summary": "Data Validation | CAT ID 1514 | Channel Distribution by Product",
-              "status": "In Review",
-              "assignee": "Lenin, Vishal",
+              "status": "In Testing",
+              "assignee": "L, Bharathi",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-52"
             },
@@ -698,7 +698,7 @@
           "catIdLabel": "CAT-ID-1519",
           "summary": "OA Migration | CAT ID 1519 | Avg Minutes & %Two-Way",
           "status": "UAT",
-          "assignee": "Shivappa, Rashmi",
+          "assignee": "Jindal, Himanshu",
           "priority": "Low",
           "sprint": "ΓÇö",
           "release": "Release 1 - Promo (GenMed, ONC and BISO)",
@@ -711,7 +711,7 @@
               "catIdLabel": "CAT-ID-1519",
               "summary": "UI Validation | CAT ID 1519 | Avg Minutes & %Two-Way",
               "status": "UAT",
-              "assignee": "Shivappa, Rashmi",
+              "assignee": "Jindal, Himanshu",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-131"
             },
@@ -721,7 +721,7 @@
               "catIdLabel": "CAT-ID-1519",
               "summary": "Data Validation | CAT ID 1519 | Avg Minutes & %Two-Way",
               "status": "UAT",
-              "assignee": "Shivappa, Rashmi",
+              "assignee": "Jindal, Himanshu",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-132"
             },
@@ -731,7 +731,7 @@
               "catIdLabel": "CAT-ID-1519",
               "summary": "Export Validation | CAT ID 1519 | Avg Minutes & %Two-Way",
               "status": "UAT",
-              "assignee": "Shivappa, Rashmi",
+              "assignee": "Jindal, Himanshu",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-133"
             }
@@ -1373,7 +1373,7 @@
           "catIdLabel": "CAT-ID-1528",
           "summary": "OA Migration | CAT ID 1528 | Overall Sales Rep Value",
           "status": "In Testing",
-          "assignee": "Unassigned",
+          "assignee": "K M, Yashwanth",
           "priority": "Low",
           "sprint": "ΓÇö",
           "release": "Release 1 - Promo (GenMed, ONC and BISO)",
@@ -1386,7 +1386,7 @@
               "catIdLabel": "CAT-ID-1528",
               "summary": "UI Validation | CAT ID 1528 | Overall Sales Rep Value",
               "status": "In Testing",
-              "assignee": "Unassigned",
+              "assignee": "K M, Yashwanth",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-83"
             },
@@ -1396,7 +1396,7 @@
               "catIdLabel": "CAT-ID-1528",
               "summary": "Data Validation | CAT ID 1528 | Overall Sales Rep Value",
               "status": "In Testing",
-              "assignee": "Unassigned",
+              "assignee": "K M, Yashwanth",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-84"
             },
@@ -1406,7 +1406,7 @@
               "catIdLabel": "CAT-ID-1528",
               "summary": "Export Validation | CAT ID 1528 | Overall Sales Rep Value",
               "status": "In Testing",
-              "assignee": "Unassigned",
+              "assignee": "K M, Yashwanth",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-85"
             }
