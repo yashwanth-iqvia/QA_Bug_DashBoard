@@ -3,6 +3,8 @@ import { Button } from '@/components/ui/Card';
 import { ShareTeamDialog } from '@/components/layout/ShareTeamDialog';
 import { formatDate } from '@/lib/utils';
 import { STATIC_MODE } from '@/services/jira/apiBase';
+import { formatCountdown } from '@/hooks/useRefreshCountdown';
+import { useEffect, useState } from 'react';
 
 interface HeaderProps {
   darkMode: boolean;
@@ -15,8 +17,48 @@ interface HeaderProps {
   syncedAt: string | null;
   autoRefresh: boolean;
   onToggleAutoRefresh: () => void;
-  countdownLabel?: string;
-  refreshIntervalMinutes?: number;
+  lastRefreshAt: number | null;
+  refreshIntervalMs: number;
+}
+
+/** Isolated countdown — ticks every second without re-rendering the dashboard. */
+function RefreshCountdown({
+  enabled,
+  lastRefreshAt,
+  intervalMs,
+}: {
+  enabled: boolean;
+  lastRefreshAt: number | null;
+  intervalMs: number;
+}) {
+  const [label, setLabel] = useState(formatCountdown(Math.ceil(intervalMs / 1000)));
+
+  useEffect(() => {
+    if (!enabled || !lastRefreshAt) {
+      setLabel(formatCountdown(Math.ceil(intervalMs / 1000)));
+      return;
+    }
+
+    const tick = () => {
+      const remaining = Math.max(0, intervalMs - (Date.now() - lastRefreshAt));
+      setLabel(formatCountdown(Math.ceil(remaining / 1000)));
+    };
+
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, [enabled, lastRefreshAt, intervalMs]);
+
+  if (!enabled) return null;
+
+  const minutes = intervalMs / 60_000;
+
+  return (
+    <p className="mt-0.5 flex items-center gap-1 text-xs font-medium text-blue-600 dark:text-blue-400">
+      <Clock size={12} />
+      Auto-refreshes every {minutes} min — Next in {label}
+    </p>
+  );
 }
 
 export function Header({
@@ -30,8 +72,8 @@ export function Header({
   syncedAt,
   autoRefresh,
   onToggleAutoRefresh,
-  countdownLabel,
-  refreshIntervalMinutes = 15,
+  lastRefreshAt,
+  refreshIntervalMs,
 }: HeaderProps) {
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur dark:border-slate-700 dark:bg-slate-950/95">
@@ -46,12 +88,11 @@ export function Header({
               Last data pull: {syncedAt ? formatDate(syncedAt) : '—'}
               {STATIC_MODE && ' · GitHub Pages'}
             </p>
-            {autoRefresh && countdownLabel && (
-              <p className="mt-0.5 flex items-center gap-1 text-xs font-medium text-blue-600 dark:text-blue-400">
-                <Clock size={12} />
-                Auto-refreshes every {refreshIntervalMinutes} min — Next in {countdownLabel}
-              </p>
-            )}
+            <RefreshCountdown
+              enabled={autoRefresh}
+              lastRefreshAt={lastRefreshAt}
+              intervalMs={refreshIntervalMs}
+            />
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-2">

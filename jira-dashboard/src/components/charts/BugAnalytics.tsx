@@ -1,3 +1,4 @@
+import { memo, type ReactElement } from 'react';
 import {
   BarChart,
   Bar,
@@ -25,7 +26,18 @@ interface BugAnalyticsProps {
   onDrillDown?: (field: string, value: string) => void;
 }
 
-export function BugAnalytics({ bugs, onDrillDown }: BugAnalyticsProps) {
+function ChartCard({ title, children }: { title: string; children: ReactElement }) {
+  return (
+    <Card className="min-h-[320px]">
+      <CardTitle>{title}</CardTitle>
+      <ResponsiveContainer width="100%" height={260}>
+        {children}
+      </ResponsiveContainer>
+    </Card>
+  );
+}
+
+export const BugAnalytics = memo(function BugAnalytics({ bugs, onDrillDown }: BugAnalyticsProps) {
   const byStatus = countByField(bugs, 'status');
   const byPriority = countByField(bugs, 'priority');
   const byReporter = countByField(bugs, 'reporter').slice(0, 8);
@@ -33,26 +45,22 @@ export function BugAnalytics({ bugs, onDrillDown }: BugAnalyticsProps) {
   const createdTrend = trendByMonth(bugs, 'created');
   const resolvedTrend = trendByMonth(bugs, 'resolutionDate');
 
-  const ChartCard = ({
-    title,
-    children,
-  }: {
-    title: string;
-    children: React.ReactElement;
-  }) => (
-    <Card className="min-h-[320px]">
-      <CardTitle>{title}</CardTitle>
-      <ResponsiveContainer width="100%" height={260}>{children}</ResponsiveContainer>
-    </Card>
-  );
-
   return (
     <section className="grid grid-cols-1 gap-4 xl:grid-cols-2">
       <ChartCard title="Bugs by Status">
         <PieChart>
-          <Pie data={byStatus} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={90} label onClick={(d) => onDrillDown?.('status', d.name)}>
-            {byStatus.map((_, i) => (
-              <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
+          <Pie
+            data={byStatus}
+            dataKey="value"
+            nameKey="name"
+            cx="50%"
+            cy="50%"
+            outerRadius={90}
+            label
+            onClick={(d) => onDrillDown?.('status', d.name)}
+          >
+            {byStatus.map((entry, i) => (
+              <Cell key={entry.name} fill={CHART_COLORS[i % CHART_COLORS.length]} />
             ))}
           </Pie>
           <Tooltip />
@@ -100,7 +108,7 @@ export function BugAnalytics({ bugs, onDrillDown }: BugAnalyticsProps) {
           <XAxis dataKey="name" />
           <YAxis allowDecimals={false} />
           <Tooltip />
-          <Line type="monotone" dataKey="value" stroke="#2563EB" strokeWidth={2} />
+          <Line type="monotone" dataKey="value" stroke="#2563EB" strokeWidth={2} dot={false} />
         </LineChart>
       </ChartCard>
 
@@ -110,9 +118,9 @@ export function BugAnalytics({ bugs, onDrillDown }: BugAnalyticsProps) {
           <XAxis dataKey="name" />
           <YAxis allowDecimals={false} />
           <Tooltip />
-          <Line type="monotone" dataKey="value" stroke="#16A34A" strokeWidth={2} />
+          <Line type="monotone" dataKey="value" stroke="#16A34A" strokeWidth={2} dot={false} />
         </LineChart>
       </ChartCard>
     </section>
   );
-}
+});

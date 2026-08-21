@@ -30,7 +30,8 @@ export function useJiraIssues(issueType: 'all' | 'Bug' = 'Bug', autoRefreshMs = 
   return {
     bugs,
     allIssues,
-    loading: query.isLoading || query.isFetching,
+    loading: query.isLoading,
+    isRefreshing: query.isFetching && !query.isLoading,
     error: query.error instanceof Error ? query.error.message : query.error ? String(query.error) : null,
     syncedAt: query.data?.syncedAt ?? null,
     baseUrl: query.data?.baseUrl ?? '',

@@ -29,11 +29,7 @@ export function useReleases(selectedRelease: string, autoRefreshMs = TEN_MINUTES
     [storiesQuery.data?.summary, stories],
   );
 
-  const loading =
-    versionsQuery.isLoading ||
-    versionsQuery.isFetching ||
-    storiesQuery.isLoading ||
-    storiesQuery.isFetching;
+  const loading = versionsQuery.isLoading || storiesQuery.isLoading;
 
   const error =
     (storiesQuery.error instanceof Error ? storiesQuery.error.message : null) ||
