@@ -16,6 +16,7 @@ import { EmptyState, Skeleton } from '@/components/ui/Card';
 import { useJiraIssues } from '@/hooks/useJiraIssues';
 import { useBugAgent } from '@/hooks/useBugAgent';
 import { applyFilters, computeReporterStats } from '@/lib/jira-utils';
+import { refreshAllJiraData } from '@/lib/queryClient';
 import { defaultFilters, type DashboardFilters } from '@/types/jira';
 
 const TEN_MINUTES = 10 * 60 * 1000;
@@ -32,14 +33,15 @@ export default function App() {
   const [releaseRefreshToken, setReleaseRefreshToken] = useState(0);
   const [releaseSyncedAt, setReleaseSyncedAt] = useState<string | null>(null);
   const [releaseLoading, setReleaseLoading] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
   const previousCount = useRef<number>();
 
-  const { bugs, allIssues, loading, error, syncedAt, refresh } = useJiraIssues(
+  const { bugs, allIssues, loading, error, syncedAt, refresh: refreshIssues } = useJiraIssues(
     filters.issueType,
     autoRefresh ? TEN_MINUTES : 0,
   );
 
-  const agent = useBugAgent(bugs, TEN_MINUTES);
+  const agent = useBugAgent(autoRefresh ? TEN_MINUTES : 0);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
@@ -59,11 +61,19 @@ export default function App() {
   }, [loading, bugs.length]);
 
   const handleRefreshAll = async () => {
-    if (activeModule === 'releases') {
-      setReleaseRefreshToken((t) => t + 1);
-      return;
+    setRefreshing(true);
+    try {
+      await refreshAllJiraData();
+      await Promise.all([
+        refreshIssues(),
+        agent.refreshAgent(true),
+      ]);
+      if (activeModule === 'releases') {
+        setReleaseRefreshToken((t) => t + 1);
+      }
+    } finally {
+      setRefreshing(false);
     }
-    await Promise.all([refresh(), agent.refreshAgent(true)]);
   };
 
   const handleReleaseSyncedAt = useCallback((value: string | null) => {
@@ -100,7 +110,7 @@ export default function App() {
   const headerSyncedAt =
     activeModule === 'releases' ? releaseSyncedAt : syncedAt || agent.status?.lastIndexedAt || null;
   const headerLoading =
-    activeModule === 'releases' ? releaseLoading : loading || agent.loading;
+    activeModule === 'releases' ? releaseLoading : loading || agent.loading || refreshing;
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
@@ -149,11 +159,9 @@ export default function App() {
 
                   <AgentWidgets insights={agent.insights} status={agent.status} loading={agent.loading} />
 
-                  {agent.usingLocalFallback && (
-                    <p className="rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-800 dark:border-blue-800 dark:bg-blue-950/30 dark:text-blue-200">
-                      {import.meta.env.VITE_STATIC_MODE === 'true'
-                        ? `AI Agent running in browser mode — ${bugs.length} bugs indexed from synced Jira data. Duplicate check, Defect Intel, and Creation Assist are available.`
-                        : 'Agent using local search from loaded bugs. Restart the server (`npm run dev`) for full AI knowledge base sync.'}
+                  {agent.error && (
+                    <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-sm text-amber-800 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
+                      Agent unavailable: {agent.error}. Ensure the API server is running (`npm run dev`).
                     </p>
                   )}
 
@@ -201,9 +209,9 @@ export default function App() {
             activeTab={agentTab}
             onTabChange={setAgentTab}
             onClose={() => setAgentOpen(false)}
-            onRefresh={() => agent.refreshAgent(true)}
+            onRefresh={() => handleRefreshAll()}
             agent={agent}
-            loading={agent.loading}
+            loading={agent.loading || refreshing}
           />
         )}
       </div>

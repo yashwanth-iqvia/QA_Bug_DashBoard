@@ -1,88 +1,39 @@
-import { useCallback, useEffect, useState } from 'react';
-import type { BugRecord, JiraIssue } from '@/types/jira';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useCallback } from 'react';
+import { fetchJiraIssues } from '@/services/jira/api';
 import { normalizeIssue } from '@/lib/jira-utils';
+import { JIRA_ISSUES_KEY } from '@/lib/queryClient';
+import type { BugRecord } from '@/types/jira';
 
-interface ApiResponse {
-  total: number;
-  baseUrl: string;
-  issues: JiraIssue[];
-  syncedAt: string;
-  error?: string;
-}
+const TEN_MINUTES = 10 * 60 * 1000;
 
-const STATIC_MODE = import.meta.env.VITE_STATIC_MODE === 'true';
+export function useJiraIssues(issueType: 'all' | 'Bug' = 'Bug', autoRefreshMs = TEN_MINUTES) {
+  const queryClient = useQueryClient();
 
-async function fetchStaticIssues(): Promise<ApiResponse> {
-  const url = `${import.meta.env.BASE_URL}data/jira-bugs.json`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error('Static Jira data not found. Run GitHub Actions sync first.');
-  const data: ApiResponse & { source?: string } = await res.json();
-  if (!data.issues?.length) {
-    throw new Error(
-      data.source === 'placeholder'
-        ? 'No Jira data synced yet. Add JIRA secrets on GitHub and run Sync Jira Data workflow.'
-        : 'Jira data file is empty. Run Sync Jira Data workflow on GitHub.',
-    );
-  }
-  return data;
-}
+  const query = useQuery({
+    queryKey: [...JIRA_ISSUES_KEY, issueType],
+    queryFn: () => fetchJiraIssues(issueType),
+    refetchInterval: autoRefreshMs > 0 ? autoRefreshMs : false,
+  });
 
-export function useJiraIssues(issueType: 'all' | 'Bug' = 'Bug', autoRefreshMs = 0) {
-  const [bugs, setBugs] = useState<BugRecord[]>([]);
-  const [allIssues, setAllIssues] = useState<BugRecord[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [syncedAt, setSyncedAt] = useState<string | null>(null);
-  const [baseUrl, setBaseUrl] = useState('');
+  const normalized = (query.data?.issues ?? []).map((i) =>
+    normalizeIssue(i, query.data?.baseUrl ?? ''),
+  );
+  const allIssues: BugRecord[] = normalized;
+  const bugs = normalized.filter((b) => issueType === 'all' || b.issueType === 'Bug');
 
-  const fetchIssues = useCallback(async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      let data: ApiResponse;
-      if (STATIC_MODE) {
-        data = await fetchStaticIssues();
-      } else {
-        const res = await fetch(`/api/jira/issues?type=${issueType}`);
-        data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'Failed to fetch issues');
-      }
-      const normalized = data.issues.map((i) => normalizeIssue(i, data.baseUrl));
-      setAllIssues(normalized);
-      setBugs(normalized.filter((b) => issueType === 'all' || b.issueType === 'Bug'));
-      setSyncedAt(data.syncedAt);
-      setBaseUrl(data.baseUrl);
-    } catch (e) {
-      // GitHub Pages fallback: try static JSON if API unavailable
-      if (!STATIC_MODE) {
-        try {
-          const data = await fetchStaticIssues();
-          const normalized = data.issues.map((i) => normalizeIssue(i, data.baseUrl));
-          setAllIssues(normalized);
-          setBugs(normalized.filter((b) => issueType === 'all' || b.issueType === 'Bug'));
-          setSyncedAt(data.syncedAt);
-          setBaseUrl(data.baseUrl);
-          setError(null);
-          return;
-        } catch {
-          /* fall through */
-        }
-      }
-      setError(e instanceof Error ? e.message : 'Unknown error');
-    } finally {
-      setLoading(false);
-    }
-  }, [issueType]);
+  const refresh = useCallback(async () => {
+    await fetchJiraIssues(issueType, true);
+    await queryClient.invalidateQueries({ queryKey: JIRA_ISSUES_KEY });
+  }, [issueType, queryClient]);
 
-  useEffect(() => {
-    fetchIssues();
-  }, [fetchIssues]);
-
-  useEffect(() => {
-    if (!autoRefreshMs) return;
-    const id = setInterval(fetchIssues, autoRefreshMs);
-    return () => clearInterval(id);
-  }, [autoRefreshMs, fetchIssues]);
-
-  return { bugs, allIssues, loading, error, syncedAt, baseUrl, refresh: fetchIssues };
+  return {
+    bugs,
+    allIssues,
+    loading: query.isLoading || query.isFetching,
+    error: query.error instanceof Error ? query.error.message : query.error ? String(query.error) : null,
+    syncedAt: query.data?.syncedAt ?? null,
+    baseUrl: query.data?.baseUrl ?? '',
+    refresh,
+  };
 }
