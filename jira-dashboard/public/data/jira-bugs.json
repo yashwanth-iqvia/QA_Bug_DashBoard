@@ -1,8 +1,152 @@
 {
-  "total": 55,
+  "total": 56,
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T17:34:46.381882+00:00",
+  "syncedAt": "2026-08-21T18:12:50.844932+00:00",
   "issues": [
+    {
+      "id": "7370722",
+      "key": "BIIH-323",
+      "fields": {
+        "summary": "BIIH-30",
+        "description": "In OA, when exporting line chart templates, the exported output does not display the correct line width. These chart elements are expected to be present in the export to ensure consistency between the on-screen visualization and the exported file. The issue has been observed across multiple CatIDs, indicating a broader export rendering defect rather than a template-specific problem. \r\nh3. Expected Behavior: \r\n* Exported line charts should display all configured line width for all brands.  \r\n* Exported charts should match the chart formatting and visualization displayed within OA. \r\n\r\nh3. Actual Behavior: \r\n* Line width are not same as in the exported line charts. \r\n* The exported chart does not fully match the visualization shown in OA. \r\n\r\nh3. Impact: \r\n* Users receive incomplete chart visualizations in exported reports, which may impact analysis and presentation quality. \r\n\r\nh3. Reference Report Link in OA: \r\n[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1383]",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Parveen, Afsana"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T18:34:04.000+0200",
+        "updated": "2026-08-21T19:57:45.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7346206",
+      "key": "BIIH-172",
+      "fields": {
+        "summary": "Export - PPT legend font size and marker  and Y-axis title  in OA Export does not match CDOM legend font size and marker.",
+        "description": "In the exported PPT, the legend and Y-axis title font size  generated from OA does not match the corresponding legend font size in CDOM. CDOM displays the legend and Y-axis title with a font size of 9, whereas the OA export generates the legend and Y-axis title with a font size of 8. Also CDOM PPT has legend marker but it is missing in OA report.This results in inconsistent formatting between OA Export and the expected CDOM PPT output.\r\n \r\n*Expected Behavior:*\r\nLegend & Y-axis title font size in the OA exported PPT should match the CDOM PPT legend font size (Font Size = 9)\r\n Legend marker should be the same as CDOM report.\r\n*Actual Behavior:*\r\nLegend & Y-axis title font size in the OA exported PPT is displayed as Font Size = 8, while the corresponding legend in CDOM PPT is Font Size = 9.Legend markers are missing in OA slides.\r\n \r\n*Impact:*\r\nMultiple CAT IDs might be affected.\r\n \r\nReference report link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1673]\r\n \r\n*Screenshot:*\r\n \r\n!Export legend font size mismatch.png|width=167,height=89!",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-13T20:03:20.000+0200",
+        "updated": "2026-08-21T19:45:04.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7364315",
+      "key": "BIIH-314",
+      "fields": {
+        "summary": "UI - Chart section heading font weight does not match CDOM reference",
+        "description": "*Description:*\r\nIn OA, the chart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* are displayed with a lighter/non-bold font weight. As per the CDOM reference, these labels are intended to appear as bold chart section headings. This creates a visual inconsistency between OA and the approved CDOM design specification.\r\n \r\n*Expected Behavior:*\r\nChart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* should be displayed in {*}bold font weight{*}, consistent with the CDOM reference.\r\n\r\n  !CDOM_Chart_Heading.png|thumbnail!\r\n*Actual Behavior:*\r\nChart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* appear with a lighter/non-bold font weight in OA.\r\n\r\n!Chart_Heading.png|thumbnail!\r\n \r\n*Impact:*\r\nAffects {*}only this CatID{*}.\r\n \r\n*Reference Report Link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1870]",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "K M, Yashwanth"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-20T07:48:25.000+0200",
+        "updated": "2026-08-21T19:44:40.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "*Expected Behavior:*\r\nChart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* should be displayed in {*}bold font weight{*}, consistent with the CDOM reference.",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7370854",
+      "key": "BIIH-330",
+      "fields": {
+        "summary": "UI - Report title box overlaps Key Takeaways box",
+        "description": "h3. Description:\r\nDuring review of {*}BIIH-45{*}, it was observed that the report title box overlaps the Key Takeaways box. This layout will become an issue when a report title is long enough to wrap onto multiple lines. As a result, the title may obscure Key Takeaways content and require manual adjustment to maintain proper presentation.\r\nh3. Expected Behavior:\r\nThe report title container should accommodate title length and maintain adequate spacing from the Key Takeaways section. Long titles that wrap to multiple lines should not overlap or obscure any content.\r\nh3. Actual Behavior:\r\nThe title container overlaps the Key Takeaways section, potentially obscuring content when report titles are longer, requiring continual manual adjustment.\r\nh3. Impact:\r\n*Unknown.* It has not been verified whether the issue affects only certain CatIDs or multiple CatIDs.\r\nh3. Reference report link in OA:\r\n[OA Report - Slide 1602|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\nh3. Similar Jira Check:\r\nNo other CAT IDs were reviewed by tester yet for this issue. No bug tickets already exist. \r\nh3. Additional Notes:\r\n * *Issue Category:* UI\r\n * This issue impacts report readability and presentation quality.\r\n * The risk increases for reports with longer titles that wrap onto multiple lines.\r\n * Recommend implementing responsive spacing or dynamic container sizing to prevent overlap.\r\n * Attach a screenshot demonstrating the overlap, if available.",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Altschuler, Karen"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T19:42:47.000+0200",
+        "updated": "2026-08-21T19:42:47.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
     {
       "id": "7370838",
       "key": "BIIH-329",
@@ -220,42 +364,6 @@
       }
     },
     {
-      "id": "7370722",
-      "key": "BIIH-323",
-      "fields": {
-        "summary": "BIIH-30",
-        "description": "In OA, when exporting line chart templates, the exported output does not display the correct line width. These chart elements are expected to be present in the export to ensure consistency between the on-screen visualization and the exported file. The issue has been observed across multiple CatIDs, indicating a broader export rendering defect rather than a template-specific problem. \r\nh3. Expected Behavior: \r\n* Exported line charts should display all configured line width for all brands.  \r\n* Exported charts should match the chart formatting and visualization displayed within OA. \r\n\r\nh3. Actual Behavior: \r\n* Line width are not same as in the exported line charts. \r\n* The exported chart does not fully match the visualization shown in OA. \r\n\r\nh3. Impact: \r\n* Users receive incomplete chart visualizations in exported reports, which may impact analysis and presentation quality. \r\n\r\nh3. Reference Report Link in OA: \r\n[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1383]",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Parveen, Afsana"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-21T18:34:04.000+0200",
-        "updated": "2026-08-21T18:34:04.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
       "id": "7357189",
       "key": "BIIH-309",
       "fields": {
@@ -400,42 +508,6 @@
       }
     },
     {
-      "id": "7364315",
-      "key": "BIIH-314",
-      "fields": {
-        "summary": "UI - Chart section heading font weight does not match CDOM reference",
-        "description": "*Description:*\r\nIn OA, the chart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* are displayed with a lighter/non-bold font weight. As per the CDOM reference, these labels are intended to appear as bold chart section headings. This creates a visual inconsistency between OA and the approved CDOM design specification.\r\n \r\n*Expected Behavior:*\r\nChart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* should be displayed in {*}bold font weight{*}, consistent with the CDOM reference.\r\n\r\n  !CDOM_Chart_Heading.png|thumbnail!\r\n*Actual Behavior:*\r\nChart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* appear with a lighter/non-bold font weight in OA.\r\n\r\n!Chart_Heading.png|thumbnail!\r\n \r\n*Impact:*\r\nAffects {*}only this CatID{*}.\r\n \r\n*Reference Report Link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1870]",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "K M, Yashwanth"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-20T07:48:25.000+0200",
-        "updated": "2026-08-21T10:08:41.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "*Expected Behavior:*\r\nChart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* should be displayed in {*}bold font weight{*}, consistent with the CDOM reference.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
       "id": "7356587",
       "key": "BIIH-306",
       "fields": {
@@ -498,42 +570,6 @@
         "labels": [
           "UI"
         ],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7346206",
-      "key": "BIIH-172",
-      "fields": {
-        "summary": "Export - PPT legend font size and marker  and Y-axis title  in OA Export does not match CDOM legend font size and marker.",
-        "description": "In the exported PPT, the legend and Y-axis title font size  generated from OA does not match the corresponding legend font size in CDOM. CDOM displays the legend and Y-axis title with a font size of 9, whereas the OA export generates the legend and Y-axis title with a font size of 8. Also CDOM PPT has legend marker but it is missing in OA report.This results in inconsistent formatting between OA Export and the expected CDOM PPT output.\r\n \r\n*Expected Behavior:*\r\nLegend & Y-axis title font size in the OA exported PPT should match the CDOM PPT legend font size (Font Size = 9)\r\n Legend marker should be the same as CDOM report.\r\n*Actual Behavior:*\r\nLegend & Y-axis title font size in the OA exported PPT is displayed as Font Size = 8, while the corresponding legend in CDOM PPT is Font Size = 9.Legend markers are missing in OA slides.\r\n \r\n*Impact:*\r\nMultiple CAT IDs might be affected.\r\n \r\nReference report link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1673]\r\n \r\n*Screenshot:*\r\n \r\n!Export legend font size mismatch.png|width=167,height=89!",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-13T20:03:20.000+0200",
-        "updated": "2026-08-21T08:00:33.000+0200",
-        "resolutiondate": "",
-        "labels": [],
         "components": [],
         "fixVersions": [],
         "project": {

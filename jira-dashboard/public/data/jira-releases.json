@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T17:34:52.321693+00:00",
+  "syncedAt": "2026-08-21T18:12:55.239661+00:00",
   "project": "BIIH",
   "source": "github-actions",
   "versions": [
@@ -1912,8 +1912,8 @@
           "catId": "1544",
           "catIdLabel": "CAT-ID-1544",
           "summary": "OA Migration | CAT ID 1544 | Share of Attention: Interpersonal vs. Nonpersonal",
-          "status": "Client UAT",
-          "assignee": "Altschuler, Karen",
+          "status": "In Review",
+          "assignee": "Lenin, Vishal",
           "priority": "Low",
           "sprint": "ΓÇö",
           "release": "Release 1 - Promo (GenMed, ONC and BISO)",
@@ -1945,8 +1945,8 @@
               "catId": "1544",
               "catIdLabel": "CAT-ID-1544",
               "summary": "Export Validation | CAT ID 1544 | Share of Attention: Interpersonal vs. Nonpersonal",
-              "status": "Client UAT",
-              "assignee": "Altschuler, Karen",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-45"
             }
