@@ -13,6 +13,8 @@ import type {
 import {
   fetchAgentInsights,
   fetchAgentStatus,
+  getJson,
+  postJson,
   reindexAgent,
 } from '@/services/jira/api';
 import { AGENT_INSIGHTS_KEY, AGENT_STATUS_KEY } from '@/lib/queryClient';
@@ -53,57 +55,36 @@ export function useBugAgent(autoRefreshMs = TEN_MINUTES) {
     [queryClient],
   );
 
-  const chat = useCallback(async (query: string) => {
-    const res = await fetch('/api/agent/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query }),
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Chat failed');
-    return data as { answer: string; matches: SimilarBugMatch[]; source: string };
-  }, []);
+  const chat = useCallback(
+    (query: string) =>
+      postJson<{ answer: string; matches: SimilarBugMatch[]; source: string }>('/api/agent/chat', { query }),
+    [],
+  );
 
-  const checkDuplicate = useCallback(async (payload: Record<string, string>) => {
-    const res = await fetch('/api/agent/duplicate-check', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Duplicate check failed');
-    return data as { matches: SimilarBugMatch[]; recommendation: DuplicateRecommendation };
-  }, []);
+  const checkDuplicate = useCallback(
+    (payload: Record<string, string>) =>
+      postJson<{ matches: SimilarBugMatch[]; recommendation: DuplicateRecommendation }>(
+        '/api/agent/duplicate-check',
+        payload,
+      ),
+    [],
+  );
 
-  const creationAssist = useCallback(async (payload: Record<string, string>) => {
-    const res = await fetch('/api/agent/creation-assist', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Creation assist failed');
-    return data as CreationAssistResult;
-  }, []);
+  const creationAssist = useCallback(
+    (payload: Record<string, string>) =>
+      postJson<CreationAssistResult>('/api/agent/creation-assist', payload),
+    [],
+  );
 
-  const getSummary = useCallback(async (period: 'daily' | 'weekly' | 'sprint') => {
-    const res = await fetch(`/api/agent/summary?period=${period}`);
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Summary failed');
-    return data as BugSummary;
-  }, []);
+  const getSummary = useCallback(
+    (period: 'daily' | 'weekly' | 'sprint') =>
+      getJson<BugSummary>(`/api/agent/summary?period=${period}`),
+    [],
+  );
 
   const analyzeDefects = useCallback(
-    async (payload: { catId: string; issues: Array<Record<string, string>> }) => {
-      const res = await fetch('/api/defect/analyze', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Defect analysis failed');
-      return data as DefectBatchResult;
-    },
+    (payload: { catId: string; issues: Array<Record<string, string>> }) =>
+      postJson<DefectBatchResult>('/api/defect/analyze', payload),
     [],
   );
 

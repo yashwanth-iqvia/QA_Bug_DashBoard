@@ -98,7 +98,17 @@ async function initOpenAI() {
   }
 }
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      /^http:\/\/localhost(:\d+)?$/,
+      /^http:\/\/127\.0\.0\.1(:\d+)?$/,
+      /^https:\/\/[\w-]+\.github\.io$/,
+      process.env.CORS_ORIGIN,
+    ].filter(Boolean),
+    credentials: false,
+  }),
+);
 app.use(express.json({ limit: '2mb' }));
 
 /** Read-only Jira GET — no caching, always fetch fresh data. */

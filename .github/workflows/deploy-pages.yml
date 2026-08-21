@@ -37,6 +37,7 @@ jobs:
         working-directory: jira-dashboard
         env:
           VITE_BASE_PATH: /QA_Bug_DashBoard/
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
         run: |
           npm ci
           npm run build

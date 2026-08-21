@@ -17,6 +17,7 @@ import { useJiraIssues } from '@/hooks/useJiraIssues';
 import { useBugAgent } from '@/hooks/useBugAgent';
 import { applyFilters, computeReporterStats } from '@/lib/jira-utils';
 import { refreshAllJiraData } from '@/lib/queryClient';
+import { hasRemoteApi, isGitHubPagesHost } from '@/services/jira/apiBase';
 import { defaultFilters, type DashboardFilters } from '@/types/jira';
 
 const TEN_MINUTES = 10 * 60 * 1000;
@@ -146,6 +147,13 @@ export default function App() {
           ) : (
             <>
               {error && <EmptyState title="API Failure" description={error} />}
+
+              {isGitHubPagesHost() && !hasRemoteApi() && (
+                <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-sm text-amber-900 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
+                  GitHub Pages needs a hosted API. Deploy the Express server (see GITHUB_PAGES_SETUP.md), add the{' '}
+                  <code className="text-xs">VITE_API_URL</code> GitHub secret, then redeploy Pages.
+                </p>
+              )}
 
               {loading ? (
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">

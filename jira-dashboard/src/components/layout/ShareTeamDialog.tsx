@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Share2, Copy, Check, X } from 'lucide-react';
+import { apiUrl } from '@/services/jira/apiBase';
 
 interface ShareInfo {
   name: string;
@@ -15,7 +16,7 @@ export function ShareTeamDialog() {
 
   useEffect(() => {
     if (!open) return;
-    fetch('/api/share-info')
+    fetch(apiUrl('/api/share-info'))
       .then((r) => (r.ok ? r.json() : null))
       .then(setInfo)
       .catch(() => undefined);
