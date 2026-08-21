@@ -1,8 +1,190 @@
 {
-  "total": 45,
+  "total": 47,
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T03:53:04.124624+00:00",
+  "syncedAt": "2026-08-21T04:41:53.938772+00:00",
   "issues": [
+    {
+      "id": "7335717",
+      "key": "BIIH-157",
+      "fields": {
+        "summary": "UI - 1544 X-axis is not as per reference slide and dr value is missing for the first time period",
+        "description": "In 1544 UI  X-axis values are  not as per reference slide and dr value is missing for the first time period. Also the font sizes of Chart title and Y axis should be increased to be aligned with the reference slide given.\r\n\r\n*Expected Behavior:*\r\nLine Chart X-axis should be similar and the font size of the chart title and Y axis should be same as the reference slide.\r\n\r\n*Actual Behavior:*\r\nCurrently  X-axis values are not as per reference slide and dr value is missing for the first time period.Also the font sizes of Chart title and Y axis should be increased to be aligned with the reference slide given.\r\n\r\n*Impact:*\r\nThis issue has been observed across multiple CAT Ids/reports in OA and should be updated to comply with the specification.\r\n\r\nReference report link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n\r\n*Screenshot:*\r\n\r\n*!1544 UI X-sxis dr values issue.png|width=235,height=125!*",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "In Testing"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "assignee": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "created": "2026-08-11T11:42:32.000+0200",
+        "updated": "2026-08-21T06:39:45.000+0200",
+        "resolutiondate": "",
+        "labels": [
+          "UI"
+        ],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7368001",
+      "key": "BIIH-321",
+      "fields": {
+        "summary": "UI - Horizontal grid lines displayed in OA Data Explorer but not aligned with CDOM behavior",
+        "description": "In the OA Data Explorer UI, horizontal grid lines are displayed for certain CatIDs, whereas CDOM (the expected baseline behavior) does not display these grid lines for the same report/template. OA should match the CDOM behavior to maintain visual consistency and parity with the defined requirement.\r\nh3. Expected Behavior:\r\n\r\nHorizontal grid lines should be displayed in OA Data Explorer exactly as defined in CDOM. For the affected CatIDs, OA should follow the same visualization behavior as CDOM and should not show additional horizontal grid lines when they are not present in CDOM.\r\nh3. Actual Behavior:\r\n\r\nOA Data Explorer is displaying horizontal grid lines for certain CatIDs, resulting in a visual mismatch compared to CDOM.\r\nh3. Impact:\r\n * Affects *only certain CatIDs* (legacy report templates).\r\n * Causes UI inconsistency between OA and CDOM, which may lead to confusion when validating reports during migration and parity testing.\r\n\r\nh3. Reference Report Link in OA:\r\n\r\nCDOM Report\r\n\r\n!Screenshot 2026-08-21 092458.png|thumbnail!\r\n\r\nOA Report\r\n\r\n!Screenshot 2026-08-21 092237.png|thumbnail!",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajath G V, Adhesh"
+        },
+        "assignee": {
+          "displayName": "K, Prathibha"
+        },
+        "created": "2026-08-21T05:56:53.000+0200",
+        "updated": "2026-08-21T06:17:51.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7347877",
+      "key": "BIIH-179",
+      "fields": {
+        "summary": "Export - Line chart markers and Y-axis vertical line are missing in exported output",
+        "description": "In OA, when exporting line chart templates, the exported output does not display the line markers and the Y-axis vertical line. These chart elements are expected to be present in the export to ensure consistency between the on-screen visualization and the exported file. The issue has been observed across multiple CatIDs, indicating a broader export rendering defect rather than a template-specific problem.\r\nh3. Expected Behavior:\r\n * Exported line charts should display all configured line markers.\r\n * The Y-axis vertical line should be visible in the exported output.\r\n * Exported charts should match the chart formatting and visualization displayed within OA.\r\n\r\nh3. Actual Behavior:\r\n * Line markers are missing in the exported line charts.\r\n * The Y-axis vertical line is not displayed in the exported output.\r\n * The exported chart does not fully match the visualization shown in OA.\r\n\r\nh3. Impact:\r\n * *Affects multiple CatIDs* (legacy report templates).\r\n * Users receive incomplete chart visualizations in exported reports, which may impact analysis and presentation quality.\r\n\r\nh3. Reference Report Link in OA:\r\n\r\n[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1601]\r\n\r\n \r\n ",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Buddamallagari, Sambasivareddy"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-14T11:58:55.000+0200",
+        "updated": "2026-08-21T06:06:02.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7347289",
+      "key": "BIIH-177",
+      "fields": {
+        "summary": "Export - Y-axis formatting, chart title font styling, VBar stacked chart formatting, legend order, and Y-axis scale are not retained after export",
+        "description": "*Description:*\r\nFor certain CatIDs, multiple chart formatting discrepancies are observed in the exported output compared to the digital slide/CDOM rendering. The exported charts do not retain several formatting attributes, resulting in visual and structural differences from the expected presentation. CDOM represents the expected behavior, and OA exports should preserve the chart configuration and formatting defined in the digital slide.\r\n*Expected Behavior:* * Y-axis vertical line should be visible in the exported chart.\r\n * Chart title should retain the default formatting of {*}Arial, size 9, Bold{*}.\r\n * VBar stacked chart formatting should be preserved in the exported output.\r\n * Legend order should match the order displayed in Data Explorer/digital slide.\r\n * Y-axis scale should retain the configured values (for example: {*}0, 50, 100{*}) and match the digital slide.\r\n\r\n*Actual Behavior:* * Y-axis vertical line is missing in the exported chart.\r\n * Chart title is not displayed using the default *Arial 9 Bold* formatting.\r\n * VBar stacked chart formatting changes after export.\r\n * Legend order is not retained in the exported output.\r\n * Y-axis scale is rendered with intervals of *10* instead of the expected *0, 50, 100* scale shown in Data Explorer.\r\n\r\n*Impact:*\r\nAffects only certain CatIDs (legacy report templates).\r\n*Reference report link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n!VBar.png|thumbnail!",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "K, Prathibha"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-14T09:30:07.000+0200",
+        "updated": "2026-08-21T06:04:13.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "*Expected Behavior:* * Y-axis vertical line should be visible in the exported chart.\r\n * Chart title should retain the default formatting of {*}Arial, size 9, Bold{*}.\r\n * VBar stacked chart formatting should be preserved in the exported output.\r\n * Legend order should match the order displayed in Data Explorer/digital slide.\r\n * Y-axis scale should retain the configured values (for example: {*}0, 50, 100{*}) and match the digital slide.",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7368000",
+      "key": "BIIH-320",
+      "fields": {
+        "summary": "Export - Excel export sorting does not follow alphabetical order when products have identical values",
+        "description": "In OA, when exporting the embedded Excel for {*}CAT ID 1531{*}, products that have the same data value are not being sorted alphabetically as expected. According to CDOM behavior (requirement baseline), when two or more products have identical values, the secondary sort should be alphabetical by product name. OA export is not consistently applying this sorting logic, resulting in a mismatch with CDOM.\r\nBased on the reported behavior, this issue appears to affect {*}multiple CAT IDs{*}, not just CAT ID 1531.\r\n \r\nh3. *Expected Behavior:*\r\nWhen two or more products have the same data value in the exported Excel, the products should be sorted in *alphabetical order* as per CDOM behavior.\r\nh3. *Actual Behavior:*\r\nIn the OA embedded Excel export, products with identical data values are not consistently sorted alphabetically. The export order differs from CDOM, leading to incorrect sorting in the exported file.\r\nh3. Impact:\r\n * Affects *multiple CAT IDs (all CAT IDs)* where products contain identical data values.\r\n * Causes discrepancies between OA exports and CDOM outputs.\r\nIn the given screenshot Farxiga & Ozempic have same data values as 53.85.CDOM displays Farxiga as the first among these in alpha ascending order but OA embedded excel displays otherwise.\r\n*Reference report link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1829]*\r\n \r\n*Screenshot:*\r\n\r\n*!Embedded excel sort order issue when 2 brands have identical data values.png|width=205,height=109!*",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T05:56:30.000+0200",
+        "updated": "2026-08-21T05:57:16.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
     {
       "id": "7332110",
       "key": "BIIH-155",
@@ -182,42 +364,6 @@
           "key": "BIIH"
         },
         "customfield_15048": "h3. Expected Behavior:\r\nThe exported PPT should display the configured slide outline name, such as {*}\"SoA - IP & NIP\"{*}, in the PowerPoint Outline/Navigation Pane for the slide.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7347877",
-      "key": "BIIH-179",
-      "fields": {
-        "summary": "Export - Line chart markers and Y-axis vertical line are missing in exported output",
-        "description": "In OA, when exporting line chart templates, the exported output does not display the line markers and the Y-axis vertical line. These chart elements are expected to be present in the export to ensure consistency between the on-screen visualization and the exported file. The issue has been observed across multiple CatIDs, indicating a broader export rendering defect rather than a template-specific problem.\r\nh3. Expected Behavior:\r\n * Exported line charts should display all configured line markers.\r\n * The Y-axis vertical line should be visible in the exported output.\r\n * Exported charts should match the chart formatting and visualization displayed within OA.\r\n\r\nh3. Actual Behavior:\r\n * Line markers are missing in the exported line charts.\r\n * The Y-axis vertical line is not displayed in the exported output.\r\n * The exported chart does not fully match the visualization shown in OA.\r\n\r\nh3. Impact:\r\n * *Affects multiple CatIDs* (legacy report templates).\r\n * Users receive incomplete chart visualizations in exported reports, which may impact analysis and presentation quality.\r\n\r\nh3. Reference Report Link in OA:\r\n\r\n[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1601]\r\n\r\n \r\n ",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Buddamallagari, Sambasivareddy"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-14T11:58:55.000+0200",
-        "updated": "2026-08-21T05:30:05.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
         "customfield_10020": [],
         "customfield_10016": null,
         "customfield_10002": null
@@ -802,44 +948,6 @@
       }
     },
     {
-      "id": "7335717",
-      "key": "BIIH-157",
-      "fields": {
-        "summary": "UI - 1544 X-axis is not as per reference slide and dr value is missing for the first time period",
-        "description": "In 1544 UI  X-axis values are  not as per reference slide and dr value is missing for the first time period. Also the font sizes of Chart title and Y axis should be increased to be aligned with the reference slide given.\r\n\r\n*Expected Behavior:*\r\nLine Chart X-axis should be similar and the font size of the chart title and Y axis should be same as the reference slide.\r\n\r\n*Actual Behavior:*\r\nCurrently  X-axis values are not as per reference slide and dr value is missing for the first time period.Also the font sizes of Chart title and Y axis should be increased to be aligned with the reference slide given.\r\n\r\n*Impact:*\r\nThis issue has been observed across multiple CAT Ids/reports in OA and should be updated to comply with the specification.\r\n\r\nReference report link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n\r\n*Screenshot:*\r\n\r\n*!1544 UI X-sxis dr values issue.png|width=235,height=125!*",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "In Testing"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "assignee": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "created": "2026-08-11T11:42:32.000+0200",
-        "updated": "2026-08-20T08:11:23.000+0200",
-        "resolutiondate": "",
-        "labels": [
-          "UI"
-        ],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
       "id": "7347848",
       "key": "BIIH-178",
       "fields": {
@@ -1158,42 +1266,6 @@
           "key": "BIIH"
         },
         "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7347289",
-      "key": "BIIH-177",
-      "fields": {
-        "summary": "Export - Y-axis formatting, chart title font styling, VBar stacked chart formatting, legend order, and Y-axis scale are not retained after export",
-        "description": "*Description:*\r\nFor certain CatIDs, multiple chart formatting discrepancies are observed in the exported output compared to the digital slide/CDOM rendering. The exported charts do not retain several formatting attributes, resulting in visual and structural differences from the expected presentation. CDOM represents the expected behavior, and OA exports should preserve the chart configuration and formatting defined in the digital slide.\r\n*Expected Behavior:* * Y-axis vertical line should be visible in the exported chart.\r\n * Chart title should retain the default formatting of {*}Arial, size 9, Bold{*}.\r\n * VBar stacked chart formatting should be preserved in the exported output.\r\n * Legend order should match the order displayed in Data Explorer/digital slide.\r\n * Y-axis scale should retain the configured values (for example: {*}0, 50, 100{*}) and match the digital slide.\r\n\r\n*Actual Behavior:* * Y-axis vertical line is missing in the exported chart.\r\n * Chart title is not displayed using the default *Arial 9 Bold* formatting.\r\n * VBar stacked chart formatting changes after export.\r\n * Legend order is not retained in the exported output.\r\n * Y-axis scale is rendered with intervals of *10* instead of the expected *0, 50, 100* scale shown in Data Explorer.\r\n\r\n*Impact:*\r\nAffects only certain CatIDs (legacy report templates).\r\n*Reference report link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n!VBar.png|thumbnail!",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "K, Prathibha"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-14T09:30:07.000+0200",
-        "updated": "2026-08-19T10:52:12.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "*Expected Behavior:* * Y-axis vertical line should be visible in the exported chart.\r\n * Chart title should retain the default formatting of {*}Arial, size 9, Bold{*}.\r\n * VBar stacked chart formatting should be preserved in the exported output.\r\n * Legend order should match the order displayed in Data Explorer/digital slide.\r\n * Y-axis scale should retain the configured values (for example: {*}0, 50, 100{*}) and match the digital slide.",
         "customfield_10020": [],
         "customfield_10016": null,
         "customfield_10002": null
