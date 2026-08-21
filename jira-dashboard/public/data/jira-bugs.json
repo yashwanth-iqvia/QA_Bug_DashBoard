@@ -1,8 +1,118 @@
 {
   "total": 47,
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T07:30:04.505702+00:00",
+  "syncedAt": "2026-08-21T08:09:35.610299+00:00",
   "issues": [
+    {
+      "id": "7364315",
+      "key": "BIIH-314",
+      "fields": {
+        "summary": "UI - Chart section heading font weight does not match CDOM reference",
+        "description": "*Description:*\r\nIn OA, the chart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* are displayed with a lighter/non-bold font weight. As per the CDOM reference, these labels are intended to appear as bold chart section headings. This creates a visual inconsistency between OA and the approved CDOM design specification.\r\n \r\n*Expected Behavior:*\r\nChart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* should be displayed in {*}bold font weight{*}, consistent with the CDOM reference.\r\n\r\n  !CDOM_Chart_Heading.png|thumbnail!\r\n*Actual Behavior:*\r\nChart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* appear with a lighter/non-bold font weight in OA.\r\n\r\n!Chart_Heading.png|thumbnail!\r\n \r\n*Impact:*\r\nAffects {*}only this CatID{*}.\r\n \r\n*Reference Report Link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1870]",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "K M, Yashwanth"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-20T07:48:25.000+0200",
+        "updated": "2026-08-21T10:08:41.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "*Expected Behavior:*\r\nChart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* should be displayed in {*}bold font weight{*}, consistent with the CDOM reference.",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7356587",
+      "key": "BIIH-306",
+      "fields": {
+        "summary": "UI - Slide title is not displayed in bold for certain CatIDs",
+        "description": "In OA, slide titles are not consistently rendered in *bold formatting* for certain CatIDs. Based on the expected report template behaviour (CDOM requirement), slide titles should appear in bold across all applicable slides. However, in OA, specific CatIDs display the slide title in regular font weight, resulting in inconsistent report presentation and formatting.\r\nh3. Expected Behavior:\r\nSlide titles should be displayed in *bold font* consistently across all slides and CatIDs, as defined by the report template requirements.\r\nh3. Actual Behavior:\r\nFor certain CatIDs, the slide title is displayed in *regular (non-bold) font* in OA.\r\nh3. Impact:\r\nThe issue affects *only certain CatIDs* (legacy report templates). This leads to inconsistent report formatting and may impact presentation quality and user perception of report standardisation.\r\nh3. Reference report link in OA:\r\n[OA Report|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1600]",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "Rejected"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "V K, Yogesh"
+        },
+        "assignee": {
+          "displayName": "Buddamallagari, Sambasivareddy"
+        },
+        "created": "2026-08-18T10:10:15.000+0200",
+        "updated": "2026-08-21T09:52:20.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7335717",
+      "key": "BIIH-157",
+      "fields": {
+        "summary": "UI - 1544 X-axis is not as per reference slide and dr value is missing for the first time period",
+        "description": "In 1544 UI  X-axis values are  not as per reference slide and dr value is missing for the first time period. Also the font sizes of Chart title and Y axis should be increased to be aligned with the reference slide given.\r\n\r\n*Expected Behavior:*\r\nLine Chart X-axis should be similar and the font size of the chart title and Y axis should be same as the reference slide.\r\n\r\n*Actual Behavior:*\r\nCurrently  X-axis values are not as per reference slide and dr value is missing for the first time period.Also the font sizes of Chart title and Y axis should be increased to be aligned with the reference slide given.\r\n\r\n*Impact:*\r\nThis issue has been observed across multiple CAT Ids/reports in OA and should be updated to comply with the specification.\r\n\r\nReference report link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n\r\n*Screenshot:*\r\n\r\n*!1544 UI X-sxis dr values issue.png|width=235,height=125!*",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "In Testing"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "assignee": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "created": "2026-08-11T11:42:32.000+0200",
+        "updated": "2026-08-21T09:50:28.000+0200",
+        "resolutiondate": "",
+        "labels": [
+          "UI"
+        ],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
     {
       "id": "7346206",
       "key": "BIIH-172",
@@ -142,44 +252,6 @@
           "key": "BIIH"
         },
         "customfield_15048": "*Expected Behavior:* * The Y-axis title should display the '%' symbol correctly.\r\n * The Y-axis line should be visible and rendered as per the chart configuration.\r\n * OA should match the behavior observed in CDOM.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7335717",
-      "key": "BIIH-157",
-      "fields": {
-        "summary": "UI - 1544 X-axis is not as per reference slide and dr value is missing for the first time period",
-        "description": "In 1544 UI  X-axis values are  not as per reference slide and dr value is missing for the first time period. Also the font sizes of Chart title and Y axis should be increased to be aligned with the reference slide given.\r\n\r\n*Expected Behavior:*\r\nLine Chart X-axis should be similar and the font size of the chart title and Y axis should be same as the reference slide.\r\n\r\n*Actual Behavior:*\r\nCurrently  X-axis values are not as per reference slide and dr value is missing for the first time period.Also the font sizes of Chart title and Y axis should be increased to be aligned with the reference slide given.\r\n\r\n*Impact:*\r\nThis issue has been observed across multiple CAT Ids/reports in OA and should be updated to comply with the specification.\r\n\r\nReference report link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n\r\n*Screenshot:*\r\n\r\n*!1544 UI X-sxis dr values issue.png|width=235,height=125!*",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "In Testing"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "assignee": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "created": "2026-08-11T11:42:32.000+0200",
-        "updated": "2026-08-21T06:39:45.000+0200",
-        "resolutiondate": "",
-        "labels": [
-          "UI"
-        ],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
         "customfield_10020": [],
         "customfield_10016": null,
         "customfield_10002": null
@@ -1056,42 +1128,6 @@
       }
     },
     {
-      "id": "7364315",
-      "key": "BIIH-314",
-      "fields": {
-        "summary": "UI - Chart section heading font weight does not match CDOM reference",
-        "description": "*Description:*\r\nIn OA, the chart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* are displayed with a lighter/non-bold font weight. As per the CDOM reference, these labels are intended to appear as bold chart section headings. This creates a visual inconsistency between OA and the approved CDOM design specification.\r\n \r\n*Expected Behavior:*\r\nChart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* should be displayed in {*}bold font weight{*}, consistent with the CDOM reference.\r\n\r\n  !CDOM_Chart_Heading.png|thumbnail!\r\n*Actual Behavior:*\r\nChart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* appear with a lighter/non-bold font weight in OA.\r\n\r\n!Chart_Heading.png|thumbnail!\r\n \r\n*Impact:*\r\nAffects {*}only this CatID{*}.\r\n \r\n*Reference Report Link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1870]",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "K M, Yashwanth"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-20T07:48:25.000+0200",
-        "updated": "2026-08-20T07:50:20.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "*Expected Behavior:*\r\nChart section headings *\"Average Minutes\"* and *\"% Two-Way Discussion\"* should be displayed in {*}bold font weight{*}, consistent with the CDOM reference.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
       "id": "7325586",
       "key": "BIIH-149",
       "fields": {
@@ -1150,42 +1186,6 @@
         },
         "created": "2026-08-18T09:35:25.000+0200",
         "updated": "2026-08-19T17:49:28.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7356587",
-      "key": "BIIH-306",
-      "fields": {
-        "summary": "UI - Slide title is not displayed in bold for certain CatIDs",
-        "description": "In OA, slide titles are not consistently rendered in *bold formatting* for certain CatIDs. Based on the expected report template behaviour (CDOM requirement), slide titles should appear in bold across all applicable slides. However, in OA, specific CatIDs display the slide title in regular font weight, resulting in inconsistent report presentation and formatting.\r\nh3. Expected Behavior:\r\nSlide titles should be displayed in *bold font* consistently across all slides and CatIDs, as defined by the report template requirements.\r\nh3. Actual Behavior:\r\nFor certain CatIDs, the slide title is displayed in *regular (non-bold) font* in OA.\r\nh3. Impact:\r\nThe issue affects *only certain CatIDs* (legacy report templates). This leads to inconsistent report formatting and may impact presentation quality and user perception of report standardisation.\r\nh3. Reference report link in OA:\r\n[OA Report|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1600]",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "Rejected"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "V K, Yogesh"
-        },
-        "assignee": {
-          "displayName": "Buddamallagari, Sambasivareddy"
-        },
-        "created": "2026-08-18T10:10:15.000+0200",
-        "updated": "2026-08-19T14:45:54.000+0200",
         "resolutiondate": "",
         "labels": [],
         "components": [],
