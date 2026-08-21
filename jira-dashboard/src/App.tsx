@@ -41,7 +41,7 @@ export default function App() {
   const [lastRefreshAt, setLastRefreshAt] = useState<number | null>(null);
   const previousCount = useRef<number>();
 
-  const { bugs, allIssues, loading, error, syncedAt, refresh: refreshIssues } = useJiraIssues(
+  const { bugs, allIssues, loading, isRefreshing, error, syncedAt, fetchedAt, refresh: refreshIssues } = useJiraIssues(
     filters.issueType,
     autoRefresh ? REFRESH_MS : 0,
   );
@@ -52,7 +52,10 @@ export default function App() {
     document.documentElement.classList.toggle('dark', darkMode);
   }, [darkMode]);
 
-  const prevLoading = useRef(false);
+  const dataAgeMinutes = syncedAt
+    ? Math.floor((Date.now() - new Date(syncedAt).getTime()) / 60_000)
+    : null;
+  const isStaleData = STATIC_MODE && dataAgeMinutes !== null && dataAgeMinutes > 20;
 
   const displayBugs = useMemo(() => {
     const source = filters.issueType === 'all' ? allIssues : bugs;
@@ -68,18 +71,11 @@ export default function App() {
       ? releaseLoading
       : (loading && bugs.length === 0) || agent.loading || refreshing;
 
-  useEffect(() => {
-    if (syncedAt && lastRefreshAt === null) {
-      setLastRefreshAt(Date.now());
-    }
-  }, [syncedAt, lastRefreshAt]);
+  const syncing = refreshing || isRefreshing;
 
   useEffect(() => {
-    if (prevLoading.current && !headerLoading) {
-      setLastRefreshAt(Date.now());
-    }
-    prevLoading.current = headerLoading;
-  }, [headerLoading]);
+    if (fetchedAt) setLastRefreshAt(fetchedAt);
+  }, [fetchedAt]);
 
   useEffect(() => {
     if (!loading && bugs.length) {
@@ -87,20 +83,18 @@ export default function App() {
     }
   }, [loading, bugs.length]);
 
-  const handleRefreshAll = async () => {
+  const handleRefreshAll = useCallback(async () => {
+    if (refreshing) return;
     setRefreshing(true);
     try {
       if (STATIC_MODE) clearStaticCache();
       else await refreshAllJiraData();
       await Promise.all([refreshIssues(), agent.refreshAgent(true)]);
-      if (activeModule === 'releases') {
-        setReleaseRefreshToken((t) => t + 1);
-      }
-      setLastRefreshAt(Date.now());
+      setReleaseRefreshToken((t) => t + 1);
     } finally {
       setRefreshing(false);
     }
-  };
+  }, [refreshing, refreshIssues, agent.refreshAgent]);
 
   const handleReleaseSyncedAt = useCallback((value: string | null) => {
     setReleaseSyncedAt(value);
@@ -143,6 +137,7 @@ export default function App() {
         onToggleAgent={() => setAgentOpen((o) => !o)}
         agentOpen={agentOpen}
         loading={headerLoading}
+        syncing={syncing}
         syncedAt={headerSyncedAt}
         autoRefresh={autoRefresh}
         onToggleAutoRefresh={() => setAutoRefresh((a) => !a)}
@@ -170,7 +165,14 @@ export default function App() {
             <>
               {error && <EmptyState title="Data unavailable" description={error} />}
 
-              {STATIC_MODE && syncedAt && !error && (
+              {isStaleData && (
+                <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-sm text-amber-900 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
+                  Jira data is {dataAgeMinutes} min old. GitHub Actions syncs from Jira every 15 min — run{' '}
+                  <strong>Sync Jira Data</strong> in Actions if this stays stale. Click Refresh to reload the latest deployed JSON.
+                </p>
+              )}
+
+              {STATIC_MODE && syncedAt && !error && !isStaleData && (
                 <p className="rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-800 dark:border-blue-800 dark:bg-blue-950/30 dark:text-blue-200">
                   GitHub Pages — Jira data pulled by GitHub Actions every 15 min. AI Agent searches this
                   dataset in your browser. Click Refresh to reload the latest deployed JSON.
