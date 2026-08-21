@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T14:08:46.275982+00:00",
+  "syncedAt": "2026-08-21T14:55:27.502661+00:00",
   "project": "BIIH",
   "source": "github-actions",
   "versions": [
@@ -58,8 +58,8 @@
         "totalStories": 56,
         "totalSubtasks": 168,
         "completedStories": 0,
-        "inProgressStories": 29,
-        "pendingStories": 27
+        "inProgressStories": 31,
+        "pendingStories": 25
       },
       "stories": [
         {
@@ -1642,8 +1642,8 @@
           "catId": "1535",
           "catIdLabel": "CAT-ID-1535",
           "summary": "OA Migration | CAT ID 1535 | SR Value & SR Quality Attributes (%T2B)",
-          "status": "To Do",
-          "assignee": "Unassigned",
+          "status": "In Progress",
+          "assignee": "Chellappan, Jagadeesh",
           "priority": "Low",
           "sprint": "ΓÇö",
           "release": "Release 1 - Promo (GenMed, ONC and BISO)",
@@ -1655,8 +1655,8 @@
               "catId": "1535",
               "catIdLabel": "CAT-ID-1535",
               "summary": "UI Validation | CAT ID 1535 | SR Value & SR Quality Attributes (%T2B)",
-              "status": "To Do",
-              "assignee": "Unassigned",
+              "status": "In Progress",
+              "assignee": "Chellappan, Jagadeesh",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-143"
             },
@@ -1665,8 +1665,8 @@
               "catId": "1535",
               "catIdLabel": "CAT-ID-1535",
               "summary": "Data Validation | CAT ID 1535 | SR Value & SR Quality Attributes (%T2B)",
-              "status": "To Do",
-              "assignee": "Unassigned",
+              "status": "In Progress",
+              "assignee": "Chellappan, Jagadeesh",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-144"
             },
@@ -1675,8 +1675,8 @@
               "catId": "1535",
               "catIdLabel": "CAT-ID-1535",
               "summary": "Export Validation | CAT ID 1535 | SR Value & SR Quality Attributes (%T2B)",
-              "status": "To Do",
-              "assignee": "Unassigned",
+              "status": "In Progress",
+              "assignee": "Chellappan, Jagadeesh",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-145"
             }
@@ -1957,8 +1957,8 @@
           "catId": "1546",
           "catIdLabel": "CAT-ID-1546",
           "summary": "OA Migration | CAT ID 1546 | Frequency of Meal Provided",
-          "status": "To Do",
-          "assignee": "Unassigned",
+          "status": "In Progress",
+          "assignee": "K, Prathibha",
           "priority": "Low",
           "sprint": "ΓÇö",
           "release": "Release 1 - Promo (GenMed, ONC and BISO)",
@@ -1970,8 +1970,8 @@
               "catId": "1546",
               "catIdLabel": "CAT-ID-1546",
               "summary": "UI Validation | CAT ID 1546 | Frequency of Meal Provided",
-              "status": "To Do",
-              "assignee": "Unassigned",
+              "status": "In Progress",
+              "assignee": "K, Prathibha",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-119"
             },
@@ -1990,8 +1990,8 @@
               "catId": "1546",
               "catIdLabel": "CAT-ID-1546",
               "summary": "Export Validation | CAT ID 1546 | Frequency of Meal Provided",
-              "status": "To Do",
-              "assignee": "Unassigned",
+              "status": "In Progress",
+              "assignee": "K, Prathibha",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-121"
             }
