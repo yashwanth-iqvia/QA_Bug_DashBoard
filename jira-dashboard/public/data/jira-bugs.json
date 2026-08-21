@@ -1,8 +1,80 @@
 {
-  "total": 48,
+  "total": 50,
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T16:12:01.679897+00:00",
+  "syncedAt": "2026-08-21T16:54:51.752044+00:00",
   "issues": [
+    {
+      "id": "7370748",
+      "key": "BIIH-324",
+      "fields": {
+        "summary": "UI - Report title displays incorrect font color",
+        "description": "The report title in OA is displaying in black (RGB 0,0,0) instead of the expected color (RGB 43,58,66). This results in a visual inconsistency in the report title at the top of the slide and does not align with the expected styling.\r\n*Expected Behavior:*\r\nReport title should be displayed using color {*}RGB(43,58,66){*}.\r\n*Actual Behavior:*\r\nReport title is displayed using color *RGB(0,0,0)* (black).\r\n*Impact:*\r\nImpact is currently {*}unknown{*}. User is unsure whether the issue affects only certain CatIDs or multiple CatIDs.\r\n*Reference report link in OA:*\r\n[OA Report|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n*Similar Jira Check:*\r\nJira reference provided: BIIH-45\r\nNo duplicate analysis was performed.\r\n*Additional Notes:* * Issue classified as a *UI* defect.\r\n * the report title color is rendered as RGB(0,0,0).\r\n * Expected color should be RGB(43,58,66).\r\n * Scope (specific CatID vs. multiple CatIDs) requires further validation.",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Altschuler, Karen"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T18:45:01.000+0200",
+        "updated": "2026-08-21T18:45:01.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7370722",
+      "key": "BIIH-323",
+      "fields": {
+        "summary": "BIIH-30",
+        "description": "In OA, when exporting line chart templates, the exported output does not display the correct line width. These chart elements are expected to be present in the export to ensure consistency between the on-screen visualization and the exported file. The issue has been observed across multiple CatIDs, indicating a broader export rendering defect rather than a template-specific problem. \r\nh3. Expected Behavior: \r\n* Exported line charts should display all configured line width for all brands.  \r\n* Exported charts should match the chart formatting and visualization displayed within OA. \r\n\r\nh3. Actual Behavior: \r\n* Line width are not same as in the exported line charts. \r\n* The exported chart does not fully match the visualization shown in OA. \r\n\r\nh3. Impact: \r\n* Users receive incomplete chart visualizations in exported reports, which may impact analysis and presentation quality. \r\n\r\nh3. Reference Report Link in OA: \r\n[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1383]",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Parveen, Afsana"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T18:34:04.000+0200",
+        "updated": "2026-08-21T18:34:04.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
     {
       "id": "7357189",
       "key": "BIIH-309",

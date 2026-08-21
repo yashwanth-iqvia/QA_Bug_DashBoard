@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T16:12:08.027363+00:00",
+  "syncedAt": "2026-08-21T16:54:55.960495+00:00",
   "project": "BIIH",
   "source": "github-actions",
   "versions": [
@@ -427,8 +427,8 @@
           "catId": "1512",
           "catIdLabel": "CAT-ID-1512",
           "summary": "OA Migration | CAT ID 1512 | Share of Attention - Indication Details",
-          "status": "UAT",
-          "assignee": "Parveen, Afsana",
+          "status": "In Review",
+          "assignee": "Lenin, Vishal",
           "priority": "Low",
           "sprint": "ΓÇö",
           "release": "Release 1 - Promo (GenMed, ONC and BISO)",
@@ -440,8 +440,8 @@
               "catId": "1512",
               "catIdLabel": "CAT-ID-1512",
               "summary": "UI Validation | CAT ID 1512 | Share of Attention - Indication Details",
-              "status": "UAT",
-              "assignee": "Parveen, Afsana",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-28"
             },
@@ -450,8 +450,8 @@
               "catId": "1512",
               "catIdLabel": "CAT-ID-1512",
               "summary": "Data Validation | CAT ID 1512 | Share of Attention - Indication Details",
-              "status": "UAT",
-              "assignee": "Parveen, Afsana",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-29"
             },
@@ -460,8 +460,8 @@
               "catId": "1512",
               "catIdLabel": "CAT-ID-1512",
               "summary": "Export Validation | CAT ID 1512 | Share of Attention - Indication Details",
-              "status": "UAT",
-              "assignee": "Parveen, Afsana",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-30"
             }
@@ -506,7 +506,7 @@
               "catIdLabel": "CAT-ID-1514",
               "summary": "Export Validation | CAT ID 1514 | Channel Distribution by Product",
               "status": "Client UAT",
-              "assignee": "Altschuler, Karen",
+              "assignee": "Ahmad, Israr",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-53"
             }
