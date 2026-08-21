@@ -4,7 +4,7 @@ import { ShareTeamDialog } from '@/components/layout/ShareTeamDialog';
 import { formatDate } from '@/lib/utils';
 import { STATIC_MODE } from '@/services/jira/apiBase';
 import { formatCountdown } from '@/hooks/useRefreshCountdown';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface HeaderProps {
   darkMode: boolean;
@@ -14,6 +14,7 @@ interface HeaderProps {
   onToggleAgent: () => void;
   agentOpen: boolean;
   loading: boolean;
+  syncing?: boolean;
   syncedAt: string | null;
   autoRefresh: boolean;
   onToggleAutoRefresh: () => void;
@@ -21,42 +22,61 @@ interface HeaderProps {
   refreshIntervalMs: number;
 }
 
-/** Isolated countdown — ticks every second without re-rendering the dashboard. */
+/** Isolated countdown — ticks every second; triggers refresh when due. */
 function RefreshCountdown({
   enabled,
   lastRefreshAt,
   intervalMs,
+  syncing,
+  onDue,
 }: {
   enabled: boolean;
   lastRefreshAt: number | null;
   intervalMs: number;
+  syncing?: boolean;
+  onDue: () => void;
 }) {
-  const [label, setLabel] = useState(formatCountdown(Math.ceil(intervalMs / 1000)));
+  const [secondsLeft, setSecondsLeft] = useState(Math.ceil(intervalMs / 1000));
+  const dueFiredRef = useRef(false);
+  const onDueRef = useRef(onDue);
+  onDueRef.current = onDue;
 
   useEffect(() => {
-    if (!enabled || !lastRefreshAt) {
-      setLabel(formatCountdown(Math.ceil(intervalMs / 1000)));
-      return;
-    }
+    if (!enabled) return;
 
     const tick = () => {
+      if (!lastRefreshAt) {
+        setSecondsLeft(Math.ceil(intervalMs / 1000));
+        return;
+      }
+
       const remaining = Math.max(0, intervalMs - (Date.now() - lastRefreshAt));
-      setLabel(formatCountdown(Math.ceil(remaining / 1000)));
+      const secs = Math.ceil(remaining / 1000);
+      setSecondsLeft(secs);
+
+      if (secs <= 0 && !dueFiredRef.current && !syncing) {
+        dueFiredRef.current = true;
+        onDueRef.current();
+      }
+      if (secs > 0) {
+        dueFiredRef.current = false;
+      }
     };
 
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, [enabled, lastRefreshAt, intervalMs]);
+  }, [enabled, lastRefreshAt, intervalMs, syncing]);
 
   if (!enabled) return null;
 
   const minutes = intervalMs / 60_000;
+  const display = syncing || secondsLeft <= 0 ? 'Refreshing now…' : formatCountdown(secondsLeft);
 
   return (
     <p className="mt-0.5 flex items-center gap-1 text-xs font-medium text-blue-600 dark:text-blue-400">
-      <Clock size={12} />
-      Auto-refreshes every {minutes} min — Next in {label}
+      <Clock size={12} className={syncing ? 'animate-spin' : ''} />
+      Auto-refreshes every {minutes} min — Next in {display}
     </p>
   );
 }
@@ -69,6 +89,7 @@ export function Header({
   onToggleAgent,
   agentOpen,
   loading,
+  syncing,
   syncedAt,
   autoRefresh,
   onToggleAutoRefresh,
@@ -92,6 +113,8 @@ export function Header({
               enabled={autoRefresh}
               lastRefreshAt={lastRefreshAt}
               intervalMs={refreshIntervalMs}
+              syncing={syncing}
+              onDue={onRefresh}
             />
           </div>
         </div>
@@ -102,8 +125,8 @@ export function Header({
           <Button variant="ghost" onClick={onToggleAutoRefresh}>
             {autoRefresh ? 'Auto Refresh: ON' : 'Auto Refresh: OFF'}
           </Button>
-          <Button variant="secondary" onClick={onRefresh} disabled={loading}>
-            <RefreshCw size={16} className={loading ? 'animate-spin' : ''} /> Refresh
+          <Button variant="secondary" onClick={onRefresh} disabled={loading || syncing}>
+            <RefreshCw size={16} className={loading || syncing ? 'animate-spin' : ''} /> Refresh
           </Button>
           <Button variant="secondary" onClick={onExport}>
             <Download size={16} /> Export
