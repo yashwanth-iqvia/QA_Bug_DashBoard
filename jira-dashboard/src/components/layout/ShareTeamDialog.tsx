@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Share2, Copy, Check, X } from 'lucide-react';
+import { Share2, Copy, Check, X, Globe } from 'lucide-react';
+import { apiUrl, STATIC_MODE } from '@/services/jira/apiBase';
+
+const GITHUB_PAGES_URL = 'https://yashwanth-iqvia.github.io/QA_Bug_DashBoard/';
 
 interface ShareInfo {
   name: string;
@@ -14,8 +17,8 @@ export function ShareTeamDialog() {
   const [copied, setCopied] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!open) return;
-    fetch('/api/share-info')
+    if (!open || STATIC_MODE) return;
+    fetch(apiUrl('/api/share-info'))
       .then((r) => (r.ok ? r.json() : null))
       .then(setInfo)
       .catch(() => undefined);
@@ -45,9 +48,7 @@ export function ShareTeamDialog() {
             <div className="flex items-start justify-between">
               <div>
                 <h2 className="text-lg font-bold text-slate-900 dark:text-white">Share with Team</h2>
-                <p className="mt-1 text-sm text-slate-500">
-                  Share your local dashboard URL with colleagues on the same network.
-                </p>
+                <p className="mt-1 text-sm text-slate-500">Free internal dashboard — no paid hosting needed.</p>
               </div>
               <button type="button" onClick={() => setOpen(false)} className="rounded-lg p-1 hover:bg-slate-100 dark:hover:bg-slate-800">
                 <X size={20} />
@@ -55,23 +56,37 @@ export function ShareTeamDialog() {
             </div>
 
             <div className="mt-4 space-y-3">
-              <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                Live Jira data requires the API server. Run <code className="text-xs">npm run dev</code> and share one of these URLs:
-              </p>
-              {teamUrls.length ? (
-                teamUrls.map((url) => (
-                  <div key={url} className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-800">
-                    <code className="flex-1 break-all text-sm">{url}</code>
-                    <button type="button" onClick={() => copy(url)} className="shrink-0 rounded-lg border px-2 py-1 text-xs">
-                      {copied === url ? <Check size={14} /> : <Copy size={14} />}
-                    </button>
-                  </div>
-                ))
-              ) : (
-                <p className="text-xs text-slate-500">Run npm run dev to detect local network URL.</p>
-              )}
-              {info?.note && (
-                <p className="text-xs text-slate-500">{info.note}</p>
+              <div className="rounded-lg border-2 border-blue-300 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-950/30">
+                <div className="flex items-center gap-2 font-semibold text-blue-900 dark:text-blue-200">
+                  <Globe size={16} /> GitHub Pages (recommended — free)
+                </div>
+                <div className="mt-2 flex items-center gap-2">
+                  <code className="flex-1 break-all text-sm font-semibold text-blue-800 dark:text-blue-200">{GITHUB_PAGES_URL}</code>
+                  <button type="button" onClick={() => copy(GITHUB_PAGES_URL)} className="shrink-0 rounded-lg bg-blue-600 px-3 py-1.5 text-xs text-white hover:bg-blue-700">
+                    {copied === GITHUB_PAGES_URL ? <Check size={14} /> : <Copy size={14} />}
+                  </button>
+                </div>
+                <p className="mt-2 text-xs text-blue-700 dark:text-blue-300">
+                  Jira data auto-syncs every 15 minutes via GitHub Actions. See GITHUB_PAGES_SETUP.md
+                </p>
+              </div>
+
+              {!STATIC_MODE && (
+                <>
+                  <p className="text-sm font-medium text-slate-600 dark:text-slate-400">Local network (live Jira — PC must stay on):</p>
+                  {teamUrls.length ? (
+                    teamUrls.map((url) => (
+                      <div key={url} className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-800">
+                        <code className="flex-1 break-all text-sm">{url}</code>
+                        <button type="button" onClick={() => copy(url)} className="shrink-0 rounded-lg border px-2 py-1 text-xs">
+                          {copied === url ? <Check size={14} /> : <Copy size={14} />}
+                        </button>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-xs text-slate-500">Run npm run dev to detect local network URL.</p>
+                  )}
+                </>
               )}
             </div>
           </div>

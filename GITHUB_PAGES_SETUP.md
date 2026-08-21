@@ -1,20 +1,20 @@
-# GitHub Pages — QA Bug Dashboard
+# GitHub Pages — QA Bug Dashboard (Free)
 
-## Your team URL
+## Team URL
 
 ```
 https://yashwanth-iqvia.github.io/QA_Bug_DashBoard/
 ```
 
-Share this with your team — works from anywhere, no VPN or your PC needed.
+**100% free** — no Render, no paid hosting. GitHub Actions fetches live Jira data every 15 minutes and deploys to Pages.
 
 ---
 
-## One-time setup (after code is pushed)
+## One-time setup
 
 ### 1. Add GitHub Secrets
 
-Repo **yashwanth-iqvia/QA_Bug_DashBoard** → Settings → Secrets → Actions:
+Repo **Settings → Secrets and variables → Actions**:
 
 | Secret | Value |
 |--------|-------|
@@ -27,12 +27,12 @@ Settings → Pages → Source: **GitHub Actions**
 
 ### 3. Run workflows
 
-1. Actions → **Sync Jira Data** → Run workflow
+1. Actions → **Sync Jira Data** → Run workflow (fetches live Jira → commits JSON)
 2. Actions → **Deploy to GitHub Pages** → Run workflow
 
 ---
 
-## Auto-updates
+## Auto-updates (free)
 
 | Workflow | Schedule |
 |----------|----------|
@@ -41,8 +41,38 @@ Settings → Pages → Source: **GitHub Actions**
 
 ---
 
+## Local development (live Jira)
+
+For real-time Jira data while developing:
+
+```bash
+cd jira-dashboard
+npm run dev
+```
+
+Open http://localhost:5175
+
+---
+
 ## Troubleshooting
 
-- **404:** Repo name must match `VITE_BASE_PATH=/QA_Bug_DashBoard/` in `.env.production`
-- **Empty data:** Run Sync Jira Data workflow manually first
-- **Auth errors:** Check Jira secrets and PAT expiry
+| Issue | Fix |
+|-------|-----|
+| **Empty dashboard** | Run **Sync Jira Data** workflow first, then redeploy Pages |
+| **404 on Pages** | Repo name must match `VITE_BASE_PATH=/QA_Bug_DashBoard/` |
+| **Auth errors** | Check JIRA secrets and PAT expiry in GitHub Settings |
+
+---
+
+## How it works
+
+```
+GitHub Actions (every 15 min)
+    ↓  reads live Jira API (read-only)
+    ↓  writes jira-bugs.json + jira-releases.json
+GitHub Pages (free static hosting)
+    ↓  dashboard loads synced data
+Your team browser
+```
+
+No paid services required for internal team use.
