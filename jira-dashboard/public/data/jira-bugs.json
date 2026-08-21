@@ -1,8 +1,44 @@
 {
   "total": 47,
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T04:41:53.938772+00:00",
+  "syncedAt": "2026-08-21T05:17:17.715642+00:00",
   "issues": [
+    {
+      "id": "7347280",
+      "key": "BIIH-174",
+      "fields": {
+        "summary": "UI - Y-axis title is missing '%' symbol and Y-axis line for certain CatIDs",
+        "description": "*Description:*\r\nFor certain CatIDs, OA does not render the Y-axis title completely. The '%' symbol is missing from the Y-axis title, and the Y-axis line is also not displayed. CDOM represents the expected behavior, where both the Y-axis title (including the '%' symbol) and the Y-axis line are displayed correctly. This creates a visual inconsistency and may lead to incorrect interpretation of percentage-based metrics in OA.\r\n*Expected Behavior:* * The Y-axis title should display the '%' symbol correctly.\r\n * The Y-axis line should be visible and rendered as per the chart configuration.\r\n * OA should match the behavior observed in CDOM.\r\n\r\n*Actual Behavior:* * The '%' symbol is not displayed in the Y-axis title.\r\n * The Y-axis line is missing from the chart.\r\n * The chart appears incomplete compared to the expected CDOM rendering.\r\n\r\n*Impact:*\r\nAffects only certain CatIDs (legacy report templates).\r\n*Reference report link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n!Line.png|thumbnail!",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Buddamallagari, Sambasivareddy"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-14T09:10:23.000+0200",
+        "updated": "2026-08-21T06:45:04.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "*Expected Behavior:* * The Y-axis title should display the '%' symbol correctly.\r\n * The Y-axis line should be visible and rendered as per the chart configuration.\r\n * OA should match the behavior observed in CDOM.",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
     {
       "id": "7335717",
       "key": "BIIH-157",
@@ -652,42 +688,6 @@
           "key": "BIIH"
         },
         "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7347280",
-      "key": "BIIH-174",
-      "fields": {
-        "summary": "UI - Y-axis title is missing '%' symbol and Y-axis line for certain CatIDs",
-        "description": "*Description:*\r\nFor certain CatIDs, OA does not render the Y-axis title completely. The '%' symbol is missing from the Y-axis title, and the Y-axis line is also not displayed. CDOM represents the expected behavior, where both the Y-axis title (including the '%' symbol) and the Y-axis line are displayed correctly. This creates a visual inconsistency and may lead to incorrect interpretation of percentage-based metrics in OA.\r\n*Expected Behavior:* * The Y-axis title should display the '%' symbol correctly.\r\n * The Y-axis line should be visible and rendered as per the chart configuration.\r\n * OA should match the behavior observed in CDOM.\r\n\r\n*Actual Behavior:* * The '%' symbol is not displayed in the Y-axis title.\r\n * The Y-axis line is missing from the chart.\r\n * The chart appears incomplete compared to the expected CDOM rendering.\r\n\r\n*Impact:*\r\nAffects only certain CatIDs (legacy report templates).\r\n*Reference report link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n!Line.png|thumbnail!",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Buddamallagari, Sambasivareddy"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-14T09:10:23.000+0200",
-        "updated": "2026-08-20T10:06:03.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "*Expected Behavior:* * The Y-axis title should display the '%' symbol correctly.\r\n * The Y-axis line should be visible and rendered as per the chart configuration.\r\n * OA should match the behavior observed in CDOM.",
         "customfield_10020": [],
         "customfield_10016": null,
         "customfield_10002": null
