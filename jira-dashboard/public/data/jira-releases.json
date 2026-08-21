@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T19:00:46.230535+00:00",
+  "syncedAt": "2026-08-21T19:39:17.189256+00:00",
   "project": "BIIH",
   "source": "github-actions",
   "versions": [
@@ -58,8 +58,8 @@
         "totalStories": 56,
         "totalSubtasks": 168,
         "completedStories": 0,
-        "inProgressStories": 31,
-        "pendingStories": 25
+        "inProgressStories": 30,
+        "pendingStories": 26
       },
       "stories": [
         {
@@ -427,8 +427,8 @@
           "catId": "1512",
           "catIdLabel": "CAT-ID-1512",
           "summary": "OA Migration | CAT ID 1512 | Share of Attention - Indication Details",
-          "status": "In Review",
-          "assignee": "Lenin, Vishal",
+          "status": "In Testing",
+          "assignee": "Rajesh, Darwin Jeya",
           "priority": "Low",
           "sprint": "ΓÇö",
           "release": "Release 1 - Promo (GenMed, ONC and BISO)",
@@ -440,8 +440,8 @@
               "catId": "1512",
               "catIdLabel": "CAT-ID-1512",
               "summary": "UI Validation | CAT ID 1512 | Share of Attention - Indication Details",
-              "status": "In Review",
-              "assignee": "Lenin, Vishal",
+              "status": "In Testing",
+              "assignee": "Rajesh, Darwin Jeya",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-28"
             },
@@ -450,8 +450,8 @@
               "catId": "1512",
               "catIdLabel": "CAT-ID-1512",
               "summary": "Data Validation | CAT ID 1512 | Share of Attention - Indication Details",
-              "status": "In Review",
-              "assignee": "Lenin, Vishal",
+              "status": "In Testing",
+              "assignee": "Rajesh, Darwin Jeya",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-29"
             },
@@ -460,8 +460,8 @@
               "catId": "1512",
               "catIdLabel": "CAT-ID-1512",
               "summary": "Export Validation | CAT ID 1512 | Share of Attention - Indication Details",
-              "status": "In Review",
-              "assignee": "Lenin, Vishal",
+              "status": "In Testing",
+              "assignee": "Rajesh, Darwin Jeya",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-30"
             }
@@ -1912,7 +1912,7 @@
           "catId": "1544",
           "catIdLabel": "CAT-ID-1544",
           "summary": "OA Migration | CAT ID 1544 | Share of Attention: Interpersonal vs. Nonpersonal",
-          "status": "In Review",
+          "status": "On Hold",
           "assignee": "Lenin, Vishal",
           "priority": "Low",
           "sprint": "ΓÇö",
@@ -1925,7 +1925,7 @@
               "catId": "1544",
               "catIdLabel": "CAT-ID-1544",
               "summary": "UI Validation | CAT ID 1544 | Share of Attention: Interpersonal vs. Nonpersonal",
-              "status": "In Review",
+              "status": "On Hold",
               "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-43"
@@ -1935,7 +1935,7 @@
               "catId": "1544",
               "catIdLabel": "CAT-ID-1544",
               "summary": "Data Validation | CAT ID 1544 | Share of Attention: Interpersonal vs. Nonpersonal",
-              "status": "In Review",
+              "status": "On Hold",
               "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-44"
@@ -1945,7 +1945,7 @@
               "catId": "1544",
               "catIdLabel": "CAT-ID-1544",
               "summary": "Export Validation | CAT ID 1544 | Share of Attention: Interpersonal vs. Nonpersonal",
-              "status": "In Review",
+              "status": "On Hold",
               "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-45"
