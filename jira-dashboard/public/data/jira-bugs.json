@@ -1,8 +1,44 @@
 {
   "total": 48,
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T14:55:22.040433+00:00",
+  "syncedAt": "2026-08-21T15:40:01.842892+00:00",
   "issues": [
+    {
+      "id": "7357189",
+      "key": "BIIH-309",
+      "fields": {
+        "summary": "UI - Pie chart title displays additional current month and year",
+        "description": "In OA, the pie chart title is displaying the current month and year as additional text. As per the expected behavior (CDOM requirement), the chart title should display only the configured title without automatically appending the current month and year. This issue is observed only for certain CatIDs.\r\nh3. Expected Behavior:\r\nThe pie chart title should display only the intended/configured title and should not append the current month and year unless explicitly defined in the report configuration.\r\nh3. Actual Behavior:\r\nThe pie chart title is automatically displaying the current month and year in addition to the configured title.\r\nh3. Impact:\r\nAffects *only certain CatIDs* (legacy-system report templates).\r\nh3. Reference report link in OA:\r\n[OA Report|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1822]",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "V K, Yogesh"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-18T12:38:01.000+0200",
+        "updated": "2026-08-21T17:29:41.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
     {
       "id": "7341996",
       "key": "BIIH-166",
@@ -1410,42 +1446,6 @@
           "key": "BIIH"
         },
         "customfield_15048": "Expected Behavior:\r\nThe exported file should preserve the chart type and display the chart as a Donut chart, consistent with the OA report view and expected report configuration.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7357189",
-      "key": "BIIH-309",
-      "fields": {
-        "summary": "UI - Pie chart title displays additional current month and year",
-        "description": "In OA, the pie chart title is displaying the current month and year as additional text. As per the expected behavior (CDOM requirement), the chart title should display only the configured title without automatically appending the current month and year. This issue is observed only for certain CatIDs.\r\nh3. Expected Behavior:\r\nThe pie chart title should display only the intended/configured title and should not append the current month and year unless explicitly defined in the report configuration.\r\nh3. Actual Behavior:\r\nThe pie chart title is automatically displaying the current month and year in addition to the configured title.\r\nh3. Impact:\r\nAffects *only certain CatIDs* (legacy-system report templates).\r\nh3. Reference report link in OA:\r\n[OA Report|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1822]",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "V K, Yogesh"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-18T12:38:01.000+0200",
-        "updated": "2026-08-18T12:38:01.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
         "customfield_10020": [],
         "customfield_10016": null,
         "customfield_10002": null
