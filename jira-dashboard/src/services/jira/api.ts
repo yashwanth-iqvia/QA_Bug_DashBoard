@@ -1,6 +1,7 @@
 import type { JiraIssue } from '@/types/jira';
 import type { ReleaseStory, ReleaseSummaryStats, ReleaseVersion } from '@/types/releases';
-import { apiUrl, hasRemoteApi, isGitHubPagesHost } from '@/services/jira/apiBase';
+import { apiUrl, STATIC_MODE, staticDataUrl } from '@/services/jira/apiBase';
+import { computeReleaseSummary } from '@/lib/release-utils';
 
 interface IssuesResponse {
   total: number;
@@ -8,6 +9,7 @@ interface IssuesResponse {
   issues: JiraIssue[];
   syncedAt: string;
   error?: string;
+  source?: string;
 }
 
 interface VersionsResponse {
@@ -26,22 +28,35 @@ interface StoriesResponse {
   error?: string;
 }
 
-function apiUnavailableMessage(): string {
-  if (isGitHubPagesHost() && !hasRemoteApi()) {
-    return (
-      'GitHub Pages cannot call Jira directly. Deploy the API (see GITHUB_PAGES_SETUP.md), ' +
-      'set the VITE_API_URL GitHub secret, and redeploy Pages.'
-    );
-  }
-  return 'API server unavailable. Run `npm run dev` in jira-dashboard and open http://localhost:5175.';
+interface StaticReleasesPayload {
+  baseUrl?: string;
+  syncedAt?: string;
+  versions?: ReleaseVersion[];
+  releases?: Record<
+    string,
+    {
+      version?: string;
+      summary?: ReleaseSummaryStats;
+      stories?: ReleaseStory[];
+      error?: string;
+    }
+  >;
+  source?: string;
+  error?: string;
 }
+
+let staticReleasesCache: StaticReleasesPayload | null = null;
 
 async function parseJson<T>(res: Response): Promise<T> {
   const text = await res.text();
   const contentType = res.headers.get('content-type') || '';
   if (!contentType.includes('application/json')) {
     if (text.trimStart().startsWith('<!DOCTYPE') || text.trimStart().startsWith('<html')) {
-      throw new Error(apiUnavailableMessage());
+      throw new Error(
+        STATIC_MODE
+          ? 'Jira data not synced yet. Run Sync Jira Data workflow on GitHub Actions.'
+          : 'API server unavailable. Run `npm run dev` in jira-dashboard and open http://localhost:5175.',
+      );
     }
     throw new Error(text.slice(0, 200) || `Unexpected response (${res.status})`);
   }
@@ -50,7 +65,54 @@ async function parseJson<T>(res: Response): Promise<T> {
   return data;
 }
 
+async function loadStaticReleases(refresh = false): Promise<StaticReleasesPayload> {
+  if (!refresh && staticReleasesCache) return staticReleasesCache;
+  const res = await fetch(staticDataUrl('data/jira-releases.json'));
+  const data = await parseJson<StaticReleasesPayload>(res);
+  if (!data.releases || !Object.keys(data.releases).length) {
+    throw new Error(
+      data.source === 'placeholder'
+        ? 'No release data synced yet. Add JIRA secrets and run Sync Jira Data workflow.'
+        : 'Release data file is empty. Re-run the Jira sync workflow.',
+    );
+  }
+  staticReleasesCache = data;
+  return data;
+}
+
+async function fetchStaticIssues(issueType: 'all' | 'Bug'): Promise<IssuesResponse> {
+  const res = await fetch(staticDataUrl('data/jira-bugs.json'));
+  const data = await parseJson<IssuesResponse>(res);
+  if (!data.issues?.length) {
+    throw new Error(
+      data.source === 'placeholder'
+        ? 'No Jira data synced yet. Add JIRA secrets and run Sync Jira Data workflow.'
+        : 'Jira data file is empty. Run Sync Jira Data workflow on GitHub.',
+    );
+  }
+  const issues =
+    issueType === 'Bug'
+      ? data.issues.filter((i) => i.fields?.issuetype?.name === 'Bug')
+      : data.issues;
+  return { ...data, total: issues.length, issues };
+}
+
 export async function fetchJiraIssues(issueType: 'all' | 'Bug' = 'Bug', refresh = false): Promise<IssuesResponse> {
+  if (STATIC_MODE) {
+    if (refresh) {
+      return fetch(staticDataUrl(`data/jira-bugs.json?t=${Date.now()}`)).then((r) =>
+        parseJson<IssuesResponse>(r).then((data) => {
+          const issues =
+            issueType === 'Bug'
+              ? (data.issues || []).filter((i) => i.fields?.issuetype?.name === 'Bug')
+              : data.issues || [];
+          return { ...data, total: issues.length, issues };
+        }),
+      );
+    }
+    return fetchStaticIssues(issueType);
+  }
+
   const params = new URLSearchParams({ type: issueType });
   if (refresh) params.set('refresh', '1');
   const res = await fetch(apiUrl(`/api/jira/issues?${params}`));
@@ -58,12 +120,33 @@ export async function fetchJiraIssues(issueType: 'all' | 'Bug' = 'Bug', refresh 
 }
 
 export async function fetchReleaseVersions(refresh = false): Promise<VersionsResponse> {
+  if (STATIC_MODE) {
+    const data = await loadStaticReleases(refresh);
+    return {
+      versions: data.versions,
+      baseUrl: data.baseUrl,
+      syncedAt: data.syncedAt,
+    };
+  }
   const params = refresh ? '?refresh=1' : '';
   const res = await fetch(apiUrl(`/api/releases/versions${params}`));
   return parseJson(res);
 }
 
 export async function fetchReleaseStories(version: string, refresh = false): Promise<StoriesResponse> {
+  if (STATIC_MODE) {
+    const data = await loadStaticReleases(refresh);
+    const bundle = data.releases?.[version];
+    const stories = bundle?.stories || [];
+    return {
+      version,
+      baseUrl: data.baseUrl,
+      syncedAt: data.syncedAt,
+      summary: bundle?.summary || computeReleaseSummary(stories),
+      stories,
+      error: bundle?.error,
+    };
+  }
   const params = new URLSearchParams({ version });
   if (refresh) params.set('refresh', '1');
   const res = await fetch(apiUrl(`/api/releases/stories?${params}`));
@@ -71,21 +154,25 @@ export async function fetchReleaseStories(version: string, refresh = false): Pro
 }
 
 export async function fetchAgentStatus() {
+  if (STATIC_MODE) throw new Error('static-mode');
   const res = await fetch(apiUrl('/api/agent/status'));
   return parseJson(res);
 }
 
 export async function fetchAgentInsights() {
+  if (STATIC_MODE) throw new Error('static-mode');
   const res = await fetch(apiUrl('/api/agent/insights'));
   return parseJson(res);
 }
 
 export async function reindexAgent() {
+  if (STATIC_MODE) return { ok: true };
   const res = await fetch(apiUrl('/api/agent/reindex'), { method: 'POST' });
   return parseJson(res);
 }
 
 export async function postJson<T>(path: string, body: unknown): Promise<T> {
+  if (STATIC_MODE) throw new Error('static-mode');
   const res = await fetch(apiUrl(path), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -95,6 +182,11 @@ export async function postJson<T>(path: string, body: unknown): Promise<T> {
 }
 
 export async function getJson<T>(path: string): Promise<T> {
+  if (STATIC_MODE) throw new Error('static-mode');
   const res = await fetch(apiUrl(path));
   return parseJson(res);
+}
+
+export function clearStaticCache() {
+  staticReleasesCache = null;
 }

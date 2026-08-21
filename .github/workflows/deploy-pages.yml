@@ -1,14 +1,12 @@
 name: Deploy to GitHub Pages
 
-# Note: GitHub Pages serves static files only. The dashboard requires the Express
-# API server for live read-only Jira access. For production, run `npm run dev`
-# or deploy the full stack (Express + Vite build behind a reverse proxy).
-
 on:
   push:
     branches: [main, master]
     paths:
       - 'jira-dashboard/**'
+      - 'scripts/export_jira_for_pages.py'
+      - 'scripts/export_jira_releases_for_pages.py'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -27,6 +25,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Sync live Jira data before build
+        env:
+          JIRA_URL: ${{ secrets.JIRA_URL }}
+          JIRA_PERSONAL_TOKEN: ${{ secrets.JIRA_PERSONAL_TOKEN }}
+        run: |
+          pip install requests
+          python scripts/export_jira_for_pages.py
+          python scripts/export_jira_releases_for_pages.py
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -37,7 +48,7 @@ jobs:
         working-directory: jira-dashboard
         env:
           VITE_BASE_PATH: /QA_Bug_DashBoard/
-          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_STATIC_MODE: 'true'
         run: |
           npm ci
           npm run build

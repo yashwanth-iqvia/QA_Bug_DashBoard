@@ -17,7 +17,8 @@ import { useJiraIssues } from '@/hooks/useJiraIssues';
 import { useBugAgent } from '@/hooks/useBugAgent';
 import { applyFilters, computeReporterStats } from '@/lib/jira-utils';
 import { refreshAllJiraData } from '@/lib/queryClient';
-import { hasRemoteApi, isGitHubPagesHost } from '@/services/jira/apiBase';
+import { STATIC_MODE } from '@/services/jira/apiBase';
+import { clearStaticCache } from '@/services/jira/api';
 import { defaultFilters, type DashboardFilters } from '@/types/jira';
 
 const TEN_MINUTES = 10 * 60 * 1000;
@@ -42,7 +43,7 @@ export default function App() {
     autoRefresh ? TEN_MINUTES : 0,
   );
 
-  const agent = useBugAgent(autoRefresh ? TEN_MINUTES : 0);
+  const agent = useBugAgent(bugs, autoRefresh && !STATIC_MODE ? TEN_MINUTES : 0);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
@@ -64,11 +65,9 @@ export default function App() {
   const handleRefreshAll = async () => {
     setRefreshing(true);
     try {
-      await refreshAllJiraData();
-      await Promise.all([
-        refreshIssues(),
-        agent.refreshAgent(true),
-      ]);
+      if (STATIC_MODE) clearStaticCache();
+      else await refreshAllJiraData();
+      await Promise.all([refreshIssues(), agent.refreshAgent(true)]);
       if (activeModule === 'releases') {
         setReleaseRefreshToken((t) => t + 1);
       }
@@ -146,12 +145,12 @@ export default function App() {
             />
           ) : (
             <>
-              {error && <EmptyState title="API Failure" description={error} />}
+              {error && <EmptyState title="Data unavailable" description={error} />}
 
-              {isGitHubPagesHost() && !hasRemoteApi() && (
-                <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-sm text-amber-900 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
-                  GitHub Pages needs a hosted API. Deploy the Express server (see GITHUB_PAGES_SETUP.md), add the{' '}
-                  <code className="text-xs">VITE_API_URL</code> GitHub secret, then redeploy Pages.
+              {STATIC_MODE && syncedAt && (
+                <p className="rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-800 dark:border-blue-800 dark:bg-blue-950/30 dark:text-blue-200">
+                  GitHub Pages mode — data synced from Jira every 15 minutes via GitHub Actions. Last sync:{' '}
+                  {new Date(syncedAt).toLocaleString()}. AI Agent runs in-browser on this data.
                 </p>
               )}
 
@@ -166,6 +165,12 @@ export default function App() {
                   <Notifications bugs={displayBugs} previousCount={previousCount.current} />
 
                   <AgentWidgets insights={agent.insights} status={agent.status} loading={agent.loading} />
+
+                  {agent.usingLocalFallback && !STATIC_MODE && (
+                    <p className="rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-800 dark:border-blue-800 dark:bg-blue-950/30 dark:text-blue-200">
+                      Agent using local search from loaded bugs. Restart the server (`npm run dev`) for full AI knowledge base sync.
+                    </p>
+                  )}
 
                   {agent.error && (
                     <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-sm text-amber-800 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200">
