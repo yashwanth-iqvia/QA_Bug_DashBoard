@@ -65,10 +65,16 @@ async function parseJson<T>(res: Response): Promise<T> {
   return data;
 }
 
+/** Always cache-bust on GitHub Pages so CDN/browser never serves stale Jira JSON. */
+async function fetchStaticJson<T>(path: string): Promise<T> {
+  const url = `${staticDataUrl(path)}?t=${Date.now()}`;
+  const res = await fetch(url, { cache: 'no-store' });
+  return parseJson<T>(res);
+}
+
 async function loadStaticReleases(refresh = false): Promise<StaticReleasesPayload> {
   if (!refresh && staticReleasesCache) return staticReleasesCache;
-  const res = await fetch(staticDataUrl('data/jira-releases.json'));
-  const data = await parseJson<StaticReleasesPayload>(res);
+  const data = await fetchStaticJson<StaticReleasesPayload>('data/jira-releases.json');
   if (!data.releases || !Object.keys(data.releases).length) {
     throw new Error(
       data.source === 'placeholder'
@@ -81,8 +87,7 @@ async function loadStaticReleases(refresh = false): Promise<StaticReleasesPayloa
 }
 
 async function fetchStaticIssues(issueType: 'all' | 'Bug'): Promise<IssuesResponse> {
-  const res = await fetch(staticDataUrl('data/jira-bugs.json'));
-  const data = await parseJson<IssuesResponse>(res);
+  const data = await fetchStaticJson<IssuesResponse>('data/jira-bugs.json');
   if (!data.issues?.length) {
     throw new Error(
       data.source === 'placeholder'
@@ -97,24 +102,13 @@ async function fetchStaticIssues(issueType: 'all' | 'Bug'): Promise<IssuesRespon
   return { ...data, total: issues.length, issues };
 }
 
-export async function fetchJiraIssues(issueType: 'all' | 'Bug' = 'Bug', refresh = false): Promise<IssuesResponse> {
+export async function fetchJiraIssues(issueType: 'all' | 'Bug' = 'Bug', _refresh = false): Promise<IssuesResponse> {
   if (STATIC_MODE) {
-    if (refresh) {
-      return fetch(staticDataUrl(`data/jira-bugs.json?t=${Date.now()}`)).then((r) =>
-        parseJson<IssuesResponse>(r).then((data) => {
-          const issues =
-            issueType === 'Bug'
-              ? (data.issues || []).filter((i) => i.fields?.issuetype?.name === 'Bug')
-              : data.issues || [];
-          return { ...data, total: issues.length, issues };
-        }),
-      );
-    }
     return fetchStaticIssues(issueType);
   }
 
   const params = new URLSearchParams({ type: issueType });
-  if (refresh) params.set('refresh', '1');
+  if (_refresh) params.set('refresh', '1');
   const res = await fetch(apiUrl(`/api/jira/issues?${params}`));
   return parseJson(res);
 }

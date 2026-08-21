@@ -1,7 +1,8 @@
-import { RefreshCw, Download, Moon, Sun, Bug, ExternalLink, Bot } from 'lucide-react';
+import { RefreshCw, Download, Moon, Sun, Bug, ExternalLink, Bot, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/Card';
 import { ShareTeamDialog } from '@/components/layout/ShareTeamDialog';
 import { formatDate } from '@/lib/utils';
+import { STATIC_MODE } from '@/services/jira/apiBase';
 
 interface HeaderProps {
   darkMode: boolean;
@@ -14,6 +15,8 @@ interface HeaderProps {
   syncedAt: string | null;
   autoRefresh: boolean;
   onToggleAutoRefresh: () => void;
+  countdownLabel?: string;
+  refreshIntervalMinutes?: number;
 }
 
 export function Header({
@@ -27,6 +30,8 @@ export function Header({
   syncedAt,
   autoRefresh,
   onToggleAutoRefresh,
+  countdownLabel,
+  refreshIntervalMinutes = 15,
 }: HeaderProps) {
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur dark:border-slate-700 dark:bg-slate-950/95">
@@ -38,16 +43,19 @@ export function Header({
           <div>
             <h1 className="text-xl font-bold text-slate-900 dark:text-white">QA Bug Dashboard</h1>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Last sync: {syncedAt ? formatDate(syncedAt) : '—'}
-              {autoRefresh && ' · Auto-refresh ON'}
+              Last data pull: {syncedAt ? formatDate(syncedAt) : '—'}
+              {STATIC_MODE && ' · GitHub Pages'}
             </p>
+            {autoRefresh && countdownLabel && (
+              <p className="mt-0.5 flex items-center gap-1 text-xs font-medium text-blue-600 dark:text-blue-400">
+                <Clock size={12} />
+                Auto-refreshes every {refreshIntervalMinutes} min — Next in {countdownLabel}
+              </p>
+            )}
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <Button
-            variant={agentOpen ? 'primary' : 'secondary'}
-            onClick={onToggleAgent}
-          >
+          <Button variant={agentOpen ? 'primary' : 'secondary'} onClick={onToggleAgent}>
             <Bot size={16} /> AI Agent
           </Button>
           <Button variant="ghost" onClick={onToggleAutoRefresh}>

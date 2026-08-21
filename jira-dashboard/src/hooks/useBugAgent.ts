@@ -43,9 +43,15 @@ function bugToMatch(bug: BugRecord, similarity: number): SimilarBugMatch {
   };
 }
 
-export function useBugAgent(bugs: BugRecord[], autoRefreshMs = TEN_MINUTES) {
+export function useBugAgent(
+  bugs: BugRecord[],
+  autoRefreshMs = TEN_MINUTES,
+  dataSyncedAt: string | null = null,
+) {
   const bugsRef = useRef(bugs);
   bugsRef.current = bugs;
+  const syncedAtRef = useRef(dataSyncedAt);
+  syncedAtRef.current = dataSyncedAt;
 
   const queryClient = useQueryClient();
   const [usingLocalFallback, setUsingLocalFallback] = useState(STATIC_MODE);
@@ -120,7 +126,7 @@ export function useBugAgent(bugs: BugRecord[], autoRefreshMs = TEN_MINUTES) {
     setUsingLocalFallback(true);
     setLocalStatus({
       indexed: bugsRef.current.length,
-      lastIndexedAt: new Date().toISOString(),
+      lastIndexedAt: syncedAtRef.current || new Date().toISOString(),
       indexing: false,
       aiProvider: STATIC_MODE ? 'github-pages' : 'local-fallback',
       refreshIntervalMinutes: 15,
@@ -130,7 +136,7 @@ export function useBugAgent(bugs: BugRecord[], autoRefreshMs = TEN_MINUTES) {
 
   useEffect(() => {
     if (STATIC_MODE && bugs.length) applyLocalAgent();
-  }, [bugs.length, applyLocalAgent]);
+  }, [bugs.length, dataSyncedAt, applyLocalAgent]);
 
   const loading =
     !STATIC_MODE &&

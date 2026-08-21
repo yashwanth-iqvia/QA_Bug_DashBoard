@@ -6,9 +6,10 @@ interface AgentWidgetsProps {
   insights: AgentInsights | null;
   status: AgentStatus | null;
   loading?: boolean;
+  syncedAt?: string | null;
 }
 
-export function AgentWidgets({ insights, status, loading }: AgentWidgetsProps) {
+export function AgentWidgets({ insights, status, loading, syncedAt }: AgentWidgetsProps) {
   if (loading && !insights) {
     return (
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-5">
@@ -24,7 +25,7 @@ export function AgentWidgets({ insights, status, loading }: AgentWidgetsProps) {
     { title: 'Most Repeated Issues', value: insights.mostRepeatedIssues[0]?.name || '—', sub: `${insights.mostRepeatedIssues[0]?.count || 0} bugs`, icon: Layers, color: 'text-blue-600' },
     { title: 'Top Problem Module', value: insights.topProblemModules[0]?.name || '—', sub: `${insights.topProblemModules[0]?.count || 0} bugs`, icon: AlertTriangle, color: 'text-purple-600' },
     { title: 'AI Risk Detection', value: insights.aiRiskDetection, sub: 'critical/high open', icon: ShieldAlert, color: 'text-red-600' },
-    { title: 'KB Indexed Bugs', value: status?.indexed || 0, sub: status?.lastIndexedAt ? `Synced ${new Date(status.lastIndexedAt).toLocaleTimeString()}` : '', icon: Sparkles, color: 'text-green-600' },
+    { title: 'KB Indexed Bugs', value: status?.indexed || 0, sub: (syncedAt || status?.lastIndexedAt) ? `Synced ${new Date(syncedAt || status!.lastIndexedAt!).toLocaleString()}` : '', icon: Sparkles, color: 'text-green-600' },
   ];
 
   return (
@@ -33,7 +34,7 @@ export function AgentWidgets({ insights, status, loading }: AgentWidgetsProps) {
         <h2 className="text-lg font-semibold text-slate-900 dark:text-white">AI Bug Intelligence</h2>
         <p className="text-xs text-slate-500">
           Provider: {status?.aiProvider || 'local-rag'}
-          {status?.refreshIntervalHours ? ` · Refresh every ${status.refreshIntervalHours}h` : ''}
+          {status?.refreshIntervalMinutes ? ` · Refresh every ${status.refreshIntervalMinutes} min` : status?.refreshIntervalHours ? ` · Refresh every ${status.refreshIntervalHours}h` : ''}
           {status?.indexed ? ` · ${status.indexed} bugs indexed` : ''}
         </p>
       </div>
