@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T08:09:40.246642+00:00",
+  "syncedAt": "2026-08-21T08:59:57.362389+00:00",
   "project": "BIIH",
   "source": "github-actions",
   "versions": [
@@ -485,8 +485,8 @@
               "catId": "1514",
               "catIdLabel": "CAT-ID-1514",
               "summary": "UI Validation | CAT ID 1514 | Channel Distribution by Product",
-              "status": "UAT",
-              "assignee": "L, Bharathi",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-51"
             },
@@ -495,8 +495,8 @@
               "catId": "1514",
               "catIdLabel": "CAT-ID-1514",
               "summary": "Data Validation | CAT ID 1514 | Channel Distribution by Product",
-              "status": "UAT",
-              "assignee": "L, Bharathi",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-52"
             },
@@ -505,8 +505,8 @@
               "catId": "1514",
               "catIdLabel": "CAT-ID-1514",
               "summary": "Export Validation | CAT ID 1514 | Channel Distribution by Product",
-              "status": "UAT",
-              "assignee": "L, Bharathi",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-53"
             }
