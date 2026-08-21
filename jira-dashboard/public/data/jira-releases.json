@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T11:44:16.667202+00:00",
+  "syncedAt": "2026-08-21T12:16:10.578379+00:00",
   "project": "BIIH",
   "source": "github-actions",
   "versions": [
@@ -2227,8 +2227,8 @@
           "catId": "1558",
           "catIdLabel": "CAT-ID-1558",
           "summary": "OA Migration | CAT ID 1558 | Detail Effectiveness",
-          "status": "In Testing",
-          "assignee": "Rajath G V, Adhesh",
+          "status": "In Review",
+          "assignee": "Lenin, Vishal",
           "priority": "Low",
           "sprint": "ΓÇö",
           "release": "Release 1 - Promo (GenMed, ONC and BISO)",
@@ -2240,8 +2240,8 @@
               "catId": "1558",
               "catIdLabel": "CAT-ID-1558",
               "summary": "UI Validation | CAT ID 1558 | Detail Effectiveness",
-              "status": "In Testing",
-              "assignee": "Rajath G V, Adhesh",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-277"
             },
@@ -2250,8 +2250,8 @@
               "catId": "1558",
               "catIdLabel": "CAT-ID-1558",
               "summary": "Data Validation | CAT ID 1558 | Detail Effectiveness",
-              "status": "In Testing",
-              "assignee": "Rajath G V, Adhesh",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-278"
             },
@@ -2260,8 +2260,8 @@
               "catId": "1558",
               "catIdLabel": "CAT-ID-1558",
               "summary": "Export Validation | CAT ID 1558 | Detail Effectiveness",
-              "status": "In Testing",
-              "assignee": "Rajath G V, Adhesh",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-279"
             }
