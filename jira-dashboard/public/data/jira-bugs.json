@@ -1,8 +1,116 @@
 {
-  "total": 50,
+  "total": 55,
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T16:54:51.752044+00:00",
+  "syncedAt": "2026-08-21T17:34:46.381882+00:00",
   "issues": [
+    {
+      "id": "7370838",
+      "key": "BIIH-329",
+      "fields": {
+        "summary": "UI - Legend text font color is black and does not match requirement",
+        "description": "h3. Description:\r\nDuring review of {*}BIIH-45{*}, it was observed that the chart legend text in OA is displayed in black instead of the specified design color. According to the design specification, legend text should use {*}RGB(99, 100, 102){*}. OA is currently rendering the legend text as {*}RGB(0, 0, 0){*}, resulting in a visual inconsistency.\r\nh3. Expected Behavior:\r\nLegend text should display using {*}RGB(99, 100, 102){*}.\r\nh3. Actual Behavior:\r\nLegend text is displayed in {*}black (RGB(0, 0, 0)){*}.\r\nh3. Impact:\r\n*Unknown.* It has not been verified whether the issue affects only certain CatIDs or multiple CatIDs.\r\nh3. Reference report link in OA:\r\n[OA Report - Slide 1602|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\nh3. Similar Jira Check: No other CAT IDs were reviewed by tester yet for this issue. No bug tickets already exist. \r\n * *Issue Category:* UI\r\n * *Affected Element:* Chart legend text\r\n * *Expected Color:* RGB(99, 100, 102)\r\n * *Actual Color:* RGB(0, 0, 0)\r\n * Screenshot provided ",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Altschuler, Karen"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T19:31:04.000+0200",
+        "updated": "2026-08-21T19:31:04.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7370834",
+      "key": "BIIH-328",
+      "fields": {
+        "summary": "UI - X-axis dates and n/dr counts font color does not match requirement",
+        "description": "During review of {*}BIIH-45{*}, the X-axis date labels and the *n* and *dr* counts in OA were observed to display in black. These chart labels should use the specified gray font color to align with the approved visual design.\r\nh3. Expected Behavior:\r\nThe following chart elements should display in {*}RGB(99, 100, 102){*}: * X-axis date labels\r\n * n count\r\n * dr count\r\n\r\nh3. Actual Behavior:\r\nThe X-axis date labels and the n and dr counts display in {*}black, RGB(0, 0, 0){*}.\r\nh3. Impact:\r\n*Unknown.* It has not been verified whether the issue affects only certain CatIDs or multiple CatIDs.\r\nh3. Reference report link in OA:\r\n[View OA Report, Slide 1602|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\nh3. Similar Jira Check:\r\nNo other CAT IDs were reviewed by tester yet for this issue. No bug tickets already exist. \r\nh3. Additional Notes:\r\n * *Issue category:* UI\r\n * *Affected elements:* X-axis dates, n count, and DR count\r\n * *Expected color:* RGB(99, 100, 102)\r\n * *Actual color:* RGB(0, 0, 0)\r\n * Screenshot provided showing the issue ",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Altschuler, Karen"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T19:26:45.000+0200",
+        "updated": "2026-08-21T19:26:45.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7370831",
+      "key": "BIIH-327",
+      "fields": {
+        "summary": "UI - Chart gridline color does not match requirement",
+        "description": "h3. Description:\r\nDuring review of Jira issue {*}BIIH-45{*}, it was observed that the chart gridlines in OA are displayed using an incorrect color. According to the design specification, chart gridlines should use {*}RGB(242, 242, 242){*}. OA is currently rendering the gridlines as {*}RGB(230, 230, 230){*}, resulting in a visual inconsistency.\r\nh3. Expected Behavior:\r\nChart gridlines should display using {*}RGB(242, 242, 242){*}.\r\nh3. Actual Behavior:\r\nChart gridlines are displayed using {*}RGB(230, 230, 230){*}.\r\nh3. Impact:\r\n*Unknown.* It has not been verified whether the issue affects only certain CatIDs or multiple CatIDs.\r\nh3. Reference report link in OA:\r\n[OA Report - Slide 1602|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\nh3. Similar Jira Check:\r\nNo other CAT IDs were reviewed by tester yet for this issue. No bug tickets already exist. \r\nh3. Additional Notes:\r\n * Issue Category: *UI*\r\n * Expected gridline color: *RGB(242, 242, 242)*\r\n * Actual gridline color: *RGB(230, 230, 230)*\r\n * Screenshot evidence should be attached to the Jira ticket if available.",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Altschuler, Karen"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T19:21:13.000+0200",
+        "updated": "2026-08-21T19:21:13.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
     {
       "id": "7370748",
       "key": "BIIH-324",
@@ -25,7 +133,79 @@
           "displayName": "Unassigned"
         },
         "created": "2026-08-21T18:45:01.000+0200",
-        "updated": "2026-08-21T18:45:01.000+0200",
+        "updated": "2026-08-21T19:16:53.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7370811",
+      "key": "BIIH-325",
+      "fields": {
+        "summary": "UI - Chart title color displays as black instead of required color",
+        "description": "h3. Description:\r\nThe chart title color in OA is not aligned with the expected formatting requirement. The chart title is currently rendered in *RGB(0,0,0)* (black), whereas the required color should be {*}RGB(99,100,102){*}. This results in an inconsistency with the expected visual styling and report presentation standards.\r\nh3. Expected Behavior:\r\nChart titles should display using the required color: * *RGB(99,100,102)*\r\n\r\nh3. Actual Behavior:\r\nChart titles are displayed using: * *RGB(0,0,0)* (black)\r\n\r\nh3. Impact:\r\nImpact is currently {*}unknown{*}. It has not yet been confirmed whether the issue affects only specific CatIDs or multiple CatIDs.\r\nh3. Reference report link in OA:\r\n[View OA Report|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\nh3. Similar Jira Check:\r\nNo BIIH duplicate checks were performed.\r\nh3. Additional Notes:\r\n * Issue category inferred as {*}UI{*}.\r\n * Screenshot provided shows the chart title color mismatch.\r\n * Recommend validating whether the color issue is present across other chart types and CatIDs to determine scope.",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Altschuler, Karen"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T19:03:44.000+0200",
+        "updated": "2026-08-21T19:15:17.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7370818",
+      "key": "BIIH-326",
+      "fields": {
+        "summary": "UI - Y-axis title color is black and does not match requirement",
+        "description": "h3. Description:\r\nDuring review of Jira issue {*}BIIH-45{*}, it was observed that the Y-axis title in OA is displayed in black rather than the specified design color. According to the design requirements, the Y-axis title should use {*}RGB(99, 100, 102){*}. OA is currently rendering the title as {*}RGB(0, 0, 0){*}, resulting in a visual inconsistency.\r\nh3. Expected Behavior:\r\nThe Y-axis title should display using {*}RGB(99, 100, 102){*}.\r\nh3. Actual Behavior:\r\nThe Y-axis title is displayed in {*}black (RGB(0, 0, 0)){*}.\r\nh3. Impact:\r\n*Unknown.* It has not been verified whether the issue affects only certain CatIDs or multiple CatIDs.\r\nh3. Reference report link in OA:\r\n[OA Report - Slide 1602|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\nh3. Similar Jira Check:\r\nNo other CAT IDs were reviewed by tester yet for this issue. No bug tickets already exist. \r\nh3. Additional Notes:\r\n * Issue Category: *UI*\r\n * Expected color: *RGB(99, 100, 102)*\r\n * Actual color: *RGB(0, 0, 0)*\r\n * Screenshot evidence should be attached to the Jira ticket if available.",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Altschuler, Karen"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T19:13:50.000+0200",
+        "updated": "2026-08-21T19:13:50.000+0200",
         "resolutiondate": "",
         "labels": [],
         "components": [],
