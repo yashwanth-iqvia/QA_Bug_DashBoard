@@ -16,6 +16,7 @@ interface BugAgentPanelProps {
   onRefresh: () => void;
   agent: ReturnType<typeof useBugAgent>;
   loading?: boolean;
+  dataSyncedAt?: string | null;
 }
 
 const tabs: { id: AgentTab; label: string; icon: React.ReactNode }[] = [
@@ -34,6 +35,7 @@ export function BugAgentPanel({
   onRefresh,
   agent,
   loading,
+  dataSyncedAt,
 }: BugAgentPanelProps) {
   if (!open) return null;
 
@@ -49,7 +51,8 @@ export function BugAgentPanel({
             <h2 className="text-lg font-bold text-slate-900 dark:text-white">Bug Intelligence Agent</h2>
             <p className="text-xs text-slate-500 dark:text-slate-400">
               {agent.status?.indexed ? `${agent.status.indexed} bugs indexed` : 'Syncing knowledge base...'}
-              {agent.status?.lastIndexedAt && ` · ${new Date(agent.status.lastIndexedAt).toLocaleTimeString()}`}
+              {(dataSyncedAt || agent.status?.lastIndexedAt) &&
+                ` · ${new Date(dataSyncedAt || agent.status!.lastIndexedAt!).toLocaleString()}`}
             </p>
           </div>
         </div>

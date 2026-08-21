@@ -15,13 +15,16 @@ import { ReleasesView } from '@/components/releases/ReleasesView';
 import { EmptyState, Skeleton } from '@/components/ui/Card';
 import { useJiraIssues } from '@/hooks/useJiraIssues';
 import { useBugAgent } from '@/hooks/useBugAgent';
+import { FIFTEEN_MINUTES_MS, useRefreshCountdown } from '@/hooks/useRefreshCountdown';
 import { applyFilters, computeReporterStats } from '@/lib/jira-utils';
 import { refreshAllJiraData } from '@/lib/queryClient';
 import { STATIC_MODE } from '@/services/jira/apiBase';
 import { clearStaticCache } from '@/services/jira/api';
 import { defaultFilters, type DashboardFilters } from '@/types/jira';
 
-const TEN_MINUTES = 10 * 60 * 1000;
+const LIVE_REFRESH_MS = 10 * 60 * 1000;
+const REFRESH_MS = STATIC_MODE ? FIFTEEN_MINUTES_MS : LIVE_REFRESH_MS;
+const REFRESH_MINUTES = REFRESH_MS / 60_000;
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -36,18 +39,23 @@ export default function App() {
   const [releaseSyncedAt, setReleaseSyncedAt] = useState<string | null>(null);
   const [releaseLoading, setReleaseLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+  const [lastRefreshAt, setLastRefreshAt] = useState<number | null>(null);
   const previousCount = useRef<number>();
 
   const { bugs, allIssues, loading, error, syncedAt, refresh: refreshIssues } = useJiraIssues(
     filters.issueType,
-    autoRefresh ? TEN_MINUTES : 0,
+    autoRefresh ? REFRESH_MS : 0,
   );
 
-  const agent = useBugAgent(bugs, autoRefresh && !STATIC_MODE ? TEN_MINUTES : 0);
+  const agent = useBugAgent(bugs, autoRefresh && !STATIC_MODE ? LIVE_REFRESH_MS : 0, syncedAt);
+
+  const { label: countdownLabel } = useRefreshCountdown(REFRESH_MS, autoRefresh, lastRefreshAt);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
   }, [darkMode]);
+
+  const prevLoading = useRef(false);
 
   const displayBugs = useMemo(() => {
     const source = filters.issueType === 'all' ? allIssues : bugs;
@@ -55,6 +63,18 @@ export default function App() {
   }, [allIssues, bugs, filters]);
 
   const reporterStats = useMemo(() => computeReporterStats(displayBugs), [displayBugs]);
+
+  const headerSyncedAt =
+    activeModule === 'releases' ? releaseSyncedAt : syncedAt;
+  const headerLoading =
+    activeModule === 'releases' ? releaseLoading : loading || agent.loading || refreshing;
+
+  useEffect(() => {
+    if (prevLoading.current && !headerLoading) {
+      setLastRefreshAt(Date.now());
+    }
+    prevLoading.current = headerLoading;
+  }, [headerLoading]);
 
   useEffect(() => {
     if (!loading && bugs.length) {
@@ -71,6 +91,7 @@ export default function App() {
       if (activeModule === 'releases') {
         setReleaseRefreshToken((t) => t + 1);
       }
+      setLastRefreshAt(Date.now());
     } finally {
       setRefreshing(false);
     }
@@ -107,11 +128,6 @@ export default function App() {
     setSavedViewLoaded(true);
   };
 
-  const headerSyncedAt =
-    activeModule === 'releases' ? releaseSyncedAt : syncedAt || agent.status?.lastIndexedAt || null;
-  const headerLoading =
-    activeModule === 'releases' ? releaseLoading : loading || agent.loading || refreshing;
-
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       <Header
@@ -125,6 +141,8 @@ export default function App() {
         syncedAt={headerSyncedAt}
         autoRefresh={autoRefresh}
         onToggleAutoRefresh={() => setAutoRefresh((a) => !a)}
+        countdownLabel={countdownLabel}
+        refreshIntervalMinutes={REFRESH_MINUTES}
       />
 
       <div className="flex">
@@ -138,7 +156,7 @@ export default function App() {
           {activeModule === 'releases' ? (
             <ReleasesView
               autoRefresh={autoRefresh}
-              autoRefreshMs={TEN_MINUTES}
+              autoRefreshMs={REFRESH_MS}
               refreshToken={releaseRefreshToken}
               onSyncedAt={handleReleaseSyncedAt}
               onLoadingChange={handleReleaseLoading}
@@ -147,10 +165,10 @@ export default function App() {
             <>
               {error && <EmptyState title="Data unavailable" description={error} />}
 
-              {STATIC_MODE && syncedAt && (
+              {STATIC_MODE && syncedAt && !error && (
                 <p className="rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-800 dark:border-blue-800 dark:bg-blue-950/30 dark:text-blue-200">
-                  GitHub Pages mode — data synced from Jira every 15 minutes via GitHub Actions. Last sync:{' '}
-                  {new Date(syncedAt).toLocaleString()}. AI Agent runs in-browser on this data.
+                  GitHub Pages — Jira data pulled by GitHub Actions every 15 min. AI Agent searches this
+                  dataset in your browser. Click Refresh to reload the latest deployed JSON.
                 </p>
               )}
 
@@ -164,7 +182,7 @@ export default function App() {
                 <>
                   <Notifications bugs={displayBugs} previousCount={previousCount.current} />
 
-                  <AgentWidgets insights={agent.insights} status={agent.status} loading={agent.loading} />
+                  <AgentWidgets insights={agent.insights} status={agent.status} loading={agent.loading} syncedAt={syncedAt} />
 
                   {agent.usingLocalFallback && !STATIC_MODE && (
                     <p className="rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-800 dark:border-blue-800 dark:bg-blue-950/30 dark:text-blue-200">
@@ -225,6 +243,7 @@ export default function App() {
             onRefresh={() => handleRefreshAll()}
             agent={agent}
             loading={agent.loading || refreshing}
+            dataSyncedAt={syncedAt}
           />
         )}
       </div>
