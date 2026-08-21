@@ -15,7 +15,7 @@ import { ReleasesView } from '@/components/releases/ReleasesView';
 import { EmptyState, Skeleton } from '@/components/ui/Card';
 import { useJiraIssues } from '@/hooks/useJiraIssues';
 import { useBugAgent } from '@/hooks/useBugAgent';
-import { FIFTEEN_MINUTES_MS, useRefreshCountdown } from '@/hooks/useRefreshCountdown';
+import { FIFTEEN_MINUTES_MS } from '@/hooks/useRefreshCountdown';
 import { applyFilters, computeReporterStats } from '@/lib/jira-utils';
 import { refreshAllJiraData } from '@/lib/queryClient';
 import { STATIC_MODE } from '@/services/jira/apiBase';
@@ -24,7 +24,6 @@ import { defaultFilters, type DashboardFilters } from '@/types/jira';
 
 const LIVE_REFRESH_MS = 10 * 60 * 1000;
 const REFRESH_MS = STATIC_MODE ? FIFTEEN_MINUTES_MS : LIVE_REFRESH_MS;
-const REFRESH_MINUTES = REFRESH_MS / 60_000;
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -49,8 +48,6 @@ export default function App() {
 
   const agent = useBugAgent(bugs, autoRefresh && !STATIC_MODE ? LIVE_REFRESH_MS : 0, syncedAt);
 
-  const { label: countdownLabel } = useRefreshCountdown(REFRESH_MS, autoRefresh, lastRefreshAt);
-
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode);
   }, [darkMode]);
@@ -67,7 +64,15 @@ export default function App() {
   const headerSyncedAt =
     activeModule === 'releases' ? releaseSyncedAt : syncedAt;
   const headerLoading =
-    activeModule === 'releases' ? releaseLoading : loading || agent.loading || refreshing;
+    activeModule === 'releases'
+      ? releaseLoading
+      : (loading && bugs.length === 0) || agent.loading || refreshing;
+
+  useEffect(() => {
+    if (syncedAt && lastRefreshAt === null) {
+      setLastRefreshAt(Date.now());
+    }
+  }, [syncedAt, lastRefreshAt]);
 
   useEffect(() => {
     if (prevLoading.current && !headerLoading) {
@@ -141,8 +146,8 @@ export default function App() {
         syncedAt={headerSyncedAt}
         autoRefresh={autoRefresh}
         onToggleAutoRefresh={() => setAutoRefresh((a) => !a)}
-        countdownLabel={countdownLabel}
-        refreshIntervalMinutes={REFRESH_MINUTES}
+        lastRefreshAt={lastRefreshAt}
+        refreshIntervalMs={REFRESH_MS}
       />
 
       <div className="flex">
@@ -172,7 +177,7 @@ export default function App() {
                 </p>
               )}
 
-              {loading ? (
+              {loading && bugs.length === 0 ? (
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
                   {Array.from({ length: 8 }).map((_, i) => (
                     <Skeleton key={i} className="h-28" />
