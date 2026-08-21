@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T18:12:55.239661+00:00",
+  "syncedAt": "2026-08-21T19:00:46.230535+00:00",
   "project": "BIIH",
   "source": "github-actions",
   "versions": [
@@ -2362,8 +2362,8 @@
           "catId": "1561",
           "catIdLabel": "CAT-ID-1561",
           "summary": "OA Migration | CAT ID 1561 | Sales Rep Quality Attributes - Unique Encounters w/in Product Groups",
-          "status": "UAT",
-          "assignee": "Parveen, Afsana",
+          "status": "In Review",
+          "assignee": "Lenin, Vishal",
           "priority": "Low",
           "sprint": "ΓÇö",
           "release": "Release 1 - Promo (GenMed, ONC and BISO)",
@@ -2375,8 +2375,8 @@
               "catId": "1561",
               "catIdLabel": "CAT-ID-1561",
               "summary": "UI Validation | CAT ID 1561 | Sales Rep Quality Attributes - Unique Encounters w/in Product Groups",
-              "status": "UAT",
-              "assignee": "Parveen, Afsana",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-87"
             },
@@ -2385,8 +2385,8 @@
               "catId": "1561",
               "catIdLabel": "CAT-ID-1561",
               "summary": "Data Validation | CAT ID 1561 | Sales Rep Quality Attributes - Unique Encounters w/in Product Groups",
-              "status": "UAT",
-              "assignee": "Parveen, Afsana",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-88"
             },
@@ -2395,8 +2395,8 @@
               "catId": "1561",
               "catIdLabel": "CAT-ID-1561",
               "summary": "Export Validation | CAT ID 1561 | Sales Rep Quality Attributes - Unique Encounters w/in Product Groups",
-              "status": "UAT",
-              "assignee": "Parveen, Afsana",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-89"
             }
