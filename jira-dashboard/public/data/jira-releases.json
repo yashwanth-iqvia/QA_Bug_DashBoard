@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-21T15:40:06.774006+00:00",
+  "syncedAt": "2026-08-21T16:12:08.027363+00:00",
   "project": "BIIH",
   "source": "github-actions",
   "versions": [
@@ -473,7 +473,7 @@
           "catIdLabel": "CAT-ID-1514",
           "summary": "OA Migration | CAT ID 1514 | Channel Distribution by Product",
           "status": "Client UAT",
-          "assignee": "Altschuler, Karen",
+          "assignee": "Ahmad, Israr",
           "priority": "Low",
           "sprint": "ΓÇö",
           "release": "Release 1 - Promo (GenMed, ONC and BISO)",
@@ -486,7 +486,7 @@
               "catIdLabel": "CAT-ID-1514",
               "summary": "UI Validation | CAT ID 1514 | Channel Distribution by Product",
               "status": "Client UAT",
-              "assignee": "Altschuler, Karen",
+              "assignee": "Ahmad, Israr",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-51"
             },
@@ -496,7 +496,7 @@
               "catIdLabel": "CAT-ID-1514",
               "summary": "Data Validation | CAT ID 1514 | Channel Distribution by Product",
               "status": "Client UAT",
-              "assignee": "Altschuler, Karen",
+              "assignee": "Ahmad, Israr",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-52"
             },
