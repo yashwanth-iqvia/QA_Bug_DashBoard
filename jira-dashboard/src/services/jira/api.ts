@@ -26,7 +26,17 @@ interface StoriesResponse {
 }
 
 async function parseJson<T>(res: Response): Promise<T> {
-  const data = (await res.json()) as T & { error?: string };
+  const text = await res.text();
+  const contentType = res.headers.get('content-type') || '';
+  if (!contentType.includes('application/json')) {
+    if (text.trimStart().startsWith('<!DOCTYPE') || text.trimStart().startsWith('<html')) {
+      throw new Error(
+        'API server unavailable. Run `npm run dev` in jira-dashboard and open http://localhost:5175 (not GitHub Pages or vite preview alone).',
+      );
+    }
+    throw new Error(text.slice(0, 200) || `Unexpected response (${res.status})`);
+  }
+  const data = JSON.parse(text) as T & { error?: string };
   if (!res.ok) throw new Error(data.error || `Request failed (${res.status})`);
   return data;
 }
