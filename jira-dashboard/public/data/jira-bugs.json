@@ -1,8 +1,584 @@
 {
-  "total": 56,
+  "total": 64,
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-22T00:01:43.395583+00:00",
+  "syncedAt": "2026-08-22T01:52:27.227029+00:00",
   "issues": [
+    {
+      "id": "7371067",
+      "key": "BIIH-338",
+      "fields": {
+        "summary": "Export - Y-axis scale missing percent (%) signs",
+        "description": "*EXPORT:* Y-axis scale showing as Integers instead of Percentages (missing % signs).\r\n\r\n*Expected Behavior:*\r\n\r\nY-axis scale should show as percentages with % signs.\r\n\r\n!Expected Y-axis percent signs_Export_1511_Screenshot 2026-08-21 210649.png!\r\n\r\n*Actual Behavior:*\r\nY-axis scale showing as integer (no % sign).\r\n\r\n!Actual Y-axis percent signs_Export_1511_Screenshot 2026-08-21 210649.png!\r\n\r\n*Impact:*\r\nMultiple CAT IDs\r\n\r\n*Reference Report Link:*\r\n\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n[^Share_of_Attention_-_Indication_Details-1511_AJ_082126.pptx]\r\n\r\n*Screenshots provided above for both Expected & Actual scenarios.*",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Joseph, Adrienne"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-22T03:32:08.000+0200",
+        "updated": "2026-08-22T03:32:08.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7371065",
+      "key": "BIIH-337",
+      "fields": {
+        "summary": "Export - Gridlines missing in trended line chart",
+        "description": "*EXPORT:* Horizontal gridlines missing for trended line chart.\r\n\r\n*Expected Behavior:*\r\nTrended line chart should have Primary Major Horizontal gridlines with width=1pt, color=R242, G242, B242\r\n\r\n!Expected Gridlines_Export_1511_Screenshot 2026-08-21 210649.png!\r\n\r\n*Actual Behavior:*\r\nTrended line chart does not have any horizontal gridlines.\r\n\r\n!Actual Gridlines_Export_1511_Screenshot 2026-08-21 210649.png!\r\n\r\n*Impact:*\r\nMultiple CAT IDs\r\n\r\n*Reference Report Link:*\r\n\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n[^Share_of_Attention_-_Indication_Details-1511_AJ_082126.pptx]\r\n\r\n*Screenshots provided above for both Expected & Actual scenarios.*",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Joseph, Adrienne"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-22T03:26:30.000+0200",
+        "updated": "2026-08-22T03:26:30.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7371064",
+      "key": "BIIH-336",
+      "fields": {
+        "summary": "Export - Chart Titles exist within charts instead of as separate object from chart",
+        "description": "*EXPORT:* Chart Titles exist within the chart plots themselves in the Export output. In CDOM, Chart Titles are their own separate object outside of the chart plot.\r\n\r\n*Expected Behavior:*\r\nChart Title is its own object outside of the chart plot.\r\n\r\n!Expected Chart Title placement_Export_1511_Screenshot 2026-08-21 210649.png|width=867,height=341!\r\n\r\n*Actual Behavior:*\r\nChart Title is within the chart plot.\r\n\r\n!Actual Chart Title placement_Export_1511_Screenshot 2026-08-21 210649.png|width=834,height=297!\r\n\r\n*Impact:*\r\nMultiple CAT IDs\r\n\r\n*Reference Report Link:*\r\n\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n[^Share_of_Attention_-_Indication_Details-1511_AJ_082126.pptx]\r\n\r\n*Screenshots provided above for both Expected & Actual scenarios.*",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Joseph, Adrienne"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-22T03:20:43.000+0200",
+        "updated": "2026-08-22T03:20:43.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7371063",
+      "key": "BIIH-335",
+      "fields": {
+        "summary": "Export - Embedded Excel shows Data as Integer instead of Percent",
+        "description": "*EXPORT:* Data in the embedded Excels behind both charts are showing the data as numbers/integers instead of percentages. Data in embedded Excel should also show one decimal point.\r\n\r\n*Expected Behavior:*\r\nData in the embedded Excels behind both charts should show as percentages with one decimal.\r\n\r\n!Expected Embedded Excel Data_Export_1511_Screenshot 2026-08-21 210649.png!\r\n\r\n*Actual Behavior:*\r\nData in the embedded Excels behind both the doughnut and line charts are showing the data as numbers/integers without any decimal points.\r\n\r\n!Actual Embedded Excel Data_Export_1511_Screenshot 2026-08-21 210649.png!\r\n\r\n*Impact:*\r\nMultiple CAT IDs\r\n\r\n*Reference Report Link:*\r\n\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n[^Share_of_Attention_-_Indication_Details-1511_AJ_082126.pptx]\r\n\r\n*Screenshots provided above for both Expected & Actual scenarios.*",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Joseph, Adrienne"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-22T03:15:04.000+0200",
+        "updated": "2026-08-22T03:15:04.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7371061",
+      "key": "BIIH-334",
+      "fields": {
+        "summary": "Export - Pie chart legend color marker missing and unnecessary colon displayed after brand name",
+        "description": "EXPORT: pie chart legend is missing the color marker associated with the legend values. Additionally, a colon : is displayed after the brand name, which does not match the expected formatting shown in the reference slide (CDOM requirement). This causes inconsistency in the chart presentation and reduces usability when interpreting pie chart segments.\r\n\r\n*Expected Behavior:*\r\nEach pie chart legend item should display its corresponding color marker.\r\nThe brand name should be displayed without a trailing colon, consistent with the reference slide/CDOM formatting.\r\n\r\n!Expected_Export_1511_Screenshot 2026-08-21 210649.png!\r\n\r\n*Actual Behavior:*\r\nColor markers are missing from the pie chart legend.\r\nA colon : is displayed after the brand name in OA.\r\n\r\n!Actual_Export_1511_Screenshot 2026-08-21 210649.png!\r\n\r\n*Impact:*\r\nCAT IDs with doughnut charts (1511, 1552, 1562, 1611, 1652, 1662)\r\nUsers may find it difficult to associate pie chart segments with legend values when color indicators are missing.\r\n\r\n\r\nReference Report Link:\r\n\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n[^Share_of_Attention_-_Indication_Details-1511_AJ_082126.pptx]\r\n\r\n*Screenshots provided above for both Expected & Actual scenarios.*",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Joseph, Adrienne"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-22T03:09:16.000+0200",
+        "updated": "2026-08-22T03:09:16.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7341464",
+      "key": "BIIH-164",
+      "fields": {
+        "summary": "UI - 1511 Pie chart legend color marker missing and unnecessary colon displayed after brand name",
+        "description": "In 1511 OA slide , the pie chart legend is missing the color marker associated with the legend values. Additionally, a colon : is displayed after the brand name, which does not match the expected formatting shown in the reference slide (CDOM requirement). This causes inconsistency in the chart presentation and reduces usability when interpreting pie chart segments.\r\n\r\n*Expected Behavior:*\r\nEach pie chart legend item should display its corresponding color marker.\r\nThe brand name should be displayed without a trailing colon, consistent with the reference slide/CDOM formatting.\r\n\r\n*Actual Behavior:*\r\nColor markers are missing from the pie chart legend.\r\nA colon : is displayed after the brand name in OA.\r\n\r\n*Impact:*\r\nAffects 1511 CAT ID.\r\nUsers may find it difficult to associate pie chart segments with legend values when color indicators are missing.\r\nReference Report Link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n\r\n*Screenshot:*\r\n\r\n!1511 Pie chart legend marker colon issue .png|width=164,height=87!",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-12T20:40:29.000+0200",
+        "updated": "2026-08-22T03:05:50.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7371060",
+      "key": "BIIH-333",
+      "fields": {
+        "summary": "Export - Key Takeaway font color mismatch from CDOM",
+        "description": "EXPORT: The Key Takeaway font in 1511 Export is displaying in black (RGB 0,0,0) instead of the expected color (RGB 99,100,102). This results in a visual inconsistency in the report title at the top of the slide and does not align with the expected styling.\r\n*Expected Behavior:*\r\nKey Takeaway textbox font should be displayed using color {*}RGB(99,100,102){*}.\r\n*Actual Behavior:*\r\nKey Takeaway textbox font is displayed using color *RGB(0,0,0)* (black).\r\n*Impact:*\r\n\r\nMultiple CatIDs.\r\n*Reference report link:*\r\n[^Share_of_Attention_-_Indication_Details-1511_AJ_082126.pptx]\r\n{*}Scree{*}{*}nshot:{*}\r\n\r\n*!Export_1511_Key Takeaway Font Color_Screenshot 2026-08-21 203554.png!*\r\n\r\n*Additional Notes:* * Issue classified as a *Export* defect.\r\n * Slide/Report title color is rendered as RGB(0,0,0).\r\n * Expected color should be RGB(99,100,102).",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Joseph, Adrienne"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-22T03:03:22.000+0200",
+        "updated": "2026-08-22T03:03:24.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7370811",
+      "key": "BIIH-325",
+      "fields": {
+        "summary": "UI - Chart title color displays as black instead of required color",
+        "description": "h3. Description:\r\nThe chart title color in OA is not aligned with the expected formatting requirement. The chart title is currently rendered in *RGB(0,0,0)* (black), whereas the required color should be {*}RGB(99,100,102){*}. This results in an inconsistency with the expected visual styling and report presentation standards.\r\nh3. Expected Behavior:\r\nChart titles should display using the required color: * *RGB(99,100,102)*\r\n\r\nh3. Actual Behavior:\r\nChart titles are displayed using: * *RGB(0,0,0)* (black)\r\n\r\nh3. Impact:\r\nImpact is currently {*}unknown{*}. It has not yet been confirmed whether the issue affects only specific CatIDs or multiple CatIDs.\r\nh3. Reference report link in OA:\r\n[View OA Report|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\nh3. Similar Jira Check:\r\nNo BIIH duplicate checks were performed.\r\nh3. Additional Notes:\r\n * Issue category inferred as {*}UI{*}.\r\n * Screenshot provided shows the chart title color mismatch.\r\n * Recommend validating whether the color issue is present across other chart types and CatIDs to determine scope.",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Altschuler, Karen"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T19:03:44.000+0200",
+        "updated": "2026-08-22T02:58:53.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7370748",
+      "key": "BIIH-324",
+      "fields": {
+        "summary": "UI - Report title displays incorrect font color",
+        "description": "The report title in OA is displaying in black (RGB 0,0,0) instead of the expected color (RGB 43,58,66). This results in a visual inconsistency in the report title at the top of the slide and does not align with the expected styling.\r\n*Expected Behavior:*\r\nReport title should be displayed using color {*}RGB(43,58,66){*}.\r\n*Actual Behavior:*\r\nReport title is displayed using color *RGB(0,0,0)* (black).\r\n*Impact:*\r\nImpact is currently {*}unknown{*}. User is unsure whether the issue affects only certain CatIDs or multiple CatIDs.\r\n*Reference report link in OA:*\r\n[OA Report|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n*Similar Jira Check:*\r\nJira reference provided: BIIH-45\r\nNo duplicate analysis was performed.\r\n*Additional Notes:* * Issue classified as a *UI* defect.\r\n * the report title color is rendered as RGB(0,0,0).\r\n * Expected color should be RGB(43,58,66).\r\n * Scope (specific CatID vs. multiple CatIDs) requires further validation.",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Altschuler, Karen"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-21T18:45:01.000+0200",
+        "updated": "2026-08-22T02:58:38.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7341996",
+      "key": "BIIH-166",
+      "fields": {
+        "summary": "Export  - Embedded Excel product sorting is incorrect and unnecessary blue shading is displayed in top grid",
+        "description": "In OA Export , the Embedded Excel component is not displaying products as expected. Products are currently being treated/displayed as a dimension and are sorted in alphabetical ascending order. As per the expected behavior (CDOM requirement baseline), products should be displayed based on the highest data values in descending order.\r\n \r\nh3. *Expected Behavior:*\r\n * Products should be displayed and sorted by {*}highest data value (descending order){*}.\r\n * Product ordering should be driven by the underlying data values rather than alphabetical sorting.\r\n * The top grid should not display any unnecessary blue shading and should follow the expected report styling.\r\n\r\n \r\nh3. *Actual Behavior:*\r\n * Products are displayed as a dimension and are sorted in {*}alphabetical ascending order{*}.\r\n * The top grid contains an unnecessary *blue shaded background* that should not be present.\r\n\r\nh3. Impact:\r\n * *Affects multiple CAT IDs* .\r\n\r\nh3. Reference Report Link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n\r\n*Screenshot:*\r\n\r\n*!Embedded Excel sorting order issue.png|width=160,height=85!*",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "PO REVIEW"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "assignee": {
+          "displayName": "Snyder, Mark"
+        },
+        "created": "2026-08-13T07:07:07.000+0200",
+        "updated": "2026-08-22T02:57:14.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7357633",
+      "key": "BIIH-311",
+      "fields": {
+        "summary": "Export - Slide title position is misaligned in exported PPT",
+        "description": "The slide title alignment is not rendered correctly in the exported PowerPoint from OA. While viewing the report in OA, the title positioning appears as expected; however, after exporting the report to PPT, the slide title is shifted/misaligned, resulting in an inconsistent presentation layout.\r\nh3. Expected Behavior:\r\nThe slide title should maintain its intended position and alignment in the exported PPT, matching the layout displayed in OA and the expected report template formatting.\r\nh3. Actual Behavior:\r\nThe slide title position is misaligned in the exported PPT, causing the title placement to appear incorrect and inconsistent with the report design.\r\nh3. Impact:\r\n * Affects *only certain CatIDs* (legacy report templates).\r\n * Exported presentations require manual adjustment before sharing with stakeholders, impacting report usability and presentation quality.\r\n\r\nh3. Reference report link in OA:\r\n[View OA Report|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1822#]",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "In Testing"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "assignee": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "created": "2026-08-18T13:41:47.000+0200",
+        "updated": "2026-08-22T02:54:28.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7347252",
+      "key": "BIIH-173",
+      "fields": {
+        "summary": "Export - Donut chart is exported as Pie chart for certain CatIDs",
+        "description": "*Description:*\r\nFor certain CatIDs, the chart is configured and displayed as a Donut chart in OA. However, when the report is exported, the chart is rendered as a Pie chart instead of preserving the Donut chart format. This results in a mismatch between the report view and the exported output.\r\n*Expected Behavior:*\r\nThe exported file should preserve the chart type and display the chart as a Donut chart, consistent with the OA report view and expected report configuration.\r\n*Actual Behavior:*\r\nThe exported output displays a Pie chart instead of a Donut chart for certain CatIDs.\r\n*Impact:*\r\nAffects only certain CatIDs (legacy report templates). Exported deliverables do not accurately represent the chart format configured in OA.\r\n*Reference report link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n!CHART.png|thumbnail!",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Buddamallagari, Sambasivareddy"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-14T08:55:50.000+0200",
+        "updated": "2026-08-22T02:51:18.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "Expected Behavior:\r\nThe exported file should preserve the chart type and display the chart as a Donut chart, consistent with the OA report view and expected report configuration.",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7371059",
+      "key": "BIIH-332",
+      "fields": {
+        "summary": "UI - Key Takeaway font color mismatch from CDOM",
+        "description": "UI: The Key Takeaway font in OA UI is displaying in black (RGB 0,0,0) instead of the expected color (RGB 99,100,102). This results in a visual inconsistency in the report title at the top of the slide and does not align with the expected styling.\r\n*Expected Behavior:*\r\nKey Takeaway textbox font should be displayed using color {*}RGB(99,100,102){*}.\r\n*Actual Behavior:*\r\nKey Takeaway textbox font is displayed using color *RGB(0,0,0)* (black).\r\n*Impact:*\r\n\r\nMultiple CatIDs.\r\n*Reference report link in OA:*\r\n[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n{*}Scree{*}{*}nshot:{*}{*}{*}\r\n\r\n*!1511_Key Takeaway Font Color_Screenshot 2026-08-21 203554.png!*\r\n\r\n*Additional Notes:* * Issue classified as a *UI* defect.\r\n * Slide/Report title color is rendered as RGB(0,0,0).\r\n * Expected color should be RGB(43,58,66).\r\n\r\n ",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Joseph, Adrienne"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-22T02:40:20.000+0200",
+        "updated": "2026-08-22T02:41:08.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7371058",
+      "key": "BIIH-331",
+      "fields": {
+        "summary": "UI - Slide/Report Title displays incorrect font color",
+        "description": "UI: The Slide/Report title in OA UI is displaying in black (RGB 0,0,0) instead of the expected color (RGB 43,58,66). This results in a visual inconsistency in the report title at the top of the slide and does not align with the expected styling.\r\n*Expected Behavior:*\r\nReport title should be displayed using color {*}RGB(43,58,66){*}.\r\n*Actual Behavior:*\r\nReport title is displayed using color *RGB(0,0,0)* (black).\r\n*Impact:*\r\n\r\nMultiple CatIDs.\r\n*Reference report link in OA:*\r\n[Data Explorer - Customer 360|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n*Screenshot:*\r\n\r\n!1511_Slide Title Font Color_Screenshot 2026-08-21 203554.png!\r\n*Additional Notes:* * Issue classified as a *UI* defect.\r\n * Slide/Report title color is rendered as RGB(0,0,0).\r\n * Expected color should be RGB(43,58,66).",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "To Do"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Joseph, Adrienne"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-22T02:36:54.000+0200",
+        "updated": "2026-08-22T02:36:54.000+0200",
+        "resolutiondate": "",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7329119",
+      "key": "BIIH-152",
+      "fields": {
+        "summary": "UI - Jardiance brand line weight is not as per PLUM  and also time period not syncing between header and line chart.",
+        "description": "Jardiance brand line weight is configured as 3 pts in PLUM but in OA UI it is displaying in 1 pts only. Also the current time period is displaying as 7/26 in Line chart X-axis  but in the header selection it is displaying as Month June 2026.\r\n\r\n*Expected Behavior:*\r\n\r\nIn the Line chart , line weight of all brands should be as per the weights configured in PLUM and also Line chart X axis latest time period should be same as in the report selections header.\r\n\r\n*Actual Behavior:*\r\nCurrently Line chart X-axis latest time period is not syncing with the report header selections and also all the brands line weight is displaying as 1 pts only irrespective of the PLUM configuration.\r\n\r\n*Impact:*\r\n\r\nThis issue has been observed across multiple CAT Ids/reports in OA and should be updated to comply with the specification.\r\nReference report link in OA: [https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n!UI Jardiance line weight and time period issue.png|width=315,height=167!",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "Done"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "assignee": {
+          "displayName": "Rajesh, Darwin Jeya"
+        },
+        "created": "2026-08-10T04:21:14.000+0200",
+        "updated": "2026-08-22T02:26:40.000+0200",
+        "resolutiondate": "2026-08-14T15:35:04.000+0200",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
+    {
+      "id": "7347848",
+      "key": "BIIH-178",
+      "fields": {
+        "summary": "UI/Export - Alignment discrepancies observed in title, key takeaway, metadata, and footer sections",
+        "description": "*Description:*\r\nWhen comparing the OA report and generated PPT against the CDOM/baseline PPT, alignment inconsistencies are observed across both the {*}UI and exported output{*}. The affected areas include the {*}title section, key takeaway text box, right-side metadata fields, and footer components{*}. CDOM represents the expected behavior, and both OA and exported PPT should maintain the same positioning, spacing, and alignment of all report elements.\r\n*Expected Behavior:* * Title section should be aligned consistently with the CDOM/baseline PPT.\r\n * Key takeaway text box should retain the expected position and spacing.\r\n * Right-side metadata fields should be properly aligned.\r\n * Footer components should maintain the expected layout and positioning.\r\n * Both OA and exported PPT should visually match the baseline PPT without alignment shifts.\r\n\r\n*Actual Behavior:* * Alignment discrepancies are observed in both the OA UI and the exported PPT when compared to the baseline PPT.\r\n * Title section, key takeaway text box, right-side metadata fields, and footer components are not positioned as expected.\r\n * Visual layout and spacing differ from the CDOM/baseline presentation.\r\n\r\n*Impact:*\r\nAffects only certain CatIDs (legacy report templates).\r\n*Reference report link in OA:*\r\nhttps://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381\r\n!Allignment.png|thumbnail!",
+        "issuetype": {
+          "name": "Bug"
+        },
+        "status": {
+          "name": "Done"
+        },
+        "priority": {
+          "name": "Low"
+        },
+        "reporter": {
+          "displayName": "K M, Yashwanth"
+        },
+        "assignee": {
+          "displayName": "Unassigned"
+        },
+        "created": "2026-08-14T11:33:53.000+0200",
+        "updated": "2026-08-22T02:18:58.000+0200",
+        "resolutiondate": "2026-08-14T14:49:25.000+0200",
+        "labels": [],
+        "components": [],
+        "fixVersions": [],
+        "project": {
+          "key": "BIIH"
+        },
+        "customfield_15048": "*Expected Behavior:* * Title section should be aligned consistently with the baseline PPT.\r\n * Key takeaway text box should retain its expected position and spacing.\r\n * Right-side metadata fields should be aligned as per the baseline PPT.\r\n * Footer components should maintain the expected layout and positioning.\r\n * Exported PPT should visually match the baseline PPT without alignment shifts.",
+        "customfield_10020": [],
+        "customfield_10016": null,
+        "customfield_10002": null
+      }
+    },
     {
       "id": "7370722",
       "key": "BIIH-323",
@@ -256,78 +832,6 @@
       }
     },
     {
-      "id": "7370748",
-      "key": "BIIH-324",
-      "fields": {
-        "summary": "UI - Report title displays incorrect font color",
-        "description": "The report title in OA is displaying in black (RGB 0,0,0) instead of the expected color (RGB 43,58,66). This results in a visual inconsistency in the report title at the top of the slide and does not align with the expected styling.\r\n*Expected Behavior:*\r\nReport title should be displayed using color {*}RGB(43,58,66){*}.\r\n*Actual Behavior:*\r\nReport title is displayed using color *RGB(0,0,0)* (black).\r\n*Impact:*\r\nImpact is currently {*}unknown{*}. User is unsure whether the issue affects only certain CatIDs or multiple CatIDs.\r\n*Reference report link in OA:*\r\n[OA Report|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n*Similar Jira Check:*\r\nJira reference provided: BIIH-45\r\nNo duplicate analysis was performed.\r\n*Additional Notes:* * Issue classified as a *UI* defect.\r\n * the report title color is rendered as RGB(0,0,0).\r\n * Expected color should be RGB(43,58,66).\r\n * Scope (specific CatID vs. multiple CatIDs) requires further validation.",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Altschuler, Karen"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-21T18:45:01.000+0200",
-        "updated": "2026-08-21T19:16:53.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7370811",
-      "key": "BIIH-325",
-      "fields": {
-        "summary": "UI - Chart title color displays as black instead of required color",
-        "description": "h3. Description:\r\nThe chart title color in OA is not aligned with the expected formatting requirement. The chart title is currently rendered in *RGB(0,0,0)* (black), whereas the required color should be {*}RGB(99,100,102){*}. This results in an inconsistency with the expected visual styling and report presentation standards.\r\nh3. Expected Behavior:\r\nChart titles should display using the required color: * *RGB(99,100,102)*\r\n\r\nh3. Actual Behavior:\r\nChart titles are displayed using: * *RGB(0,0,0)* (black)\r\n\r\nh3. Impact:\r\nImpact is currently {*}unknown{*}. It has not yet been confirmed whether the issue affects only specific CatIDs or multiple CatIDs.\r\nh3. Reference report link in OA:\r\n[View OA Report|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\nh3. Similar Jira Check:\r\nNo BIIH duplicate checks were performed.\r\nh3. Additional Notes:\r\n * Issue category inferred as {*}UI{*}.\r\n * Screenshot provided shows the chart title color mismatch.\r\n * Recommend validating whether the color issue is present across other chart types and CatIDs to determine scope.",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Altschuler, Karen"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-21T19:03:44.000+0200",
-        "updated": "2026-08-21T19:15:17.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
       "id": "7370818",
       "key": "BIIH-326",
       "fields": {
@@ -386,42 +890,6 @@
         },
         "created": "2026-08-18T12:38:01.000+0200",
         "updated": "2026-08-21T17:29:41.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7341996",
-      "key": "BIIH-166",
-      "fields": {
-        "summary": "Export  - Embedded Excel product sorting is incorrect and unnecessary blue shading is displayed in top grid",
-        "description": "In OA Export , the Embedded Excel component is not displaying products as expected. Products are currently being treated/displayed as a dimension and are sorted in alphabetical ascending order. As per the expected behavior (CDOM requirement baseline), products should be displayed based on the highest data values in descending order.\r\n \r\nh3. *Expected Behavior:*\r\n * Products should be displayed and sorted by {*}highest data value (descending order){*}.\r\n * Product ordering should be driven by the underlying data values rather than alphabetical sorting.\r\n * The top grid should not display any unnecessary blue shading and should follow the expected report styling.\r\n\r\n \r\nh3. *Actual Behavior:*\r\n * Products are displayed as a dimension and are sorted in {*}alphabetical ascending order{*}.\r\n * The top grid contains an unnecessary *blue shaded background* that should not be present.\r\n\r\nh3. Impact:\r\n * *Affects multiple CAT IDs* .\r\n\r\nh3. Reference Report Link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1602]\r\n\r\n*Screenshot:*\r\n\r\n*!Embedded Excel sorting order issue.png|width=160,height=85!*",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "PO REVIEW"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "assignee": {
-          "displayName": "Snyder, Mark"
-        },
-        "created": "2026-08-13T07:07:07.000+0200",
-        "updated": "2026-08-21T12:29:10.000+0200",
         "resolutiondate": "",
         "labels": [],
         "components": [],
@@ -1306,42 +1774,6 @@
       }
     },
     {
-      "id": "7357633",
-      "key": "BIIH-311",
-      "fields": {
-        "summary": "Export - Slide title position is misaligned in exported PPT",
-        "description": "The slide title alignment is not rendered correctly in the exported PowerPoint from OA. While viewing the report in OA, the title positioning appears as expected; however, after exporting the report to PPT, the slide title is shifted/misaligned, resulting in an inconsistent presentation layout.\r\nh3. Expected Behavior:\r\nThe slide title should maintain its intended position and alignment in the exported PPT, matching the layout displayed in OA and the expected report template formatting.\r\nh3. Actual Behavior:\r\nThe slide title position is misaligned in the exported PPT, causing the title placement to appear incorrect and inconsistent with the report design.\r\nh3. Impact:\r\n * Affects *only certain CatIDs* (legacy report templates).\r\n * Exported presentations require manual adjustment before sharing with stakeholders, impacting report usability and presentation quality.\r\n\r\nh3. Reference report link in OA:\r\n[View OA Report|https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1822#]",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "In Testing"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "assignee": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "created": "2026-08-18T13:41:47.000+0200",
-        "updated": "2026-08-20T09:47:15.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
       "id": "7357422",
       "key": "BIIH-310",
       "fields": {
@@ -1410,78 +1842,6 @@
           "key": "BIIH"
         },
         "customfield_15048": "*Expected Behavior:*\r\nThe exported line-and-marker legend symbols should use the same color mapping as defined in CDOM for each corresponding series.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7347848",
-      "key": "BIIH-178",
-      "fields": {
-        "summary": "UI/Export - Alignment discrepancies observed in title, key takeaway, metadata, and footer sections",
-        "description": "*Description:*\r\nWhen comparing the OA report and generated PPT against the CDOM/baseline PPT, alignment inconsistencies are observed across both the {*}UI and exported output{*}. The affected areas include the {*}title section, key takeaway text box, right-side metadata fields, and footer components{*}. CDOM represents the expected behavior, and both OA and exported PPT should maintain the same positioning, spacing, and alignment of all report elements.\r\n*Expected Behavior:* * Title section should be aligned consistently with the CDOM/baseline PPT.\r\n * Key takeaway text box should retain the expected position and spacing.\r\n * Right-side metadata fields should be properly aligned.\r\n * Footer components should maintain the expected layout and positioning.\r\n * Both OA and exported PPT should visually match the baseline PPT without alignment shifts.\r\n\r\n*Actual Behavior:* * Alignment discrepancies are observed in both the OA UI and the exported PPT when compared to the baseline PPT.\r\n * Title section, key takeaway text box, right-side metadata fields, and footer components are not positioned as expected.\r\n * Visual layout and spacing differ from the CDOM/baseline presentation.\r\n\r\n*Impact:*\r\nAffects only certain CatIDs (legacy report templates).\r\n*Reference report link in OA:*\r\nhttps://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381\r\n!Allignment.png|thumbnail!",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "Done"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "K M, Yashwanth"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-14T11:33:53.000+0200",
-        "updated": "2026-08-20T08:08:46.000+0200",
-        "resolutiondate": "2026-08-14T14:49:25.000+0200",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "*Expected Behavior:* * Title section should be aligned consistently with the baseline PPT.\r\n * Key takeaway text box should retain its expected position and spacing.\r\n * Right-side metadata fields should be aligned as per the baseline PPT.\r\n * Footer components should maintain the expected layout and positioning.\r\n * Exported PPT should visually match the baseline PPT without alignment shifts.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7329119",
-      "key": "BIIH-152",
-      "fields": {
-        "summary": "UI - Jardiance brand line weight is not as per PLUM  and also time period not syncing between header and line chart.",
-        "description": "Jardiance brand line weight is configured as 3 pts in PLUM but in OA UI it is displaying in 1 pts only. Also the current time period is displaying as 7/26 in Line chart X-axis  but in the header selection it is displaying as Month June 2026.\r\n\r\n*Expected Behavior:*\r\n\r\nIn the Line chart , line weight of all brands should be as per the weights configured in PLUM and also Line chart X axis latest time period should be same as in the report selections header.\r\n\r\n*Actual Behavior:*\r\nCurrently Line chart X-axis latest time period is not syncing with the report header selections and also all the brands line weight is displaying as 1 pts only irrespective of the PLUM configuration.\r\n\r\n*Impact:*\r\n\r\nThis issue has been observed across multiple CAT Ids/reports in OA and should be updated to comply with the specification.\r\nReference report link in OA: [https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n!UI Jardiance line weight and time period issue.png|width=315,height=167!",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "Done"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "assignee": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "created": "2026-08-10T04:21:14.000+0200",
-        "updated": "2026-08-20T08:07:59.000+0200",
-        "resolutiondate": "2026-08-14T15:35:04.000+0200",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
         "customfield_10020": [],
         "customfield_10016": null,
         "customfield_10002": null
@@ -1698,78 +2058,6 @@
           "key": "BIIH"
         },
         "customfield_15048": "*Expected Behavior:* * Data labels should be displayed using the configured font styling without unexpected bold formatting or outlines.\r\n * Legend markers should be displayed as *square* shapes, consistent with CDOM and chart specifications.\r\n * Chart formatting should be consistent across OA and CDOM.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7347252",
-      "key": "BIIH-173",
-      "fields": {
-        "summary": "Export - Donut chart is exported as Pie chart for certain CatIDs",
-        "description": "*Description:*\r\nFor certain CatIDs, the chart is configured and displayed as a Donut chart in OA. However, when the report is exported, the chart is rendered as a Pie chart instead of preserving the Donut chart format. This results in a mismatch between the report view and the exported output.\r\n*Expected Behavior:*\r\nThe exported file should preserve the chart type and display the chart as a Donut chart, consistent with the OA report view and expected report configuration.\r\n*Actual Behavior:*\r\nThe exported output displays a Pie chart instead of a Donut chart for certain CatIDs.\r\n*Impact:*\r\nAffects only certain CatIDs (legacy report templates). Exported deliverables do not accurately represent the chart format configured in OA.\r\n*Reference report link in OA:*\r\n[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n!CHART.png|thumbnail!",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Buddamallagari, Sambasivareddy"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-14T08:55:50.000+0200",
-        "updated": "2026-08-18T13:24:00.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "Expected Behavior:\r\nThe exported file should preserve the chart type and display the chart as a Donut chart, consistent with the OA report view and expected report configuration.",
-        "customfield_10020": [],
-        "customfield_10016": null,
-        "customfield_10002": null
-      }
-    },
-    {
-      "id": "7341464",
-      "key": "BIIH-164",
-      "fields": {
-        "summary": "UI - 1511 Pie chart legend color marker missing and unnecessary colon displayed after brand name",
-        "description": "In 1511 OA slide , the pie chart legend is missing the color marker associated with the legend values. Additionally, a colon : is displayed after the brand name, which does not match the expected formatting shown in the reference slide (CDOM requirement). This causes inconsistency in the chart presentation and reduces usability when interpreting pie chart segments.\r\n\r\n*Expected Behavior:*\r\nEach pie chart legend item should display its corresponding color marker.\r\nThe brand name should be displayed without a trailing colon, consistent with the reference slide/CDOM formatting.\r\n\r\n*Actual Behavior:*\r\nColor markers are missing from the pie chart legend.\r\nA colon : is displayed after the brand name in OA.\r\n\r\n*Impact:*\r\nAffects 1511 CAT ID.\r\nUsers may find it difficult to associate pie chart segments with legend values when color indicators are missing.\r\nReference Report Link in OA:[https://brandimpact-preprod.usv.oa.iqvia.com/data-explorer/slides/1381]\r\n\r\n\r\n*Screenshot:*\r\n\r\n!1511 Pie chart legend marker colon issue .png|width=164,height=87!",
-        "issuetype": {
-          "name": "Bug"
-        },
-        "status": {
-          "name": "To Do"
-        },
-        "priority": {
-          "name": "Low"
-        },
-        "reporter": {
-          "displayName": "Rajesh, Darwin Jeya"
-        },
-        "assignee": {
-          "displayName": "Unassigned"
-        },
-        "created": "2026-08-12T20:40:29.000+0200",
-        "updated": "2026-08-18T12:00:43.000+0200",
-        "resolutiondate": "",
-        "labels": [],
-        "components": [],
-        "fixVersions": [],
-        "project": {
-          "key": "BIIH"
-        },
-        "customfield_15048": "",
         "customfield_10020": [],
         "customfield_10016": null,
         "customfield_10002": null

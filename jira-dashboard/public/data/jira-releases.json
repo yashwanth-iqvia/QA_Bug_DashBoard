@@ -1,6 +1,6 @@
 {
   "baseUrl": "https://jiraims.rm.imshealth.com",
-  "syncedAt": "2026-08-22T00:01:48.431172+00:00",
+  "syncedAt": "2026-08-22T01:52:32.772013+00:00",
   "project": "BIIH",
   "source": "github-actions",
   "versions": [
@@ -395,8 +395,8 @@
               "catId": "1511",
               "catIdLabel": "CAT-ID-1511",
               "summary": "UI Validation | CAT ID 1511 | Share of Attention - Indication Details ",
-              "status": "Client UAT",
-              "assignee": "Joseph, Adrienne",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-22"
             },
@@ -405,8 +405,8 @@
               "catId": "1511",
               "catIdLabel": "CAT-ID-1511",
               "summary": "Data Validation | CAT ID 1511 | Share of Attention - Indication Details",
-              "status": "Client UAT",
-              "assignee": "Joseph, Adrienne",
+              "status": "In Review",
+              "assignee": "Lenin, Vishal",
               "priority": "Low",
               "jiraUrl": "https://jiraims.rm.imshealth.com/browse/BIIH-23"
             },
